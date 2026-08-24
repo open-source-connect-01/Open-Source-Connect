@@ -144,15 +144,49 @@ export default function FooterSection({
                 </div>
               </div>
 
-              {/* Mobile Layout (Matching Figma Composite Screenshot) */}
-              <div className="lg:hidden space-y-6">
-                {/* VIEW MEMBERSHIP TIERS Full Width Top Button */}
-                <Link
-                  href="https://ko-fi.com/opensourceconnect"
-                  className="w-full bg-[#0A1B3D] text-white text-xs font-extrabold tracking-[0.16em] uppercase py-4 rounded-[4px] shadow-sm flex items-center justify-center text-center block mb-6 hover:bg-[#122752] transition-colors"
-                >
-                  SUPPORT THE COMMUNITY
-                </Link>
+              {/* Mobile Layout */}
+              <div className="lg:hidden space-y-8">
+                {/* Support Section Header & Stats */}
+                <div>
+                  <h2 className="text-[32px] sm:text-[38px] font-extrabold text-navy-deep leading-[1.15] tracking-tight">
+                    Support the Future of
+                    <br />
+                    Open Source
+                  </h2>
+                  <p className="mt-4 text-[14.5px] sm:text-[15.5px] text-slate-600 font-medium leading-relaxed">
+                    Your support helps us provide free learning opportunities,
+                    reward contributors, organize world-class events, and make
+                    open source accessible to everyone.
+                  </p>
+
+                  <div className="flex items-start gap-8 sm:gap-12 mt-7">
+                    <div className="pl-4 border-l-[3px] border-accent-orange">
+                      <div className="text-[26px] sm:text-[28px] font-extrabold text-navy-deep leading-none">
+                        100K+
+                      </div>
+                      <div className="mt-1.5 text-[10.5px] sm:text-[11px] font-bold tracking-[0.6px] text-gray-400 uppercase whitespace-nowrap">
+                        PEOPLE REACHED
+                      </div>
+                    </div>
+                    <div className="pl-4 border-l-[3px] border-accent-blue">
+                      <div className="text-[26px] sm:text-[28px] font-extrabold text-navy-deep leading-none">
+                        300+
+                      </div>
+                      <div className="mt-1.5 text-[10.5px] sm:text-[11px] font-bold tracking-[0.6px] text-gray-400 uppercase whitespace-nowrap">
+                        PROJECTS & INITIATIVES
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Full Width Support Button */}
+                  <Link
+                    href="https://ko-fi.com/opensourceconnect"
+                    target="_blank"
+                    className="w-full bg-[#0A1B3D] text-white text-xs font-extrabold tracking-[0.16em] uppercase py-4 rounded-[4px] shadow-sm flex items-center justify-center text-center block mt-8 hover:bg-[#122752] transition-colors"
+                  >
+                    SUPPORT THE COMMUNITY
+                  </Link>
+                </div>
 
                 {/* Dark Navy Why Support Card with cream offset shadow */}
                 <div className="relative w-full">
