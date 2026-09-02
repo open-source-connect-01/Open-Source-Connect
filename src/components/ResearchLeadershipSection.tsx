@@ -68,10 +68,7 @@ export const teamMembers: (ProfileData & {
       "Chikahiro Tokoro is a software engineer, podcaster, and public speaker with over 15 years of experience building and scaling impactful products across successful startups in Japan and Germany.",
       "His work focuses on software engineering, product development, open source, and sharing practical insights on software design while connecting global communities through his podcast and speaking engagements.",
     ],
-    sessionTopic: {
-      title: "Architecting Scalable Systems & Community-Driven Open Source",
-      description: "Practical insights on modern software design, scaling products across global engineering ecosystems, and lessons from building impactful open source projects.",
-    },
+    sessionTopic: "Strategy for finding a problem for OSS: With a real example – Generating Anonymized Database",
     tags: ["Software Engineering", "Product Development", "Open Source", "Public Speaker"],
   },
   {
