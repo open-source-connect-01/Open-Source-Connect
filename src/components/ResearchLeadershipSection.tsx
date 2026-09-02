@@ -159,10 +159,7 @@ export const teamMembers: (ProfileData & {
       "Nithin is a Software Engineering leader with over a decade of experience in Quality Engineering and team building. He is Head of QA at Lodgify and founder of Synapse QA, a community focused on accessible quality learning across Southeast Asia.",
       "He is also an international speaker, consultant, author of the Now to Next newsletter, and career coach who has guided over 200 professionals in their career growth.",
     ],
-    sessionTopic: {
-      title: "Quality Engineering & Career Leadership in the Open Source Era",
-      description: "Transforming testing and quality engineering practices into strategic growth engines, alongside actionable roadmaps for career elevation in technology.",
-    },
+    sessionTopic: "My learning from the community: No one is an island",
     tags: ["Software Engineering", "Quality Engineering", "Leadership Strategy", "Career Coaching"],
   },
 ];
