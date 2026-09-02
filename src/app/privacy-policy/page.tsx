@@ -57,9 +57,12 @@ export default function PrivacyPolicyPage() {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    updateActiveSection();
+    const rafId = window.requestAnimationFrame(updateActiveSection);
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [updateActiveSection]);
 
   const handleNavClick = (label: ActiveOverlay) => {
