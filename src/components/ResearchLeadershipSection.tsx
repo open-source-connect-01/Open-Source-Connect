@@ -51,10 +51,7 @@ export const teamMembers: (ProfileData & {
       "Olena Yara is a marketing expert and founder of Yara Agency, working at the intersection of digital art, technology, and global communities.",
       "Her work focuses on marketing, curation, and strategic partnerships, helping artists, institutions, and companies amplify their work while connecting creativity, technology, and community through storytelling and collaboration.",
     ],
-    sessionTopic: {
-      title: "Bridging Art, Technology & Communities Through Storytelling",
-      description: "How emerging creators and global open-source movements can harness strategic curation and partnerships to build lasting digital impact.",
-    },
+    sessionTopic: "Building a strong brand in the open-source ecosystem",
     tags: ["Marketing Strategy", "Digital Art", "Strategic Partnerships", "Storytelling"],
   },
   {
