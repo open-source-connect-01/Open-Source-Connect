@@ -96,7 +96,7 @@ export const teamMembers: (ProfileData & {
     slug: "kamesh-sampath",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "https://oscg.osconnect.org/",
-    cardRole: "Developer Advocate at Snowflake",
+    cardRole: "Developer Advocate",
     role: "Developer Advocate",
     org: "Snowflake",
     badge: "Keynote Speaker",
@@ -105,10 +105,7 @@ export const teamMembers: (ProfileData & {
       "Kamesh Sampath is a Developer Advocate at Snowflake, author, and long time open source contributor with over two decades of experience in enterprise software and developer communities.",
       "His work focuses on cloud, data, and AI, helping developers turn complex technologies into real world solutions through advocacy, community building, storytelling, and knowledge sharing.",
     ],
-    sessionTopic: {
-      title: "Next-Gen Cloud, Data & AI for Modern Developers",
-      description: "Turning complex cloud data architectures and AI models into real-world developer workflows through open source advocacy and practical toolchains.",
-    },
+    sessionTopic: "From milliseconds to insights: real-time PostgreSQL + CDC architecture for spatial analytics and AI in an AI data cloud",
     tags: ["Developer Advocacy", "Cloud & Data", "AI", "Open Source"],
   },
   {
