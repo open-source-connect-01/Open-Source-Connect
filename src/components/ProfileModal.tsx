@@ -155,7 +155,7 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
             <span className="inline-block px-2.5 py-0.5 bg-[#EFF6FF] text-[#2563EB] text-[10px] font-extrabold tracking-[0.1em] uppercase rounded-[2px] mb-2">
               {profile.badge}
             </span>
-            <div className="flex items-center gap-2 mb-1">
+            <div className="flex items-center justify-between gap-3 mb-1">
               <h2 className="text-2xl sm:text-[26px] font-extrabold text-[#0B0F1A] tracking-tight leading-tight">
                 {profile.name}
               </h2>
@@ -165,11 +165,11 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${profile.name}'s LinkedIn Profile`}
-                  className="text-[#0A66C2] hover:text-[#004182] transition-colors p-0.5 inline-flex items-center shrink-0"
+                  className="text-[#0A66C2] hover:text-[#004182] hover:scale-110 transition-all p-1 inline-flex items-center justify-center shrink-0 ml-auto"
                 >
                   <svg
-                    width="19"
-                    height="19"
+                    width="28"
+                    height="28"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
