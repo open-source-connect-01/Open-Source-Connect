@@ -15,7 +15,7 @@ export const teamMembers: (ProfileData & {
   {
     name: "Sebastiano Fuccio",
     eventTag: "OSC GLOBAL 2026",
-    eventLink: "https://oscg.osconnect.org/",
+    eventLink: "/Feb/2026",
     cardRole: "Founder & CEO | Managing Partner",
     role: "Founder & CEO | Managing Partner",
     org: "AlpGuard",
@@ -30,7 +30,7 @@ export const teamMembers: (ProfileData & {
   {
     name: "Olena Yara",
     eventTag: "OSC GLOBAL 2026",
-    eventLink: "https://oscg.osconnect.org/",
+    eventLink: "/Feb/2026",
     cardRole: "Founder & Marketing Expert",
     role: "Founder & Marketing Expert",
     org: "Yara Agency",
@@ -45,7 +45,7 @@ export const teamMembers: (ProfileData & {
   {
     name: "Chikahiro Tokoro",
     eventTag: "OSC GLOBAL 2026",
-    eventLink: "https://oscg.osconnect.org/",
+    eventLink: "/Feb/2026",
     cardRole: "Software Engineer, Podcaster",
     role: "Software Engineer, Podcaster",
     org: "OSS Developer / Public Speaker",
@@ -60,7 +60,7 @@ export const teamMembers: (ProfileData & {
   {
     name: "Ekaterina Maevskaia",
     eventTag: "OSC GLOBAL 2026",
-    eventLink: "https://oscg.osconnect.org/",
+    eventLink: "/Feb/2026",
     cardRole: "Revenue Growth Leader",
     role: "Revenue Growth Leader",
     org: "Snap Inc. & TikTok",
@@ -75,7 +75,7 @@ export const teamMembers: (ProfileData & {
   {
     name: "Kamesh Sampath",
     eventTag: "OSC GLOBAL 2026",
-    eventLink: "https://oscg.osconnect.org/",
+    eventLink: "/Feb/2026",
     cardRole: "Developer Advocate at Snowflake",
     role: "Developer Advocate",
     org: "Snowflake",
@@ -90,7 +90,7 @@ export const teamMembers: (ProfileData & {
   {
     name: "Kateryna Tertiienko",
     eventTag: "OSC GLOBAL 2026",
-    eventLink: "https://oscg.osconnect.org/",
+    eventLink: "/Feb/2026",
     cardRole: "Technical Lead",
     role: "Technical Lead",
     org: "Infonetica",
@@ -105,7 +105,7 @@ export const teamMembers: (ProfileData & {
   {
     name: "Dishant Gandhi",
     eventTag: "OSC GLOBAL 2026",
-    eventLink: "https://oscg.osconnect.org/",
+    eventLink: "/Feb/2026",
     cardRole: "AI/ML Consultant & Public Speaker",
     role: "AI/ML Consultant & Public Speaker",
     org: "Ruffalo Noel Levitz",
@@ -120,7 +120,7 @@ export const teamMembers: (ProfileData & {
   {
     name: "Nithin S.S",
     eventTag: "OSC GLOBAL 2026",
-    eventLink: "https://oscg.osconnect.org/",
+    eventLink: "/Feb/2026",
     cardRole: "Founder & Leadership Strategist",
     role: "Founder & Leadership Strategist",
     org: "Synapse QA",
@@ -247,10 +247,8 @@ export default function ResearchLeadershipSection({
                   {/* Blue Caption Section below photo */}
                   <div className="bg-[#0A1835] px-4 py-3.5 flex flex-col justify-center w-full">
                     {/* Event Tag */}
-                    <a
-                      href={member.eventLink || "https://oscg.osconnect.org/"}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={member.eventLink || "/Feb/2026"}
                       onClick={(e) => e.stopPropagation()}
                       className="group/tag inline-flex items-center gap-1.5 mb-1.5 w-fit z-10 cursor-pointer"
                     >
@@ -258,7 +256,7 @@ export default function ResearchLeadershipSection({
                       <span className="text-[10px] font-bold text-[#60A5FA] group-hover/tag:text-[#93C5FD] group-hover/tag:underline tracking-[0.06em] uppercase leading-none truncate transition-colors">
                         {member.eventTag || "OSC GLOBAL 2026"}
                       </span>
-                    </a>
+                    </Link>
 
                     <span className="text-[14px] font-bold text-white tracking-normal leading-tight truncate">
                       {member.name}
