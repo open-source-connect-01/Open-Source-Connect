@@ -1,5 +1,5 @@
 import SpeakersAndMentorsClient from "../SpeakersAndMentorsClient";
-import { teamMembers, getSpeakerSlug } from "@/components/ResearchLeadershipSection";
+import { teamMembers, getSpeakerSlug } from "@/data/speakers";
 
 type PageProps = {
   params: Promise<{
