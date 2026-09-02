@@ -5,6 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import ProfileModal from "./ProfileModal";
 import type { ProfileData } from "./ProfileModal";
+import {
+  teamMembers,
+  getSpeakerSlug,
+  getSpeakerBySlug,
+} from "@/data/speakers";
 
 export function getSpeakerSlug(name: string): string {
   return name

@@ -2,10 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Navbar from "@/components/Navbar";
-import ResearchLeadershipSection, {
-  getSpeakerSlug,
-  getSpeakerBySlug,
-} from "@/components/ResearchLeadershipSection";
+import ResearchLeadershipSection from "@/components/ResearchLeadershipSection";
+import { getSpeakerSlug, getSpeakerBySlug } from "@/data/speakers";
 import ProfileModal from "@/components/ProfileModal";
 import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
