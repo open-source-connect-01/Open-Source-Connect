@@ -142,10 +142,7 @@ export const teamMembers: (ProfileData & {
       "Dishant Gandhi is an AI/ML Consultant with over 6 years of experience specializing in Generative AI, Conversational AI, and Large Language Models. He has built scalable chatbots, RAG pipelines, web applications, and AI powered widgets using technologies such as LangChain, Streamlit, and Kubernetes.",
       "With 25+ speaking sessions at global conferences, Dishant is known for simplifying complex AI concepts, driving innovation, and mentoring aspiring technologists to build impactful AI solutions.",
     ],
-    sessionTopic: {
-      title: "Building Scalable Generative AI & Enterprise RAG Pipelines",
-      description: "Hands-on architectural patterns for deploying production-grade LLM applications, retrieval-augmented generation (RAG) systems, and conversational agents.",
-    },
+    sessionTopic: "Unlocking on-device intelligence with Small Language Models",
     tags: ["Generative AI", "LLMs", "Conversational AI", "RAG Pipelines"],
   },
   {
