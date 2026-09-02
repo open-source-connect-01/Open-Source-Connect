@@ -95,6 +95,7 @@ export default function ResearchLeadershipSection({
                       tags: member.tags,
                       sessionTopic: member.sessionTopic,
                       slug: member.slug || getSpeakerSlug(member.name),
+                      linkedinUrl: member.linkedinUrl,
                     })
                   }
                   role="button"
@@ -112,6 +113,7 @@ export default function ResearchLeadershipSection({
                         tags: member.tags,
                         sessionTopic: member.sessionTopic,
                         slug: member.slug || getSpeakerSlug(member.name),
+                        linkedinUrl: member.linkedinUrl,
                       });
                     }
                   }}

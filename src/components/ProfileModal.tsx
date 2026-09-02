@@ -18,6 +18,7 @@ export interface ProfileData {
   tags: string[];
   sessionTopic?: SessionTopic | string;
   slug?: string;
+  linkedinUrl?: string;
 }
 
 interface ProfileModalProps {
@@ -154,9 +155,29 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
             <span className="inline-block px-2.5 py-0.5 bg-[#EFF6FF] text-[#2563EB] text-[10px] font-extrabold tracking-[0.1em] uppercase rounded-[2px] mb-2">
               {profile.badge}
             </span>
-            <h2 className="text-2xl sm:text-[26px] font-extrabold text-[#0B0F1A] tracking-tight leading-tight mb-1">
-              {profile.name}
-            </h2>
+            <div className="flex items-center gap-2 mb-1">
+              <h2 className="text-2xl sm:text-[26px] font-extrabold text-[#0B0F1A] tracking-tight leading-tight">
+                {profile.name}
+              </h2>
+              {profile.linkedinUrl && (
+                <a
+                  href={profile.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${profile.name}'s LinkedIn Profile`}
+                  className="text-[#0A66C2] hover:text-[#004182] transition-colors p-0.5 inline-flex items-center shrink-0"
+                >
+                  <svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+              )}
+            </div>
             <p className="text-[13.5px] font-semibold text-slate-600 leading-snug">
               {profile.role}
             </p>
