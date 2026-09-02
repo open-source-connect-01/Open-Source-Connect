@@ -85,10 +85,7 @@ export const teamMembers: (ProfileData & {
       "Ekaterina Maevskaia is a distinguished revenue growth leader focused on scaling multimillion dollar advertising portfolios, driving end to end go to market strategies, and transforming regional ecosystems across CEE and EMEA. Her work combines commercial strategy, business growth, and ecosystem development to create sustainable impact across markets.",
       "She engages with global technology networks through high impact commercial integrations, keynote presentations at conferences with 21,000+ attendees, and nonprofit community building. Her experience spans revenue growth, strategic partnerships, and building meaningful connections across the global technology ecosystem.",
     ],
-    sessionTopic: {
-      title: "Scaling Go-To-Market Strategies & Transforming Regional Tech Ecosystems",
-      description: "Key strategies for driving enterprise growth, monetizing technology platforms, and building sustainable commercial partnerships across international markets.",
-    },
+    sessionTopic: "The creative QA gate: filtering assets before they burn your budget",
     tags: ["Revenue Growth", "Go-to-Market Strategy", "Strategic Partnerships", "Ecosystem Development"],
   },
   {
