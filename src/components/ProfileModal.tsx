@@ -3,6 +3,11 @@
 import { useEffect } from "react";
 import Image from "next/image";
 
+export interface SessionTopic {
+  title: string;
+  description?: string;
+}
+
 export interface ProfileData {
   name: string;
   role: string;
@@ -11,6 +16,8 @@ export interface ProfileData {
   photo?: string;
   bioParagraphs: string[];
   tags: string[];
+  sessionTopic?: SessionTopic | string;
+  slug?: string;
 }
 
 interface ProfileModalProps {
@@ -98,7 +105,7 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
 
       {/* Modal Container */}
       <div
-        className="relative w-full max-w-[620px] bg-white rounded-[4px] shadow-2xl p-6 sm:p-9 text-left z-10 overflow-hidden"
+        className="relative w-full max-w-[620px] max-h-[90vh] overflow-y-auto bg-white rounded-[4px] shadow-2xl p-6 sm:p-9 text-left z-10"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -177,6 +184,31 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
             ))}
           </div>
         </div>
+
+        {/* SESSION TOPIC Section */}
+        {profile.sessionTopic && (
+          <div className="mt-6 pt-5 border-t border-slate-100">
+            <h3 className="text-[11px] font-extrabold tracking-[0.18em] text-[#94A3B8] uppercase mb-3">
+              SESSION TOPIC
+            </h3>
+            {typeof profile.sessionTopic === "string" ? (
+              <p className="text-[14px] font-bold text-[#0B0F1A] leading-snug">
+                {profile.sessionTopic}
+              </p>
+            ) : (
+              <div className="space-y-2">
+                <h4 className="text-[14px] font-bold text-[#0B0F1A] leading-snug">
+                  {profile.sessionTopic.title}
+                </h4>
+                {profile.sessionTopic.description && (
+                  <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
+                    {profile.sessionTopic.description}
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
