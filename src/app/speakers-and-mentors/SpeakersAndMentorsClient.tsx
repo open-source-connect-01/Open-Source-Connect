@@ -35,6 +35,7 @@ export default function SpeakersAndMentorsClient({
       tags: match.tags,
       sessionTopic: match.sessionTopic,
       slug: match.slug || getSpeakerSlug(match.name),
+      linkedinUrl: match.linkedinUrl,
     };
   });
 
@@ -62,6 +63,7 @@ export default function SpeakersAndMentorsClient({
             tags: match.tags,
             sessionTopic: match.sessionTopic,
             slug: match.slug || getSpeakerSlug(match.name),
+            linkedinUrl: match.linkedinUrl,
           });
           return;
         }

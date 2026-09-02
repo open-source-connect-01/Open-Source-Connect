@@ -19,6 +19,7 @@ export const teamMembers: SpeakerMember[] = [
   {
     name: "Sebastiano Fuccio",
     slug: "sebastiano-fuccio",
+    linkedinUrl: "https://www.linkedin.com/in/sebastiano-fuccio/",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "https://oscg.osconnect.org/",
     cardRole: "Founder & CEO | Managing Partner",
@@ -36,6 +37,7 @@ export const teamMembers: SpeakerMember[] = [
   {
     name: "Olena Yara",
     slug: "olena-yara",
+    linkedinUrl: "https://www.linkedin.com/in/olena-yara/",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "https://oscg.osconnect.org/",
     cardRole: "Founder & Marketing Expert",
@@ -53,6 +55,7 @@ export const teamMembers: SpeakerMember[] = [
   {
     name: "Chikahiro Tokoro",
     slug: "chikahiro-tokoro",
+    linkedinUrl: "https://www.linkedin.com/in/chikahiro/",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "https://oscg.osconnect.org/",
     cardRole: "Software Engineer, Podcaster",
@@ -87,6 +90,7 @@ export const teamMembers: SpeakerMember[] = [
   {
     name: "Kamesh Sampath",
     slug: "kamesh-sampath",
+    linkedinUrl: "https://www.linkedin.com/in/kameshsampath/",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "https://oscg.osconnect.org/",
     cardRole: "Developer Advocate",
@@ -104,6 +108,7 @@ export const teamMembers: SpeakerMember[] = [
   {
     name: "Kateryna Tertiienko",
     slug: "kateryna-tertiienko",
+    linkedinUrl: "https://www.linkedin.com/in/kate-tertiienko-1536663/",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "https://oscg.osconnect.org/",
     cardRole: "Technical Lead",
@@ -124,6 +129,7 @@ export const teamMembers: SpeakerMember[] = [
   {
     name: "Dishant Gandhi",
     slug: "dishant-gandhi",
+    linkedinUrl: "https://www.linkedin.com/in/dishant-gandhi/",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "https://oscg.osconnect.org/",
     cardRole: "AI/ML Consultant & Public Speaker",
@@ -141,6 +147,7 @@ export const teamMembers: SpeakerMember[] = [
   {
     name: "Nithin S.S",
     slug: "nithin-ss",
+    linkedinUrl: "https://www.linkedin.com/in/nithin-ss/",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "https://oscg.osconnect.org/",
     cardRole: "Founder & Leadership Strategist",
