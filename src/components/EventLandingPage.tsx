@@ -84,16 +84,17 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
               "linear-gradient(180deg, #0A0F24 0%, #0B1330 55%, #0C1638 100%)",
           }}
         >
-          <div
-            className="absolute inset-0 opacity-[0.05] pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
-              backgroundSize: "56px 56px",
-            }}
-          />
+          <div className="relative">
+            <div
+              className="absolute inset-0 opacity-[0.05] pointer-events-none"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
+                backgroundSize: "56px 56px",
+              }}
+            />
 
-          <div className="relative max-w-[1240px] mx-auto px-6 lg:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12">
+            <div className="relative max-w-[1240px] mx-auto px-6 lg:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12">
             <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.28em] text-slate-400 uppercase">
               {data.edition}
             </span>
@@ -119,6 +120,7 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
                 </svg>
                 {data.location}
               </span>
+            </div>
             </div>
           </div>
 
