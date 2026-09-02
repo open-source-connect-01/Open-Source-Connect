@@ -52,30 +52,22 @@ function getAvatarColor(name: string): string {
 }
 
 export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
-  // Lock body scroll when modal is open
+  // Lock body scroll cleanly without moving or resetting window scroll position
   useEffect(() => {
     if (!profile) return;
 
-    const scrollY = window.scrollY;
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+
     document.body.style.overflow = "hidden";
-    document.body.style.width = "100%";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
 
     return () => {
-      const top = document.body.style.top;
-      const savedScrollY = parseInt(top || "0") * -1;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.overflow = "";
-      document.body.style.width = "";
-      if (savedScrollY) {
-        window.scrollTo(0, savedScrollY);
-      }
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
     };
   }, [profile]);
 
@@ -110,6 +102,7 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
       >
         {/* Close button */}
         <button
+          type="button"
           onClick={onClose}
           className="absolute top-4 right-4 p-1 text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
           aria-label="Close"
