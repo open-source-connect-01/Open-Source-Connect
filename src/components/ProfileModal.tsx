@@ -192,7 +192,7 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
               SESSION TOPIC
             </h3>
             {typeof profile.sessionTopic === "string" ? (
-              <p className="text-[13px] font-medium text-slate-700 leading-relaxed">
+              <p className="text-[14px] font-bold text-[#0B0F1A] leading-snug">
                 {profile.sessionTopic}
               </p>
             ) : (

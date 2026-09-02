@@ -34,10 +34,7 @@ export const teamMembers: (ProfileData & {
       "Sebastiano Fuccio is an AI strategist, entrepreneur, and digital transformation leader with over 30 years of experience across emerging technologies, enterprise innovation, and AI governance.",
       "His work focuses on AI strategy, sovereign innovation, digital transformation, and compliance, while building AlpGuard and advising organizations on responsible AI adoption, governance, and sustainable business outcomes.",
     ],
-    sessionTopic: {
-      title: "Navigating AI Governance & Sovereign Innovation in Enterprise Transformation",
-      description: "Exploring strategic frameworks for enterprise AI adoption, compliance, and building resilient, sustainable digital architectures in an era of rapid technological shifts.",
-    },
+    sessionTopic: "AI for the open-source community",
     tags: ["AI Strategy", "Digital Transformation", "AI Governance"],
   },
   {
