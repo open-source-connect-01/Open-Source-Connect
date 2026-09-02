@@ -206,14 +206,14 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
               SESSION TOPIC
             </h3>
             {typeof profile.sessionTopic === "string" ? (
-              <p className="text-[14px] font-bold text-[#0B0F1A] leading-snug">
+              <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
                 {profile.sessionTopic}
               </p>
             ) : (
               <div className="space-y-2">
-                <h4 className="text-[14px] font-bold text-[#0B0F1A] leading-snug">
+                <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
                   {profile.sessionTopic.title}
-                </h4>
+                </p>
                 {profile.sessionTopic.description && (
                   <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
                     {profile.sessionTopic.description}
