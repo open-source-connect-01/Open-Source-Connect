@@ -275,7 +275,7 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
       </main>
 
       {/* ===== FOOTER ===== */}
-      <FooterSection />
+      <FooterSection hideEventBanner />
     </div>
   );
 }

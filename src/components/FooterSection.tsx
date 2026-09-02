@@ -53,10 +53,12 @@ const footerLinks = [
 
 interface FooterSectionProps {
   hideTopSections?: boolean;
+  hideEventBanner?: boolean;
 }
 
 export default function FooterSection({
   hideTopSections = false,
+  hideEventBanner = false,
 }: FooterSectionProps) {
   return (
     <>
@@ -300,6 +302,7 @@ export default function FooterSection({
           </section>
 
           {/* ===== EVENT BANNER (Desktop Only) ===== */}
+          {!hideEventBanner && (
           <section className="hidden lg:block w-full bg-[#1B3280] border-b-[3px] border-[#F59E0B]">
             <div className="max-w-[1240px] mx-auto px-8 py-12">
               <div className="flex items-center justify-between gap-8">
@@ -366,6 +369,7 @@ export default function FooterSection({
               </div>
             </div>
           </section>
+          )}
         </>
       )}
 
