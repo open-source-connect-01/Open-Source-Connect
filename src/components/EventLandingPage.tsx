@@ -46,6 +46,7 @@ export interface EventLandingData {
   scheduleTitle: string;
   scheduleMeta: string;
   scheduleItems: EventScheduleItem[];
+  hideTopSections?: boolean;
 }
 
 export default function EventLandingPage({ data }: { data: EventLandingData }) {
@@ -275,7 +276,7 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
       </main>
 
       {/* ===== FOOTER ===== */}
-      <FooterSection hideEventBanner />
+      <FooterSection hideTopSections={data.hideTopSections ?? true} hideEventBanner />
     </div>
   );
 }
