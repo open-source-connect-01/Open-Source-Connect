@@ -7,8 +7,8 @@ const eventData: EventLandingData = {
   edition: "Second Edition",
   title: "Open Source Connect Global 2026",
   subtitle:
-    "The global open source contribution program and conference connecting developers, maintainers, builders, and industry leaders to shape the future of open source.",
-  dateRange: "February 5-25, 2026",
+    "The global open source conference bringing together developers, contributors, maintainers, and communities to collaborate, share, knowledge, and shape the future of open source. ",
+  dateRange: "December 15, 2025 - February 25, 2026",
   location: "Online · Virtual",
   stats: [
     { value: 10, suffix: "K+", label: "Participants" },
@@ -18,13 +18,13 @@ const eventData: EventLandingData = {
   ],
   aboutHeading: "Connecting the World Through Open Source Innovation",
   aboutParagraphs: [
-    "Open Source Connect Global 2026 is a global open source contribution program and conference bringing together developers, students, contributors, maintainers, startups, and industry leaders from around the world to learn, collaborate, build, and contribute to open source.",
-    "The event creates a global platform to discover meaningful open source projects, make real contributions, learn from experienced developers and industry experts, and connect with a diverse community shaping the future of technology.",
+    "Open Source Connect Global 2026 is a global open source conference bringing together developers, students, contributors, maintainers, startups, and industry leaders from around the world to learn, collaborate, build, and connect.",
+    "The event creates a global platform to discover the latest developments in open source, learn from experienced developers and industry experts, and connect with a diverse community shaping the future of technology.",
   ],
   aboutBullets: [
-    "Global open source projects and real contribution opportunities",
     "Talks from developers, maintainers, and industry leaders",
     "Hands-on workshops and technical sessions",
+    "Discussions on open source, AI, startups, and emerging technologies",
     "Mentorship, networking, and global industry connections",
   ],
   speakersHeading: "Speakers 2026",
@@ -40,7 +40,7 @@ const eventData: EventLandingData = {
   ],
   scheduleTag: "Opening Summit",
   scheduleTitle: "Schedule 2025",
-  scheduleMeta: "AUG 15-30, 2025 • 16 DAYS • 8 SESSIONS",
+  scheduleMeta: "Dec 15, 2025 - Feb 25, 2026 • 16 DAYS • 8 SESSIONS",
   scheduleItems: [
     { time: "10:00 AM", date: "Aug 15", weekday: "Friday", title: "Opening Session: The Future of Open Source in India", speaker: "Arjun Mehra" },
     { time: "6:30 PM", date: "Aug 16", weekday: "Sunday", title: "Your First Open Source Contribution: From Issue to Pull Request", speaker: "Kavya Nair" },
