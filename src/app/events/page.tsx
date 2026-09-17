@@ -37,7 +37,7 @@ export default function EventsPage() {
   if (showResearch) {
     return (
       <div className="flex flex-col min-h-full">
-        <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+        <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
           {navBar}
         </header>
         <main className="flex-1">
@@ -49,7 +49,7 @@ export default function EventsPage() {
 
   return (
     <div className="relative flex flex-col min-h-full overflow-hidden">
-      <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
         {navBar}
       </header>
 

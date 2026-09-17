@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ResearchLeadershipSection from "./ResearchLeadershipSection";
@@ -144,6 +144,15 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
     }
   }
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -157,7 +166,7 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
 
       {/* Overlay panel */}
       <div
-        className={`fixed inset-x-0 z-50 shadow-2xl animate-slideDown ${
+        className={`fixed inset-x-0 z-50 shadow-2xl animate-slideDown overscroll-contain ${
           selectedProfile ? "overflow-hidden" : "overflow-y-auto"
         }`}
         style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}

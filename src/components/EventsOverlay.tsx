@@ -1,7 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 interface EventsOverlayProps {
   isOpen: boolean;
@@ -52,26 +52,6 @@ function LiveSignalIcon() {
   );
 }
 
-function HistoryClockIcon() {
-  return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#2563EB"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="shrink-0 mt-0.5"
-    >
-      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-      <path d="M3 3v5h5" />
-      <polyline points="12 7 12 12 15 15" />
-    </svg>
-  );
-}
-
 function HackathonCodeIcon() {
   return (
     <svg
@@ -113,6 +93,15 @@ function EventGalleryIcon() {
 }
 
 export default function EventsOverlay({ isOpen, onClose }: EventsOverlayProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -126,7 +115,7 @@ export default function EventsOverlay({ isOpen, onClose }: EventsOverlayProps) {
 
       {/* Overlay panel */}
       <div
-        className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto"
+        className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto overscroll-contain"
         style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}
       >
         <div className="w-full bg-white border-t border-gray-100">

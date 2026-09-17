@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 
 interface WhatWeDoOverlayProps {
@@ -88,6 +89,15 @@ function FrontierTechnologyIcon() {
 }
 
 export default function WhatWeDoOverlay({ isOpen, onClose }: WhatWeDoOverlayProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -101,7 +111,7 @@ export default function WhatWeDoOverlay({ isOpen, onClose }: WhatWeDoOverlayProp
 
       {/* Overlay panel */}
       <div
-        className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto"
+        className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto overscroll-contain"
         style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}
       >
         <div className="w-full bg-white border-t border-gray-100">

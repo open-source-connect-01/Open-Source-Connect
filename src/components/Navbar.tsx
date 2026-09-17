@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 export type ActiveOverlay = "about" | "whatwedo" | "resources" | "events" | "community" | null;
@@ -65,6 +65,8 @@ const mobileAccordionData = [
   },
 ];
 
+const emptySubscribe = () => () => {};
+
 export default function Navbar({
   onNavClick,
   activeOverlay,
@@ -76,11 +78,11 @@ export default function Navbar({
 }: NavbarProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>({
     about: true,
@@ -143,7 +145,11 @@ export default function Navbar({
                 return (
                   <button
                     key={item.key}
-                    onClick={() => onNavClick?.(item.key)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavClick?.(item.key);
+                    }}
                     className={`relative py-5 flex items-center gap-1.5 text-[10.5px] font-bold tracking-[0.18em] uppercase transition-colors duration-200 cursor-pointer ${
                       isActive
                         ? "text-accent-blue"

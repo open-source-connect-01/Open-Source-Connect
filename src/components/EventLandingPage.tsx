@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import AboutOverlay from "@/components/AboutOverlay";
 import WhatWeDoOverlay from "@/components/WhatWeDoOverlay";
 import EventsOverlay from "@/components/EventsOverlay";
+import CommunityOverlay from "@/components/CommunityOverlay";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import type { ActiveOverlay } from "@/components/Navbar";
 import FooterSection from "./FooterSection";
@@ -62,7 +63,7 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
         <Navbar
           activeOverlay={activeOverlay}
           onNavClick={handleNavClick}
@@ -75,6 +76,7 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
       <AboutOverlay isOpen={activeOverlay === "about"} onClose={handleCloseOverlay} />
       <WhatWeDoOverlay isOpen={activeOverlay === "whatwedo"} onClose={handleCloseOverlay} />
       <EventsOverlay isOpen={activeOverlay === "events"} onClose={handleCloseOverlay} />
+      <CommunityOverlay isOpen={activeOverlay === "community"} onClose={handleCloseOverlay} />
 
       <main className="flex-1">
         {/* ===== HERO ===== */}

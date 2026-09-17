@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
 import WhatWeDoOverlay from "@/components/WhatWeDoOverlay";
 import EventsOverlay from "@/components/EventsOverlay";
+import CommunityOverlay from "@/components/CommunityOverlay";
 import type { ActiveOverlay } from "@/components/Navbar";
 
 const contentsList = [
@@ -22,7 +22,6 @@ const contentsList = [
 ];
 
 export default function PrivacyPolicyPage() {
-  const router = useRouter();
   const [activeOverlay, setActiveOverlay] = useState<ActiveOverlay | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("introduction");
@@ -66,11 +65,7 @@ export default function PrivacyPolicyPage() {
   }, [updateActiveSection]);
 
   const handleNavClick = (label: ActiveOverlay) => {
-    if (label && label !== "events") {
-      router.push("/?nav=" + label);
-    } else {
-      setActiveOverlay((prev) => (prev === label ? null : label));
-    }
+    setActiveOverlay((prev) => (prev === label ? null : label));
     setIsMobileMenuOpen(false);
   };
 
@@ -94,7 +89,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans antialiased text-[#1E293B]">
       {/* Header / Navbar */}
-      <header className="sticky top-0 z-50 bg-white shadow-xs border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-xs border-b border-gray-100">
         <Navbar
           activeOverlay={activeOverlay}
           onNavClick={handleNavClick}
@@ -115,6 +110,10 @@ export default function PrivacyPolicyPage() {
       />
       <EventsOverlay
         isOpen={activeOverlay === "events"}
+        onClose={handleCloseOverlay}
+      />
+      <CommunityOverlay
+        isOpen={activeOverlay === "community"}
         onClose={handleCloseOverlay}
       />
 

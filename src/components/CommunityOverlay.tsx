@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 interface CommunityOverlayProps {
   isOpen: boolean;
@@ -79,6 +78,15 @@ function GuidelinesIcon() {
 export default function CommunityOverlay({ isOpen, onClose }: CommunityOverlayProps) {
   const [email, setEmail] = useState("");
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -92,7 +100,7 @@ export default function CommunityOverlay({ isOpen, onClose }: CommunityOverlayPr
 
       {/* Overlay dropdown panel */}
       <div
-        className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto"
+        className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto overscroll-contain"
         style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}
       >
         <div className="w-full bg-white border-t border-gray-100">

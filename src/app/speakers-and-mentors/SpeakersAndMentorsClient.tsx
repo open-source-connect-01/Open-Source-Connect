@@ -9,6 +9,7 @@ import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
 import WhatWeDoOverlay from "@/components/WhatWeDoOverlay";
 import EventsOverlay from "@/components/EventsOverlay";
+import CommunityOverlay from "@/components/CommunityOverlay";
 import type { ProfileData } from "@/components/ProfileModal";
 import type { ActiveOverlay } from "@/components/Navbar";
 
@@ -102,7 +103,7 @@ export default function SpeakersAndMentorsClient({
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
         <Navbar
           activeOverlay={activeOverlay}
           onNavClick={handleNavClick}
@@ -123,6 +124,10 @@ export default function SpeakersAndMentorsClient({
       />
       <EventsOverlay
         isOpen={activeOverlay === "events"}
+        onClose={handleCloseOverlay}
+      />
+      <CommunityOverlay
+        isOpen={activeOverlay === "community"}
         onClose={handleCloseOverlay}
       />
 

@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
 import WhatWeDoOverlay from "@/components/WhatWeDoOverlay";
 import EventsOverlay from "@/components/EventsOverlay";
+import CommunityOverlay from "@/components/CommunityOverlay";
 import type { ActiveOverlay } from "@/components/Navbar";
 
 const coreValues = [
@@ -55,34 +55,6 @@ const coreValues = [
   },
 ];
 
-const historyTimeline = [
-  {
-    year: "2018",
-    title: "The Beginning",
-    desc: "OSC was founded by a group of open source maintainers who recognized the need for a neutral, mission-driven institution to support collaborative software development.",
-  },
-  {
-    year: "2020",
-    title: "Global Expansion",
-    desc: "We launched our first international programs, establishing chapters across 12 countries and hosting our inaugural Open Source Connect Global conference.",
-  },
-  {
-    year: "2022",
-    title: "Charter V2.0 Adopted",
-    desc: "After 18 months of community-wide deliberation, we adopted our landmark governance charter — establishing the Technical Advisory Council and formal project lifecycle.",
-  },
-  {
-    year: "2024",
-    title: "15,000 Contributors",
-    desc: "Our community surpassed 15,000 active contributors worldwide, with 400+ hosted projects spanning AI, cloud-native infrastructure, cybersecurity, and more.",
-  },
-  {
-    year: "2026",
-    title: "Today",
-    desc: "OSC continues to grow as the world's leading open source foundation — driving technical standards, educational programs, and industry collaboration at scale.",
-  },
-];
-
 const statsItems = [
   {
     stat: "400+",
@@ -111,7 +83,6 @@ const statsItems = [
 ];
 
 export default function AboutOscPage() {
-  const router = useRouter();
   const [activeOverlay, setActiveOverlay] = useState<ActiveOverlay | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -127,7 +98,7 @@ export default function AboutOscPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Sticky Navigation Header */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
         <Navbar
           activeOverlay={activeOverlay}
           onNavClick={handleNavClick}
@@ -148,6 +119,10 @@ export default function AboutOscPage() {
       />
       <EventsOverlay
         isOpen={activeOverlay === "events"}
+        onClose={handleCloseOverlay}
+      />
+      <CommunityOverlay
+        isOpen={activeOverlay === "community"}
         onClose={handleCloseOverlay}
       />
 
