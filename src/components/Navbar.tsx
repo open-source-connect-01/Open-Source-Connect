@@ -113,7 +113,7 @@ export default function Navbar({
       <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-[64px]">
           {/* Desktop Layout */}
-          <div className="hidden md:flex items-center justify-between w-full">
+          <div className="hidden md:flex items-center justify-between w-full h-full">
             {/* Logo */}
             <Link href="/" onClick={handleLogoClick} className="flex items-center shrink-0">
               <Image
@@ -138,7 +138,7 @@ export default function Navbar({
                       e.preventDefault();
                       onNavClick?.(item.key);
                     }}
-                    className={`relative py-5 flex items-center gap-1.5 text-[10.5px] font-bold tracking-[0.18em] uppercase transition-colors duration-200 cursor-pointer ${
+                    className={`relative h-full flex items-center gap-1.5 text-[10.5px] font-bold tracking-[0.18em] uppercase transition-colors duration-200 cursor-pointer ${
                       isActive
                         ? "text-accent-blue"
                         : "text-gray-500 hover:text-[#0B0F1A]"
@@ -161,7 +161,7 @@ export default function Navbar({
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-[3px] bg-accent-blue rounded-full" />
+                      <span className="absolute -bottom-px left-0 w-full h-[3px] bg-accent-blue rounded-full z-10" />
                     )}
                   </button>
                 );
