@@ -69,11 +69,11 @@ export function SailyLogo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
-        src="/sponsors/saily.png"
+        src="/sponsors/saily-black.png"
         alt="Saily"
         width={230}
-        height={140}
-        className="h-11 sm:h-15 md:h-20 w-auto max-w-[120px] sm:max-w-[155px] md:max-w-[180px] object-contain"
+        height={105}
+        className="h-10 sm:h-14 md:h-18 w-auto max-w-[115px] sm:max-w-[150px] md:max-w-[175px] object-contain"
         priority
       />
     </div>
