@@ -139,58 +139,55 @@ export default function PartnersPageClient() {
             {/* White Grid Container with Crisp Outlines */}
             <div className="bg-white rounded-lg shadow-xs border border-gray-200/90 overflow-hidden">
               <div className="grid grid-cols-2 md:grid-cols-4">
-                {currentList.map((item, idx) => {
-                  // Empty slot rendering matching Row 4 of reference screenshot
-                  if (item.isEmpty) {
+                {currentList.length === 0 ? (
+                  Array.from({ length: 16 }).map((_, idx) => (
+                    <div
+                      key={`empty-community-${idx}`}
+                      className="h-36 sm:h-40 md:h-44 bg-[#E8EEF5] border-b border-r border-gray-200/70"
+                      aria-hidden="true"
+                    />
+                  ))
+                ) : (
+                  currentList.map((item, idx) => {
+                    // Empty slot rendering matching Row 4 of reference screenshot
+                    if (item.isEmpty) {
+                      return (
+                        <div
+                          key={`empty-${idx}`}
+                          className="h-36 sm:h-40 md:h-44 bg-[#E8EEF5] border-b border-r border-gray-200/70"
+                          aria-hidden="true"
+                        />
+                      );
+                    }
+
+                    const LogoComponent = item.component;
+
                     return (
                       <div
-                        key={`empty-${idx}`}
-                        className="h-36 sm:h-40 md:h-44 bg-[#E8EEF5] border-b border-r border-gray-200/70"
-                        aria-hidden="true"
-                      />
+                        key={item.id}
+                        className="relative h-36 sm:h-40 md:h-44 p-4 sm:p-6 flex items-center justify-center border-b border-r border-gray-200/70 bg-white"
+                      >
+                        {item.websiteUrl ? (
+                          <a
+                            href={item.websiteUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={`Visit ${item.name}`}
+                            className="flex items-center justify-center w-full h-full"
+                          >
+                            <LogoComponent />
+                          </a>
+                        ) : (
+                          <div className="flex items-center justify-center w-full h-full">
+                            <LogoComponent />
+                          </div>
+                        )}
+                      </div>
                     );
-                  }
-
-                  const LogoComponent = item.component;
-
-                  return (
-                    <div
-                      key={item.id}
-                      className="relative h-36 sm:h-40 md:h-44 p-4 sm:p-6 flex items-center justify-center border-b border-r border-gray-200/70 bg-white"
-                    >
-                      {item.websiteUrl ? (
-                        <a
-                          href={item.websiteUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title={`Visit ${item.name}`}
-                          className="flex items-center justify-center w-full h-full"
-                        >
-                          <LogoComponent />
-                        </a>
-                      ) : (
-                        <div className="flex items-center justify-center w-full h-full">
-                          <LogoComponent />
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                  })
+                )}
               </div>
             </div>
-
-            {/* Sub-note for community partners */}
-            {activeTab === "community" && (
-              <p className="text-center text-xs text-slate-500 mt-6">
-                Are you a student club, campus organization, or open source group?{" "}
-                <a
-                  href="mailto:partners@osconnect.org?subject=Community%20Partnership%20Inquiry"
-                  className="text-accent-blue font-bold hover:underline"
-                >
-                  Partner with OSC
-                </a>
-              </p>
-            )}
           </div>
         </section>
 
@@ -239,20 +236,20 @@ export default function PartnersPageClient() {
               <div className="lg:col-span-5 flex flex-col items-start lg:items-end justify-center">
                 <div className="w-full sm:w-72 flex flex-col gap-3">
                   {/* Primary Amber Button: VIEW SPONSORSHIP TIERS */}
-                  <a
-                    href="mailto:partners@osconnect.org?subject=OSC%20Sponsorship%20Inquiry"
-                    className="cursor-pointer w-full py-3.5 px-6 bg-[#F59E0B] hover:bg-[#E58A13] text-[#071120] text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-200 shadow-md text-center block"
+                  <button
+                    type="button"
+                    className="w-full py-3.5 px-6 bg-[#F59E0B] hover:bg-[#E58A13] text-[#071120] text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-200 shadow-md text-center"
                   >
                     VIEW SPONSORSHIP TIERS
-                  </a>
+                  </button>
 
                   {/* Secondary Dark Button: CONTACT OUR TEAM */}
-                  <a
-                    href="mailto:partners@osconnect.org?subject=OSC%20Partnership%20Inquiry"
-                    className="cursor-pointer w-full py-3.5 px-6 bg-[#071120] hover:bg-[#0D1C36] text-white text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] border border-slate-700/80 hover:border-slate-500 transition-all duration-200 text-center block"
+                  <button
+                    type="button"
+                    className="w-full py-3.5 px-6 bg-[#071120] hover:bg-[#0D1C36] text-white text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] border border-slate-700/80 hover:border-slate-500 transition-all duration-200 text-center"
                   >
                     CONTACT OUR TEAM
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
