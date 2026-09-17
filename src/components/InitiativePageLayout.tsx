@@ -213,80 +213,179 @@ export default function InitiativePageLayout({
 
         {/* ===== PREV / ALL / NEXT PAGINATION ===== */}
         <div className="w-full bg-[#F8FAFC] border-t border-gray-100">
-          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex items-center justify-between gap-2 sm:gap-4">
-            <div className="flex-1 min-w-0">
-              {prevLink ? (
-                <Link
-                  href={prevLink.href}
-                  className="group inline-flex items-center gap-2 sm:gap-3 max-w-full"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="shrink-0 text-gray-400 group-hover:text-[#0B0F1A] transition-colors"
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8">
+            {/* Mobile Layout (< sm) */}
+            <div className="flex flex-col gap-2.5 sm:hidden">
+              {/* Previous and Next Cards */}
+              <div
+                className={`grid ${
+                  prevLink && nextLink ? "grid-cols-2" : "grid-cols-1"
+                } gap-2.5`}
+              >
+                {prevLink && (
+                  <Link
+                    href={prevLink.href}
+                    className="group flex flex-col p-3 rounded-[4px] bg-white border border-gray-200/90 shadow-2xs hover:border-[#2563EB]/40 active:bg-gray-50 transition-all text-left"
                   >
-                    <path d="M19 12H5" />
-                    <path d="m12 19-7-7 7-7" />
-                  </svg>
-                  <span className="min-w-0">
-                    <span className="block text-[9.5px] sm:text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">
+                    <span className="inline-flex items-center gap-1.5 text-[9.5px] font-bold tracking-[0.16em] text-gray-400 uppercase mb-1">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="shrink-0 text-gray-400 group-hover:text-[#2563EB] group-hover:-translate-x-0.5 transition-all"
+                      >
+                        <path d="M19 12H5" />
+                        <path d="m12 19-7-7 7-7" />
+                      </svg>
                       Previous
                     </span>
-                    <span className="block text-xs sm:text-sm font-bold text-[#0B0F1A] truncate max-w-[100px] xs:max-w-[140px] sm:max-w-[200px] group-hover:text-accent-blue transition-colors">
+                    <span className="text-[12px] font-bold text-[#0B0F1A] group-hover:text-[#2563EB] transition-colors line-clamp-2 leading-snug">
                       {prevLink.label}
                     </span>
-                  </span>
-                </Link>
-              ) : (
-                <span />
-              )}
-            </div>
+                  </Link>
+                )}
 
-            <Link
-              href="/about"
-              className="shrink-0 text-[10.5px] sm:text-xs font-bold tracking-[0.18em] text-gray-500 hover:text-[#0B0F1A] uppercase transition-colors px-1"
-            >
-              All Initiatives
-            </Link>
-
-            <div className="flex-1 min-w-0 flex justify-end">
-              {nextLink ? (
-                <Link
-                  href={nextLink.href}
-                  className="group inline-flex items-center gap-2 sm:gap-3 max-w-full text-right"
-                >
-                  <span className="min-w-0">
-                    <span className="block text-[9.5px] sm:text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">
+                {nextLink && (
+                  <Link
+                    href={nextLink.href}
+                    className={`group flex flex-col p-3 rounded-[4px] bg-white border border-gray-200/90 shadow-2xs hover:border-[#2563EB]/40 active:bg-gray-50 transition-all ${
+                      prevLink ? "text-right items-end" : "text-left items-start"
+                    }`}
+                  >
+                    <span
+                      className={`inline-flex items-center gap-1.5 text-[9.5px] font-bold tracking-[0.16em] text-gray-400 uppercase mb-1 ${
+                        prevLink ? "justify-end" : "justify-start"
+                      }`}
+                    >
                       Next
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="shrink-0 text-gray-400 group-hover:text-[#2563EB] group-hover:translate-x-0.5 transition-all"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
                     </span>
-                    <span className="block text-xs sm:text-sm font-bold text-[#0B0F1A] truncate max-w-[100px] xs:max-w-[140px] sm:max-w-[200px] group-hover:text-accent-blue transition-colors">
+                    <span className="text-[12px] font-bold text-[#0B0F1A] group-hover:text-[#2563EB] transition-colors line-clamp-2 leading-snug">
                       {nextLink.label}
                     </span>
-                  </span>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="shrink-0 text-gray-400 group-hover:text-[#0B0F1A] transition-colors"
+                  </Link>
+                )}
+              </div>
+
+              {/* All Initiatives Button */}
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-[4px] bg-white border border-gray-200/90 text-[11px] font-bold tracking-[0.16em] text-gray-600 hover:text-[#0B0F1A] hover:border-gray-300 uppercase transition-all shadow-2xs active:bg-gray-50 text-center"
+              >
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-400"
+                >
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                All Initiatives
+              </Link>
+            </div>
+
+            {/* Desktop Layout (sm and up) */}
+            <div className="hidden sm:flex items-center justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                {prevLink ? (
+                  <Link
+                    href={prevLink.href}
+                    className="group inline-flex items-center gap-3 max-w-full"
                   >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </Link>
-              ) : (
-                <span />
-              )}
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="shrink-0 text-gray-400 group-hover:text-[#0B0F1A] transition-colors"
+                    >
+                      <path d="M19 12H5" />
+                      <path d="m12 19-7-7 7-7" />
+                    </svg>
+                    <span className="min-w-0">
+                      <span className="block text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">
+                        Previous
+                      </span>
+                      <span className="block text-sm font-bold text-[#0B0F1A] truncate max-w-[240px] group-hover:text-accent-blue transition-colors">
+                        {prevLink.label}
+                      </span>
+                    </span>
+                  </Link>
+                ) : (
+                  <span />
+                )}
+              </div>
+
+              <Link
+                href="/about"
+                className="shrink-0 text-xs font-bold tracking-[0.18em] text-gray-500 hover:text-[#0B0F1A] uppercase transition-colors px-2 py-1"
+              >
+                All Initiatives
+              </Link>
+
+              <div className="flex-1 min-w-0 flex justify-end">
+                {nextLink ? (
+                  <Link
+                    href={nextLink.href}
+                    className="group inline-flex items-center gap-3 max-w-full text-right"
+                  >
+                    <span className="min-w-0">
+                      <span className="block text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">
+                        Next
+                      </span>
+                      <span className="block text-sm font-bold text-[#0B0F1A] truncate max-w-[240px] group-hover:text-accent-blue transition-colors">
+                        {nextLink.label}
+                      </span>
+                    </span>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="shrink-0 text-gray-400 group-hover:text-[#0B0F1A] transition-colors"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </Link>
+                ) : (
+                  <span />
+                )}
+              </div>
             </div>
           </div>
         </div>
