@@ -256,12 +256,12 @@ export default function PartnersPageClient() {
                   </button>
 
                   {/* Secondary Dark Button: CONTACT OUR TEAM */}
-                  <button
-                    type="button"
-                    className="w-full py-3 sm:py-3.5 px-4 sm:px-6 bg-[#071120] hover:bg-[#0D1C36] text-white text-[10.5px] sm:text-[11px] font-extrabold tracking-[0.14em] sm:tracking-[0.16em] uppercase rounded-[2px] border border-slate-700/80 hover:border-slate-500 transition-all duration-200 text-center"
+                  <a
+                    href="mailto:hello@osconnect.org"
+                    className="w-full py-3 sm:py-3.5 px-4 sm:px-6 bg-[#071120] hover:bg-[#0D1C36] text-white text-[10.5px] sm:text-[11px] font-extrabold tracking-[0.14em] sm:tracking-[0.16em] uppercase rounded-[2px] border border-slate-700/80 hover:border-slate-500 transition-all duration-200 text-center inline-block cursor-pointer"
                   >
                     CONTACT OUR TEAM
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
