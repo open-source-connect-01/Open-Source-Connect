@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
 import WhatWeDoOverlay from "@/components/WhatWeDoOverlay";
 import EventsOverlay from "@/components/EventsOverlay";
+import CommunityOverlay from "@/components/CommunityOverlay";
 import type { ActiveOverlay } from "@/components/Navbar";
 
 const contentsList = [
@@ -22,7 +22,6 @@ const contentsList = [
 ];
 
 export default function PrivacyPolicyPage() {
-  const router = useRouter();
   const [activeOverlay, setActiveOverlay] = useState<ActiveOverlay | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("introduction");
@@ -66,11 +65,7 @@ export default function PrivacyPolicyPage() {
   }, [updateActiveSection]);
 
   const handleNavClick = (label: ActiveOverlay) => {
-    if (label && label !== "events") {
-      router.push("/?nav=" + label);
-    } else {
-      setActiveOverlay((prev) => (prev === label ? null : label));
-    }
+    setActiveOverlay((prev) => (prev === label ? null : label));
     setIsMobileMenuOpen(false);
   };
 
@@ -82,7 +77,7 @@ export default function PrivacyPolicyPage() {
     setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
-      const offset = 110;
+      const offset = 90;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - offset,
@@ -94,7 +89,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans antialiased text-[#1E293B]">
       {/* Header / Navbar */}
-      <header className="sticky top-0 z-50 bg-white shadow-xs border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-xs border-b border-gray-100">
         <Navbar
           activeOverlay={activeOverlay}
           onNavClick={handleNavClick}
@@ -117,13 +112,17 @@ export default function PrivacyPolicyPage() {
         isOpen={activeOverlay === "events"}
         onClose={handleCloseOverlay}
       />
+      <CommunityOverlay
+        isOpen={activeOverlay === "community"}
+        onClose={handleCloseOverlay}
+      />
 
       <main className="flex-1">
         {/* ===== HERO BANNER ===== */}
-        <section className="w-full bg-gradient-to-r from-[#0C1738] via-[#142B67] to-[#1C398E] text-white py-14 sm:py-16 lg:py-20 relative overflow-hidden">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8 relative z-10">
+        <section className="w-full bg-gradient-to-r from-[#0C1738] via-[#142B67] to-[#1C398E] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] text-slate-300/80 uppercase mb-4">
+            <div className="flex items-center gap-2 text-[10.5px] sm:text-[11px] font-bold tracking-[0.2em] text-slate-300/80 uppercase mb-3 sm:mb-4">
               <Link href="/" className="hover:text-white transition-colors">
                 HOME
               </Link>
@@ -132,7 +131,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight mb-3 leading-[1.1] text-white">
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight mb-2 sm:mb-3 leading-[1.15] text-white">
               Privacy Policy
             </h1>
 
@@ -144,8 +143,30 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* ===== MAIN CONTENT SECTION ===== */}
-        <section className="w-full bg-white py-14 sm:py-18 lg:py-22">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
+        <section className="w-full bg-white py-10 sm:py-14 lg:py-22">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Mobile Contents Quick Scroller */}
+            <div className="lg:hidden sticky top-[57px] sm:top-[65px] z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 -mx-4 px-4 sm:-mx-6 sm:px-6 py-2.5 mb-8 shadow-xs">
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+                {contentsList.map((item) => {
+                  const isActive = activeSection === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`px-3 py-1.5 rounded-[4px] text-xs font-semibold whitespace-nowrap transition-colors shrink-0 cursor-pointer ${
+                        isActive
+                          ? "bg-[#2563EB] text-white"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
               {/* --- LEFT SIDEBAR: CONTENTS --- */}
               <aside className="lg:col-span-3 sticky top-28 hidden lg:block">
@@ -159,7 +180,7 @@ export default function PrivacyPolicyPage() {
                       <button
                         key={item.id}
                         onClick={() => scrollToSection(item.id)}
-                        className={`relative block text-left w-full transition-colors duration-200 py-0.5 ${
+                        className={`relative block text-left w-full transition-colors duration-200 py-0.5 cursor-pointer ${
                           isActive
                             ? "text-[#2563EB] font-bold"
                             : "text-gray-500 hover:text-gray-900 font-medium"

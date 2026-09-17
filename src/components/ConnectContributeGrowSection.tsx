@@ -41,22 +41,22 @@ const eventItems = [
 export default function ConnectContributeGrowSection() {
   return (
     <section id="connect-contribute-grow" className="w-full bg-white scroll-mt-20">
-      <div className="max-w-[1240px] mx-auto px-6 lg:px-8 pb-16 lg:pb-20">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
         {/* Heading */}
-        <div className="mb-10">
-          <h2 className="text-[28px] lg:text-[30px] font-extrabold text-navy-deep leading-tight">
+        <div className="mb-8 sm:mb-10">
+          <h2 className="text-[24px] sm:text-[28px] lg:text-[30px] font-extrabold text-navy-deep leading-tight">
             Connect, Contribute &amp; Grow
           </h2>
-          <div className="w-[60px] h-[4px] bg-accent-blue mt-2 mb-5" />
-          <p className="max-w-[600px] text-[15px] text-slate-600 font-medium leading-relaxed">
+          <div className="w-[50px] sm:w-[60px] h-[4px] bg-accent-blue mt-2 mb-4 sm:mb-5" />
+          <p className="max-w-[600px] text-[14.5px] sm:text-[15px] text-slate-600 font-medium leading-relaxed">
             Empowering contributors and organizations to build, collaborate, and grow through open source.
           </p>
         </div>
 
         {/* Two-column card layout */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {/* Card 1: For Contributors */}
-          <div className="relative overflow-hidden bg-white border border-gray-100 p-8 flex flex-col shadow-xs">
+          <div className="relative overflow-hidden bg-white border border-gray-100 p-5 sm:p-8 flex flex-col shadow-xs">
             {/* Top-Right Decorative Blue Curve Overlay */}
             <div className="absolute -top-10 -right-10 w-[140px] h-[140px] bg-[#E0F2FE]/70 rounded-full pointer-events-none" />
 
@@ -73,22 +73,22 @@ export default function ConnectContributeGrowSection() {
                 </svg>
               </div>
             </div>
-            <h3 className="text-[20px] font-extrabold text-[#0B0F1A] mb-3 relative z-10">
+            <h3 className="text-[19px] sm:text-[20px] font-extrabold text-[#0B0F1A] mb-3 relative z-10">
               For Contributors
             </h3>
-            <p className="text-[14px] text-slate-600 font-medium leading-relaxed mb-6 relative z-10">
+            <p className="text-[13.5px] sm:text-[14px] text-slate-600 font-medium leading-relaxed mb-6 relative z-10">
               Grow your skills, contribute to meaningful projects, connect with mentors, and become part of a global open source community.
             </p>
 
-            <ul className="space-y-5 flex-1 relative z-10">
+            <ul className="space-y-4 sm:space-y-5 flex-1 relative z-10">
               {collabItems.map((item) => (
                 <li key={item.title} className="flex items-start gap-3">
                   <span className="w-[6px] h-[6px] bg-accent-blue rounded-full mt-[7px] shrink-0" />
                   <div>
-                    <span className="text-[14px] font-bold text-navy-deep">
+                    <span className="text-[13.5px] sm:text-[14px] font-bold text-navy-deep">
                       {item.title}
                     </span>
-                    <p className="text-[13.5px] text-slate-600 font-medium leading-relaxed mt-0.5">
+                    <p className="text-[13px] sm:text-[13.5px] text-slate-600 font-medium leading-relaxed mt-0.5">
                       {item.desc}
                     </p>
                   </div>
@@ -100,14 +100,14 @@ export default function ConnectContributeGrowSection() {
               href="https://luma.com/3u22sml7"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-[46px] px-6 bg-navy-deep text-white text-[11px] font-bold tracking-[0.1em] uppercase hover:bg-navy transition-all duration-200 mt-8 self-start relative z-10"
+              className="inline-flex items-center justify-center h-[46px] px-6 bg-navy-deep text-white text-[11px] font-bold tracking-[0.1em] uppercase hover:bg-navy transition-all duration-200 mt-7 sm:mt-8 w-full sm:w-auto text-center self-stretch sm:self-start relative z-10"
             >
               BECOME A CONTRIBUTOR
             </Link>
           </div>
 
           {/* Card 2: For Organizations */}
-          <div className="relative overflow-hidden bg-white border border-gray-100 p-8 flex flex-col shadow-xs">
+          <div className="relative overflow-hidden bg-white border border-gray-100 p-5 sm:p-8 flex flex-col shadow-xs">
             {/* Top-Right Decorative Green Curve Overlay */}
             <div className="absolute -top-10 -right-10 w-[140px] h-[140px] bg-[#DCFCE7]/70 rounded-full pointer-events-none" />
 
@@ -124,22 +124,22 @@ export default function ConnectContributeGrowSection() {
                 </svg>
               </div>
             </div>
-            <h3 className="text-[20px] font-extrabold text-[#0B0F1A] mb-3 relative z-10">
+            <h3 className="text-[19px] sm:text-[20px] font-extrabold text-[#0B0F1A] mb-3 relative z-10">
               For Organizations
             </h3>
-            <p className="text-[14px] text-slate-600 font-medium leading-relaxed mb-6 relative z-10">
+            <p className="text-[13.5px] sm:text-[14px] text-slate-600 font-medium leading-relaxed mb-6 relative z-10">
               Partner with us to engage developers, support innovation, and strengthen your presence in the global open source ecosystem.
             </p>
 
-            <ul className="space-y-5 flex-1 relative z-10">
+            <ul className="space-y-4 sm:space-y-5 flex-1 relative z-10">
               {eventItems.map((item) => (
                 <li key={item.title} className="flex items-start gap-3">
                   <span className="w-[6px] h-[6px] bg-accent-blue rounded-full mt-[7px] shrink-0" />
                   <div>
-                    <span className="text-[14px] font-bold text-navy-deep">
+                    <span className="text-[13.5px] sm:text-[14px] font-bold text-navy-deep">
                       {item.title}
                     </span>
-                    <p className="text-[13.5px] text-slate-600 font-medium leading-relaxed mt-0.5">
+                    <p className="text-[13px] sm:text-[13.5px] text-slate-600 font-medium leading-relaxed mt-0.5">
                       {item.desc}
                     </p>
                   </div>
@@ -150,7 +150,7 @@ export default function ConnectContributeGrowSection() {
             <a
               href="mailto:hello@osconnect.org"
               target="_blank"
-              className="inline-flex items-center justify-center h-[46px] px-6 bg-white text-navy-deep border-2 border-navy-deep text-[11px] font-bold tracking-[0.1em] uppercase hover:bg-navy-deep hover:text-white transition-all duration-200 mt-8 self-start relative z-10"
+              className="inline-flex items-center justify-center h-[46px] px-6 bg-white text-navy-deep border-2 border-navy-deep text-[11px] font-bold tracking-[0.1em] uppercase hover:bg-navy-deep hover:text-white transition-all duration-200 mt-7 sm:mt-8 w-full sm:w-auto text-center self-stretch sm:self-start relative z-10"
             >
               Partner With Us
             </a>

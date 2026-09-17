@@ -30,7 +30,7 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-[36px] sm:text-[54px] md:text-[68px] lg:text-[78px] xl:text-[86px] font-black text-[#0B0F1A] leading-[1.03] tracking-tight mb-6 sm:mb-7">
+            <h1 className="text-[32px] sm:text-[54px] md:text-[68px] lg:text-[78px] xl:text-[86px] font-black text-[#0B0F1A] leading-[1.03] tracking-tight mb-6 sm:mb-7">
               {/* Mobile 3-line structure */}
               <span className="block sm:hidden">Connecting The</span>
               <span className="block sm:hidden">World Through</span>
@@ -51,7 +51,7 @@ export default function HeroSection() {
             </h1>
 
             {/* Subheading Description */}
-            <p className="text-base sm:text-xl lg:text-[20px] xl:text-[21px] text-slate-600 font-medium max-w-[660px] leading-relaxed mb-8 sm:mb-10">
+            <p className="text-[15px] sm:text-xl lg:text-[20px] xl:text-[21px] text-slate-600 font-medium max-w-[660px] leading-relaxed mb-8 sm:mb-10">
               Open Source Connect (OSC) provides community infrastructure, operational support, educational programs, and collaboration opportunities to help open source projects, contributors, and organizations grow sustainably.
             </p>
 
@@ -61,18 +61,18 @@ export default function HeroSection() {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
                 href="#connect-contribute-grow"
                 onClick={(e) => handleScrollToSection(e, "connect-contribute-grow")}
-                className="inline-flex items-center justify-center h-[54px] sm:h-[60px] px-10 bg-[#0A1B3D] text-white text-[12px] sm:text-[13px] font-extrabold tracking-[0.14em] uppercase rounded-[2px] shadow-sm hover:bg-[#122752] transition-colors w-full sm:w-auto text-center"
+                className="inline-flex items-center justify-center h-[50px] sm:h-[60px] px-6 sm:px-10 bg-[#0A1B3D] text-white text-[12px] sm:text-[13px] font-extrabold tracking-[0.14em] uppercase rounded-[2px] shadow-sm hover:bg-[#122752] transition-colors w-full sm:w-auto text-center cursor-pointer"
               >
                 GET INVOLVED
               </a>
               <a
                 href="#connect-contribute-grow"
                 onClick={(e) => handleScrollToSection(e, "connect-contribute-grow")}
-                className="inline-flex items-center justify-center h-[54px] sm:h-[60px] px-10 bg-white text-[#0A1B3D] border border-slate-300 text-[12px] sm:text-[13px] font-extrabold tracking-[0.14em] uppercase rounded-[2px] hover:bg-slate-50 transition-colors w-full sm:w-auto text-center"
+                className="inline-flex items-center justify-center h-[50px] sm:h-[60px] px-6 sm:px-10 bg-white text-[#0A1B3D] border border-slate-300 text-[12px] sm:text-[13px] font-extrabold tracking-[0.14em] uppercase rounded-[2px] hover:bg-slate-50 transition-colors w-full sm:w-auto text-center cursor-pointer"
               >
                 PARTNER WITH US
               </a>
@@ -99,7 +99,7 @@ export default function HeroSection() {
 function CoreFocusCard({ isMobile = false }: { isMobile?: boolean }) {
   return (
     <div
-      className={`w-full bg-white p-7 sm:p-8 xl:p-9 shadow-xl rounded-[2px] ${
+      className={`w-full bg-white p-5 sm:p-8 xl:p-9 shadow-xl rounded-[2px] ${
         isMobile ? "border-l-4 border-l-[#2563EB] border-y border-r border-gray-100" : "border border-gray-100/90"
       }`}
     >

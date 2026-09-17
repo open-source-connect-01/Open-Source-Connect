@@ -66,7 +66,7 @@ export default function FooterSection({
         <>
           {/* ===== MEMBERSHIP HERO ===== */}
           <section className="w-full bg-white">
-            <div className="max-w-[1240px] mx-auto px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+            <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
               {/* Desktop Layout */}
               <div className="hidden lg:grid grid-cols-2 gap-16 items-start">
                 {/* Left */}
@@ -150,31 +150,31 @@ export default function FooterSection({
               <div className="lg:hidden space-y-8">
                 {/* Support Section Header & Stats */}
                 <div>
-                  <h2 className="text-[32px] sm:text-[38px] font-extrabold text-navy-deep leading-[1.15] tracking-tight">
+                  <h2 className="text-[28px] sm:text-[38px] font-extrabold text-navy-deep leading-[1.15] tracking-tight">
                     Support the Future of
                     <br />
                     Open Source
                   </h2>
-                  <p className="mt-4 text-[14.5px] sm:text-[15.5px] text-slate-600 font-medium leading-relaxed">
+                  <p className="mt-3.5 text-[14px] sm:text-[15.5px] text-slate-600 font-medium leading-relaxed">
                     Your support helps us provide free learning opportunities,
                     reward contributors, organize world-class events, and make
                     open source accessible to everyone.
                   </p>
 
-                  <div className="flex items-start gap-8 sm:gap-12 mt-7">
-                    <div className="pl-4 border-l-[3px] border-accent-orange">
-                      <div className="text-[26px] sm:text-[28px] font-extrabold text-navy-deep leading-none">
+                  <div className="flex items-start gap-6 sm:gap-12 mt-6 sm:mt-7">
+                    <div className="pl-3.5 sm:pl-4 border-l-[3px] border-accent-orange">
+                      <div className="text-[24px] sm:text-[28px] font-extrabold text-navy-deep leading-none">
                         100K+
                       </div>
-                      <div className="mt-1.5 text-[10.5px] sm:text-[11px] font-bold tracking-[0.6px] text-gray-400 uppercase whitespace-nowrap">
+                      <div className="mt-1.5 text-[10px] sm:text-[11px] font-bold tracking-[0.6px] text-gray-400 uppercase whitespace-nowrap">
                         PEOPLE REACHED
                       </div>
                     </div>
-                    <div className="pl-4 border-l-[3px] border-accent-blue">
-                      <div className="text-[26px] sm:text-[28px] font-extrabold text-navy-deep leading-none">
+                    <div className="pl-3.5 sm:pl-4 border-l-[3px] border-accent-blue">
+                      <div className="text-[24px] sm:text-[28px] font-extrabold text-navy-deep leading-none">
                         300+
                       </div>
-                      <div className="mt-1.5 text-[10.5px] sm:text-[11px] font-bold tracking-[0.6px] text-gray-400 uppercase whitespace-nowrap">
+                      <div className="mt-1.5 text-[10px] sm:text-[11px] font-bold tracking-[0.6px] text-gray-400 uppercase whitespace-nowrap">
                         PROJECTS & INITIATIVES
                       </div>
                     </div>
@@ -184,7 +184,7 @@ export default function FooterSection({
                   <Link
                     href="https://ko-fi.com/opensourceconnect"
                     target="_blank"
-                    className="w-full bg-[#0A1B3D] text-white text-xs font-extrabold tracking-[0.16em] uppercase py-4 rounded-[4px] shadow-sm flex items-center justify-center text-center block mt-8 hover:bg-[#122752] transition-colors"
+                    className="w-full bg-[#0A1B3D] text-white text-xs font-extrabold tracking-[0.16em] uppercase py-4 rounded-[4px] shadow-sm flex items-center justify-center text-center block mt-7 sm:mt-8 hover:bg-[#122752] transition-colors"
                   >
                     SUPPORT THE COMMUNITY
                   </Link>
@@ -193,8 +193,8 @@ export default function FooterSection({
                 {/* Dark Navy Why Support Card with cream offset shadow */}
                 <div className="relative w-full">
                   <div className="absolute top-2.5 left-2.5 w-full h-full bg-[#FEF3C7] rounded-[2px] z-0" />
-                  <div className="relative z-10 w-full bg-[#0D1527] p-6 sm:p-7 rounded-[2px] text-white">
-                    <div className="flex items-center gap-3 mb-6">
+                  <div className="relative z-10 w-full bg-[#0D1527] p-5 sm:p-7 rounded-[2px] text-white">
+                    <div className="flex items-center gap-3 mb-5 sm:mb-6">
                       <div className="w-7 h-7 bg-white text-[#0D1527] font-bold text-base flex items-center justify-center rounded-[2px] shrink-0">
                         ?
                       </div>
@@ -203,7 +203,7 @@ export default function FooterSection({
                       </h3>
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-5 sm:space-y-6">
                       {whyItems.map((item) => (
                         <div key={item.num} className="flex gap-3.5">
                           <div className="flex-none w-6 h-6 bg-[#F59E0B] text-white text-[11px] font-bold rounded-[2px] flex items-center justify-center mt-0.5">
@@ -224,7 +224,7 @@ export default function FooterSection({
                 </div>
 
                 {/* Rounded Dark Navy Current Event Card */}
-                <div className="w-full bg-[#182750] p-7 rounded-[22px] text-white shadow-2xl relative overflow-hidden">
+                <div className="w-full bg-[#182750] p-5 sm:p-7 rounded-[18px] sm:rounded-[22px] text-white shadow-2xl relative overflow-hidden">
                   {/* Top-Right Decorative Curve Overlay */}
                   <div className="absolute -top-10 -right-10 w-[180px] h-[180px] bg-white/5 rounded-full pointer-events-none" />
 
@@ -375,7 +375,7 @@ export default function FooterSection({
 
       {/* ===== FOOTER ===== */}
       <footer className="w-full bg-[#0B132B] text-gray-400 border-t-[3px] border-[#F59E0B]">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-8 pt-12 sm:pt-14 pb-8">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-14 pb-8">
           {/* Desktop Footer Grid */}
           <div className="hidden lg:grid grid-cols-4 gap-10 pb-10">
             {/* Brand Column */}

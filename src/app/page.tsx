@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect, useRef, Suspense } from "react";
+import { useState, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import type { ActiveOverlay } from "@/components/Navbar";
 import Navbar from "@/components/Navbar";
@@ -14,12 +14,12 @@ import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
 import WhatWeDoOverlay from "@/components/WhatWeDoOverlay";
 import EventsOverlay from "@/components/EventsOverlay";
+import CommunityOverlay from "@/components/CommunityOverlay";
 
 function HomeContent() {
   const searchParams = useSearchParams();
   const [userOverlay, setUserOverlay] = useState<ActiveOverlay | undefined>(undefined);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const scrollYRef = useRef(0);
 
   const navParam = searchParams.get("nav") as ActiveOverlay | null;
   const activeOverlay =
@@ -30,7 +30,15 @@ function HomeContent() {
       : null;
 
   const handleNavClick = useCallback((label: ActiveOverlay) => {
-    setUserOverlay((prev) => (prev === label ? null : label));
+    setUserOverlay((prev) => {
+      const next = prev === label ? null : label;
+      if (typeof window !== "undefined" && window.location.search.includes("nav=")) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("nav");
+        window.history.replaceState({}, "", url.toString());
+      }
+      return next;
+    });
     setIsMobileMenuOpen(false);
   }, []);
 
@@ -52,32 +60,9 @@ function HomeContent() {
     setIsMobileMenuOpen(false);
   }, []);
 
-  const hasActiveOverlay = activeOverlay !== null;
-
-  // Lock body scroll when any overlay is open
-  useEffect(() => {
-    if (hasActiveOverlay) {
-      scrollYRef.current = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = "-" + scrollYRef.current + "px";
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.overflow = "hidden";
-      document.body.style.width = "100%";
-    } else {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.overflow = "";
-      document.body.style.width = "";
-      window.scrollTo(0, scrollYRef.current);
-    }
-  }, [hasActiveOverlay]);
-
   return (
     <div className="flex flex-col min-h-full">
-      <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
         <Navbar
           onNavClick={handleNavClick}
           activeOverlay={activeOverlay}
@@ -87,11 +72,7 @@ function HomeContent() {
         />
       </header>
 
-      <main
-        className={`flex-1 transition-all duration-300 ${
-          hasActiveOverlay ? "opacity-40 pointer-events-none" : ""
-        }`}
-      >
+      <main className="flex-1">
         {/* Full-screen initial viewport fold (Navbar + Hero + Stats) */}
         <div className="min-h-[calc(100vh-65px)] lg:min-h-[calc(100vh-73px)] flex flex-col justify-between bg-gradient-to-b from-[#EFF4FC] via-[#FAFBFE] to-white">
           <HeroSection />
@@ -111,6 +92,7 @@ function HomeContent() {
       {/* Overlays */}
       <AboutOverlay isOpen={activeOverlay === "about"} onClose={handleCloseOverlay} />
       <WhatWeDoOverlay isOpen={activeOverlay === "whatwedo"} onClose={handleCloseOverlay} />
+      <CommunityOverlay isOpen={activeOverlay === "community"} onClose={handleCloseOverlay} />
       <EventsOverlay isOpen={activeOverlay === "events"} onClose={handleCloseOverlay} />
     </div>
   );

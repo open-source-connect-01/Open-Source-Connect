@@ -13,7 +13,7 @@ export function NexFellowLogo({ className = "" }: { className?: string }) {
         alt="NexFellow"
         width={240}
         height={65}
-        className="h-11 sm:h-13 md:h-15 w-auto max-w-[175px] sm:max-w-[200px] object-contain"
+        className="h-8 sm:h-11 md:h-14 w-auto max-w-[125px] sm:max-w-[160px] md:max-w-[190px] object-contain"
         priority
       />
     </div>
@@ -28,7 +28,7 @@ export function NordVPNLogo({ className = "" }: { className?: string }) {
         alt="NordVPN"
         width={240}
         height={85}
-        className="h-15 sm:h-18 md:h-21 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
+        className="h-10 sm:h-14 md:h-19 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain"
         priority
       />
     </div>
@@ -43,7 +43,7 @@ export function NordPassLogo({ className = "" }: { className?: string }) {
         alt="NordPass"
         width={240}
         height={60}
-        className="h-11 sm:h-13 md:h-15 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
+        className="h-8 sm:h-11 md:h-14 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain"
         priority
       />
     </div>
@@ -58,7 +58,7 @@ export function IncogniLogo({ className = "" }: { className?: string }) {
         alt="incogni"
         width={230}
         height={105}
-        className="h-13 sm:h-15 md:h-17 w-auto max-w-[170px] sm:max-w-[190px] object-contain"
+        className="h-9 sm:h-12 md:h-15 w-auto max-w-[120px] sm:max-w-[155px] md:max-w-[180px] object-contain"
         priority
       />
     </div>
@@ -73,7 +73,7 @@ export function SailyLogo({ className = "" }: { className?: string }) {
         alt="Saily"
         width={230}
         height={140}
-        className="h-17 sm:h-20 md:h-23 w-auto max-w-[170px] sm:max-w-[190px] object-contain"
+        className="h-11 sm:h-15 md:h-20 w-auto max-w-[120px] sm:max-w-[155px] md:max-w-[180px] object-contain"
         priority
       />
     </div>
@@ -88,7 +88,7 @@ export function TruScholarLogo({ className = "" }: { className?: string }) {
         alt="TruScholar"
         width={230}
         height={125}
-        className="h-17 sm:h-20 md:h-23 w-auto max-w-[175px] sm:max-w-[195px] object-contain"
+        className="h-11 sm:h-15 md:h-20 w-auto max-w-[125px] sm:max-w-[160px] md:max-w-[185px] object-contain"
         priority
       />
     </div>
@@ -103,7 +103,7 @@ export function AlgoverseLogo({ className = "" }: { className?: string }) {
         alt="ALGOVERSE"
         width={220}
         height={155}
-        className="h-17 sm:h-20 md:h-23 w-auto max-w-[160px] sm:max-w-[180px] object-contain"
+        className="h-11 sm:h-15 md:h-20 w-auto max-w-[115px] sm:max-w-[150px] md:max-w-[170px] object-contain"
         priority
       />
     </div>
@@ -118,7 +118,7 @@ export function CodeCraftersLogo({ className = "" }: { className?: string }) {
         alt="CodeCrafters"
         width={240}
         height={45}
-        className="h-10 sm:h-11 md:h-13 w-auto max-w-[190px] sm:max-w-[215px] object-contain"
+        className="h-7 sm:h-9 md:h-12 w-auto max-w-[135px] sm:max-w-[175px] md:max-w-[205px] object-contain"
         priority
       />
     </div>
@@ -133,7 +133,7 @@ export function SylusLogo({ className = "" }: { className?: string }) {
         alt="sylus"
         width={240}
         height={80}
-        className="h-13 sm:h-15 md:h-17 w-auto max-w-[175px] sm:max-w-[200px] object-contain"
+        className="h-9 sm:h-12 md:h-15 w-auto max-w-[125px] sm:max-w-[160px] md:max-w-[190px] object-contain"
         priority
       />
     </div>
@@ -148,7 +148,7 @@ export function SirayAiLogo({ className = "" }: { className?: string }) {
         alt="Siray AI"
         width={240}
         height={65}
-        className="h-11 sm:h-13 md:h-15 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
+        className="h-8 sm:h-11 md:h-14 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain"
         priority
       />
     </div>
@@ -163,7 +163,7 @@ export function ZulipLogo({ className = "" }: { className?: string }) {
         alt="ZULIP"
         width={240}
         height={65}
-        className="h-11 sm:h-13 md:h-15 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
+        className="h-8 sm:h-11 md:h-14 w-auto max-w-[130px] sm:max-w-[170px] md:max-w-[200px] object-contain"
         priority
       />
     </div>
@@ -178,7 +178,7 @@ export function TinComputerLogo({ className = "" }: { className?: string }) {
         alt="Tin Computer"
         width={240}
         height={80}
-        className="h-13 sm:h-15 md:h-17 w-auto max-w-[175px] sm:max-w-[200px] object-contain rounded-xs"
+        className="h-9 sm:h-12 md:h-15 w-auto max-w-[125px] sm:max-w-[160px] md:max-w-[190px] object-contain rounded-xs"
         priority
       />
     </div>
@@ -193,7 +193,7 @@ export function JulepLogo({ className = "" }: { className?: string }) {
         alt="julep"
         width={230}
         height={80}
-        className="h-13 sm:h-15 md:h-17 w-auto max-w-[170px] sm:max-w-[190px] object-contain"
+        className="h-9 sm:h-12 md:h-15 w-auto max-w-[120px] sm:max-w-[155px] md:max-w-[180px] object-contain"
         priority
       />
     </div>

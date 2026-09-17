@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 
 interface WhatWeDoOverlayProps {
@@ -88,6 +89,15 @@ function FrontierTechnologyIcon() {
 }
 
 export default function WhatWeDoOverlay({ isOpen, onClose }: WhatWeDoOverlayProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -101,11 +111,11 @@ export default function WhatWeDoOverlay({ isOpen, onClose }: WhatWeDoOverlayProp
 
       {/* Overlay panel */}
       <div
-        className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto"
+        className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto overscroll-contain"
         style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}
       >
         <div className="w-full bg-white border-t border-gray-100">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8 py-12 lg:py-14">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-14">
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100 gap-y-8 md:gap-y-0 min-h-[240px]">
               {/* --- Column 1: CORE INITIATIVES --- */}
               <div className="md:pr-10 lg:pr-14">
@@ -196,7 +206,7 @@ export default function WhatWeDoOverlay({ isOpen, onClose }: WhatWeDoOverlayProp
           </div>
 
           {/* Bottom footer strip */}
-          <div className="w-full bg-[#F8FAFC] border-t border-gray-100 py-4.5 px-6 lg:px-8">
+          <div className="w-full bg-[#F8FAFC] border-t border-gray-100 py-4 px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1240px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="font-bold tracking-[0.18em] text-gray-400 uppercase text-[10px] sm:text-[11px]">
                 EXPLORE OUR FULL IMPACT

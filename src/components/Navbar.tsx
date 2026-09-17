@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 
 export type ActiveOverlay = "about" | "whatwedo" | "resources" | "events" | "community" | null;
 
@@ -64,6 +65,8 @@ const mobileAccordionData = [
   },
 ];
 
+const emptySubscribe = () => () => {};
+
 export default function Navbar({
   onNavClick,
   activeOverlay,
@@ -75,6 +78,12 @@ export default function Navbar({
 }: NavbarProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+
   const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>({
     about: true,
     whatwedo: true,
@@ -136,7 +145,11 @@ export default function Navbar({
                 return (
                   <button
                     key={item.key}
-                    onClick={() => onNavClick?.(item.key)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavClick?.(item.key);
+                    }}
                     className={`relative py-5 flex items-center gap-1.5 text-[10.5px] font-bold tracking-[0.18em] uppercase transition-colors duration-200 cursor-pointer ${
                       isActive
                         ? "text-accent-blue"
@@ -197,7 +210,7 @@ export default function Navbar({
               {/* Search Toggle Button */}
               <button
                 onClick={() => setIsSearchOpen((prev) => !prev)}
-                className="p-1.5 text-[#0B0F1A] hover:opacity-75 transition-opacity"
+                className="min-w-[40px] min-h-[40px] flex items-center justify-center text-[#0B0F1A] hover:opacity-75 transition-opacity touch-manipulation cursor-pointer"
                 aria-label="Search"
               >
                 <svg
@@ -219,7 +232,7 @@ export default function Navbar({
               {/* Staggered Hamburger Menu Button */}
               <button
                 onClick={onMobileMenuToggle}
-                className="relative p-1.5 flex flex-col items-end justify-center w-8 h-8 group transition-opacity duration-200"
+                className="relative min-w-[40px] min-h-[40px] flex flex-col items-end justify-center group transition-opacity duration-200 cursor-pointer touch-manipulation"
                 aria-label="Open menu"
               >
                 <div className="flex flex-col items-end justify-between w-5 h-[14px]">
@@ -241,7 +254,7 @@ export default function Navbar({
                 placeholder="Search resources, projects, events..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-10 pl-10 pr-4 text-xs bg-slate-50 border border-gray-200 rounded-md outline-none focus:border-accent-blue text-slate-800 placeholder-gray-400"
+                className="w-full h-10 pl-10 pr-4 text-base sm:text-xs bg-slate-50 border border-gray-200 rounded-md outline-none focus:border-accent-blue text-slate-800 placeholder-gray-400"
                 autoFocus
               />
               <svg
@@ -261,121 +274,128 @@ export default function Navbar({
         )}
       </div>
 
-      {/* ===== MOBILE SLIDE-OVER DRAWER FROM THE RIGHT ===== */}
+      {/* ===== MOBILE SLIDE-OVER DRAWER FROM THE RIGHT (PORTALED DIRECTLY TO BODY) ===== */}
+      {mounted &&
+        createPortal(
+          <div className="md:hidden">
+            {/* Dimmed Overlay Backdrop */}
+            <div
+              className={`fixed inset-0 z-[9998] bg-[#0B0F1A]/50 backdrop-blur-xs transition-opacity duration-300 ease-in-out ${
+                isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+              }`}
+              onClick={onMobileMenuToggle}
+              aria-hidden="true"
+            />
 
-      {/* Dimmed Overlay Backdrop */}
-      <div
-        className={`md:hidden fixed inset-0 z-[80] bg-[#0B0F1A]/40 backdrop-blur-xs transition-opacity duration-300 ease-in-out ${
-          isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={onMobileMenuToggle}
-      />
-
-      {/* Slide-Over Drawer Container (Appears from the Right side) */}
-      <aside
-        className={`md:hidden fixed top-0 right-0 bottom-0 z-[90] w-[84vw] max-w-[320px] bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out flex flex-col ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        {/* Drawer Header with Close 'X' Button */}
-        <div className="p-6 pb-2 flex items-center justify-end">
-          <button
-            onClick={onMobileMenuToggle}
-            className="p-2 text-[#0B0F1A] hover:bg-slate-50 rounded-full transition-colors"
-            aria-label="Close menu"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#0B0F1A"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+            {/* Slide-Over Drawer Container (Appears from the Right side) */}
+            <aside
+              className={`fixed top-0 right-0 bottom-0 z-[9999] w-[88vw] max-w-[320px] bg-white shadow-2xl overflow-y-auto overscroll-contain transition-transform duration-300 ease-in-out flex flex-col ${
+                isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+              }`}
+              aria-label="Mobile Navigation Menu"
             >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Drawer Inner Content */}
-        <div className="px-6 pb-8 flex-1">
-          {/* DONATE US CTA Button at the top */}
-          <Link
-            href="https://ko-fi.com/opensourceconnect"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onMobileMenuToggle}
-            className="w-full bg-[#0A1B3D] text-white text-xs font-extrabold tracking-[0.18em] uppercase py-3.5 rounded-[2px] mb-8 shadow-md flex items-center justify-center text-center hover:bg-[#122752] transition-colors"
-          >
-            DONATE US
-          </Link>
-
-          {/* Accordion Categories */}
-          <div className="space-y-6">
-            {mobileAccordionData.map((cat) => {
-              const isOpen = !!openAccordions[cat.key as string];
-              return (
-                <div key={cat.label} className="border-b border-gray-100/80 pb-4">
-                  {/* Category Header */}
-                  <button
-                    onClick={() => toggleAccordion(cat.key as string)}
-                    className="w-full flex items-center justify-between text-left py-1 text-sm font-extrabold text-[#0B0F1A] tracking-[0.14em] uppercase"
+              {/* Drawer Header with Close 'X' Button */}
+              <div className="p-4 sm:p-6 pb-2 flex items-center justify-end">
+                <button
+                  onClick={onMobileMenuToggle}
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center text-[#0B0F1A] hover:bg-slate-50 rounded-full transition-colors cursor-pointer touch-manipulation"
+                  aria-label="Close menu"
+                >
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#0B0F1A"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
-                    <span>{cat.label}</span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`text-gray-500 transition-transform duration-200 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    >
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </button>
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              </div>
 
-                  {/* Sub-links */}
-                  {isOpen && (
-                    <div className="mt-3 pl-2 space-y-3">
-                      {cat.subLinks.map((sub) =>
-                        "href" in sub && sub.href ? (
-                          <Link
-                            key={sub.name}
-                            href={sub.href}
-                            onClick={() => onMobileMenuToggle?.()}
-                            className="block text-left text-xs font-medium text-gray-500 hover:text-accent-blue transition-colors py-1"
+              {/* Drawer Inner Content */}
+              <div className="px-6 pb-8 flex-1">
+                {/* DONATE US CTA Button at the top */}
+                <Link
+                  href="https://ko-fi.com/opensourceconnect"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onMobileMenuToggle}
+                  className="w-full bg-[#0A1B3D] text-white text-xs font-extrabold tracking-[0.18em] uppercase py-3.5 rounded-[2px] mb-8 shadow-md flex items-center justify-center text-center hover:bg-[#122752] transition-colors"
+                >
+                  DONATE US
+                </Link>
+
+                {/* Accordion Categories */}
+                <div className="space-y-6">
+                  {mobileAccordionData.map((cat) => {
+                    const isOpen = !!openAccordions[cat.key as string];
+                    return (
+                      <div key={cat.label} className="border-b border-gray-100/80 pb-4">
+                        {/* Category Header */}
+                        <button
+                          onClick={() => toggleAccordion(cat.key as string)}
+                          className="w-full flex items-center justify-between text-left py-1 text-sm font-extrabold text-[#0B0F1A] tracking-[0.14em] uppercase cursor-pointer"
+                        >
+                          <span>{cat.label}</span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className={`text-gray-500 transition-transform duration-200 ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
                           >
-                            {sub.name}
-                          </Link>
-                        ) : (
-                          <button
-                            key={sub.name}
-                            onClick={() => {
-                              onMobileMenuToggle?.();
-                              onMobileNavClick?.(sub.key);
-                            }}
-                            className="block text-left text-xs font-medium text-gray-500 hover:text-accent-blue transition-colors py-1"
-                          >
-                            {sub.name}
-                          </button>
-                        )
-                      )}
-                    </div>
-                  )}
+                            <polyline points="6 9 12 15 18 9" />
+                          </svg>
+                        </button>
+
+                        {/* Sub-links */}
+                        {isOpen && (
+                          <div className="mt-3 pl-2 space-y-3">
+                            {cat.subLinks.map((sub) =>
+                              "href" in sub && sub.href ? (
+                                <Link
+                                  key={sub.name}
+                                  href={sub.href}
+                                  onClick={() => onMobileMenuToggle?.()}
+                                  className="block text-left text-xs font-medium text-gray-500 hover:text-accent-blue transition-colors py-1"
+                                >
+                                  {sub.name}
+                                </Link>
+                              ) : (
+                                <button
+                                  key={sub.name}
+                                  onClick={() => {
+                                    onMobileMenuToggle?.();
+                                    onMobileNavClick?.(sub.key);
+                                  }}
+                                  className="block text-left text-xs font-medium text-gray-500 hover:text-accent-blue transition-colors py-1 cursor-pointer"
+                                >
+                                  {sub.name}
+                                </button>
+                              )
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </aside>
+              </div>
+            </aside>
+          </div>,
+          document.body
+        )}
     </nav>
   );
 }

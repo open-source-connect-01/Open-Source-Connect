@@ -37,7 +37,7 @@ export default function EventsPage() {
   if (showResearch) {
     return (
       <div className="flex flex-col min-h-full">
-        <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+        <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
           {navBar}
         </header>
         <main className="flex-1">
@@ -49,7 +49,7 @@ export default function EventsPage() {
 
   return (
     <div className="relative flex flex-col min-h-full overflow-hidden">
-      <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
         {navBar}
       </header>
 
@@ -65,19 +65,19 @@ export default function EventsPage() {
 
         <div
           className="fixed inset-x-0 z-40 bg-navy/25 backdrop-blur-sm"
-          style={{ top: "110px", bottom: 0 }}
+          style={{ top: "64px", bottom: 0 }}
         />
 
         <div
-          className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto"
-          style={{ top: "110px", maxHeight: "calc(100vh - 110px)" }}
+          className="fixed inset-x-0 z-50 shadow-2xl animate-slideDown overflow-y-auto overscroll-contain"
+          style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}
         >
           <div className="w-full bg-white">
             <div className="sticky top-0 z-10 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
-              <div className="max-w-[1240px] mx-auto pl-6 lg:pl-8 pr-6 lg:pr-8 py-4 flex justify-start">
+              <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex justify-start">
                 <button
                   onClick={() => router.push("/")}
-                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3.5 py-2 text-[9px] font-bold tracking-[0.16em] uppercase text-navy shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50"
+                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3.5 py-2 text-[9px] font-bold tracking-[0.16em] uppercase text-navy shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 cursor-pointer"
                   aria-label="Back to home"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -89,7 +89,7 @@ export default function EventsPage() {
               </div>
             </div>
 
-            <div className="max-w-[1240px] mx-auto px-6 lg:px-8 py-10 lg:py-12">
+            <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
               <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
                 <div>
                   <h3 className="text-[9px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-6">
