@@ -5,195 +5,195 @@ import Image from "next/image";
 // 1. HIGH-FIDELITY SPONSOR LOGO COMPONENTS
 // ==========================================
 
-export function NexFellowLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function NexFellowLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/nexfellow.png"
         alt="NexFellow"
-        width={190}
-        height={52}
-        className="h-10 w-auto max-w-[175px] object-contain"
+        width={260}
+        height={70}
+        className="h-14 sm:h-16 md:h-18 w-auto max-w-[210px] sm:max-w-[235px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function NordVPNLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function NordVPNLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/nordvpn.png"
         alt="NordVPN"
-        width={190}
-        height={50}
-        className="h-9 w-auto max-w-[170px] object-contain"
+        width={260}
+        height={95}
+        className="h-20 sm:h-24 md:h-28 w-auto max-w-[220px] sm:max-w-[245px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function NordPassLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function NordPassLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/nordpass.png"
         alt="NordPass"
-        width={190}
-        height={50}
-        className="h-9 w-auto max-w-[170px] object-contain"
+        width={260}
+        height={65}
+        className="h-14 sm:h-16 md:h-18 w-auto max-w-[220px] sm:max-w-[245px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function IncogniLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function IncogniLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/incogni.png"
         alt="incogni"
-        width={180}
-        height={50}
-        className="h-8 w-auto max-w-[160px] object-contain"
+        width={250}
+        height={115}
+        className="h-16 sm:h-20 md:h-24 w-auto max-w-[200px] sm:max-w-[225px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function SailyLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function SailyLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/saily.png"
         alt="Saily"
-        width={180}
-        height={55}
-        className="h-10 w-auto max-w-[145px] object-contain"
+        width={250}
+        height={150}
+        className="h-22 sm:h-26 md:h-30 w-auto max-w-[200px] sm:max-w-[225px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function TruScholarLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function TruScholarLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/truscholar.png"
         alt="TruScholar"
-        width={200}
-        height={100}
-        className="h-14 sm:h-16 w-auto max-w-[170px] object-contain"
+        width={250}
+        height={135}
+        className="h-22 sm:h-26 md:h-30 w-auto max-w-[210px] sm:max-w-[235px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function AlgoverseLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function AlgoverseLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/algoverse.png"
         alt="ALGOVERSE"
-        width={200}
-        height={100}
-        className="h-14 sm:h-16 w-auto max-w-[160px] object-contain"
+        width={240}
+        height={170}
+        className="h-22 sm:h-26 md:h-30 w-auto max-w-[190px] sm:max-w-[215px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function CodeCraftersLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function CodeCraftersLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/codecrafters.png"
         alt="CodeCrafters"
-        width={200}
+        width={260}
         height={50}
-        className="h-9 sm:h-10 w-auto max-w-[180px] object-contain"
+        className="h-12 sm:h-14 md:h-16 w-auto max-w-[220px] sm:max-w-[250px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function SylusLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function SylusLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/sylus.png"
         alt="sylus"
-        width={200}
-        height={55}
-        className="h-10 sm:h-11 w-auto max-w-[170px] object-contain"
+        width={260}
+        height={85}
+        className="h-16 sm:h-18 md:h-22 w-auto max-w-[210px] sm:max-w-[235px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function SirayAiLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function SirayAiLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/siray.png"
         alt="Siray AI"
-        width={200}
-        height={50}
-        className="h-9 sm:h-10 w-auto max-w-[180px] object-contain"
+        width={260}
+        height={70}
+        className="h-14 sm:h-16 md:h-20 w-auto max-w-[220px] sm:max-w-[245px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function ZulipLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function ZulipLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/zulip.png"
         alt="ZULIP"
-        width={200}
-        height={50}
-        className="h-9 sm:h-10 w-auto max-w-[170px] object-contain"
+        width={260}
+        height={70}
+        className="h-14 sm:h-16 md:h-20 w-auto max-w-[220px] sm:max-w-[245px] object-contain"
         priority
       />
     </div>
   );
 }
 
-export function TinComputerLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function TinComputerLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/tincomputer.png"
         alt="Tin Computer"
-        width={200}
-        height={60}
-        className="h-10 sm:h-11 w-auto max-w-[170px] object-contain rounded-xs"
+        width={260}
+        height={90}
+        className="h-16 sm:h-18 md:h-22 w-auto max-w-[210px] sm:max-w-[235px] object-contain rounded-xs"
         priority
       />
     </div>
   );
 }
 
-export function JulepLogo({ className = "h-9 w-auto" }: { className?: string }) {
+export function JulepLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center select-none ${className}`}>
+    <div className={`flex items-center justify-center select-none w-full h-full ${className}`}>
       <Image
         src="/sponsors/julep.png"
         alt="julep"
-        width={180}
-        height={55}
-        className="h-10 sm:h-11 w-auto max-w-[160px] object-contain"
+        width={250}
+        height={90}
+        className="h-16 sm:h-18 md:h-22 w-auto max-w-[200px] sm:max-w-[225px] object-contain"
         priority
       />
     </div>

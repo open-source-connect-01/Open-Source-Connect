@@ -159,7 +159,7 @@ export default function PartnersPageClient() {
                     return (
                       <div
                         key={`empty-${idx}`}
-                        className="h-36 sm:h-40 bg-[#E8EEF5] border-b border-r border-gray-200/70"
+                        className="h-44 sm:h-48 md:h-52 bg-[#E8EEF5] border-b border-r border-gray-200/70"
                         aria-hidden="true"
                       />
                     );
@@ -170,7 +170,7 @@ export default function PartnersPageClient() {
                   return (
                     <div
                       key={item.id}
-                      className="group relative h-36 sm:h-40 p-6 flex items-center justify-center border-b border-r border-gray-200/70 bg-white transition-all duration-200 hover:bg-slate-50/70"
+                      className="relative h-44 sm:h-48 md:h-52 p-4 sm:p-6 flex items-center justify-center border-b border-r border-gray-200/70 bg-white"
                     >
                       {item.websiteUrl ? (
                         <a
@@ -178,7 +178,7 @@ export default function PartnersPageClient() {
                           target="_blank"
                           rel="noopener noreferrer"
                           title={`Visit ${item.name}`}
-                          className="flex items-center justify-center w-full h-full transition-transform duration-200 group-hover:scale-[1.04]"
+                          className="flex items-center justify-center w-full h-full"
                         >
                           <LogoComponent />
                         </a>
