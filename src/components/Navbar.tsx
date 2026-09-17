@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export type ActiveOverlay = "about" | "whatwedo" | "resources" | "events" | null;
+export type ActiveOverlay = "about" | "whatwedo" | "resources" | "events" | "community" | null;
 
 interface NavbarProps {
   onNavClick?: (label: ActiveOverlay) => void;
@@ -12,11 +12,14 @@ interface NavbarProps {
   isMobileMenuOpen?: boolean;
   onMobileMenuToggle?: () => void;
   onMobileNavClick?: (label: ActiveOverlay) => void;
+  ctaText?: string;
+  ctaHref?: string;
 }
 
 const navItems: { label: string; key: ActiveOverlay }[] = [
   { label: "About", key: "about" },
   { label: "What We Do", key: "whatwedo" },
+  { label: "Community", key: "community" },
   { label: "Events", key: "events" },
 ];
 
@@ -28,7 +31,7 @@ const mobileAccordionData = [
       { name: "About the OSC", key: "about" as ActiveOverlay },
       { name: "Meet the team", key: "about" as ActiveOverlay },
       { name: "Speakers & Mentors", key: "about" as ActiveOverlay, href: "/speakers-and-mentors" },
-      { name: "Partners", key: "about" as ActiveOverlay },
+      { name: "Partners", key: "about" as ActiveOverlay, href: "/partners" },
     ],
   },
   {
@@ -39,6 +42,16 @@ const mobileAccordionData = [
       { name: "Open Hardware & Robotics", key: "whatwedo" as ActiveOverlay, href: "/open-hardware-robotics" },
       { name: "AI & Research Initiatives", key: "whatwedo" as ActiveOverlay, href: "/ai-research-initiatives" },
       { name: "Frontier Technology", key: "whatwedo" as ActiveOverlay, href: "/frontier-technology" },
+    ],
+  },
+  {
+    key: "community" as ActiveOverlay,
+    label: "COMMUNITY",
+    subLinks: [
+      { name: "Programs & Grants", key: "community" as ActiveOverlay },
+      { name: "Volunteer Network", key: "community" as ActiveOverlay },
+      { name: "Community Guidelines", key: "community" as ActiveOverlay, href: "/code-of-conduct" },
+      { name: "Partners", key: "community" as ActiveOverlay, href: "/partners" },
     ],
   },
   {
@@ -57,12 +70,15 @@ export default function Navbar({
   isMobileMenuOpen,
   onMobileMenuToggle,
   onMobileNavClick,
+  ctaText = "DONATE US",
+  ctaHref = "https://ko-fi.com/opensourceconnect",
 }: NavbarProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>({
     about: true,
     whatwedo: true,
+    community: false,
     events: false,
   });
 
@@ -113,21 +129,36 @@ export default function Navbar({
               />
             </Link>
 
-            {/* Right side: Nav links + Donate Us Button */}
-            <div className="flex items-center gap-7 lg:gap-9 ml-auto h-full">
+            {/* Right side: Nav links + CTA Button */}
+            <div className="flex items-center gap-7 lg:gap-8 ml-auto h-full">
               {navItems.map((item) => {
                 const isActive = activeOverlay === item.key;
                 return (
                   <button
                     key={item.key}
                     onClick={() => onNavClick?.(item.key)}
-                    className={`relative py-5 text-[10.5px] font-bold tracking-[0.18em] uppercase transition-colors duration-200 cursor-pointer ${
+                    className={`relative py-5 flex items-center gap-1.5 text-[10.5px] font-bold tracking-[0.18em] uppercase transition-colors duration-200 cursor-pointer ${
                       isActive
                         ? "text-accent-blue"
                         : "text-gray-500 hover:text-[#0B0F1A]"
                     }`}
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={`transition-transform duration-200 opacity-60 ${
+                        isActive ? "rotate-180 text-accent-blue opacity-100" : ""
+                      }`}
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
                     {isActive && (
                       <span className="absolute bottom-0 left-0 w-full h-[3px] bg-accent-blue rounded-full" />
                     )}
@@ -135,14 +166,14 @@ export default function Navbar({
                 );
               })}
 
-              {/* Right Action: Donate Us Button */}
+              {/* Right Action: CTA Button */}
               <Link
-                href="https://ko-fi.com/opensourceconnect"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-[38px] px-6 bg-[#0A1B3D] text-white text-[10px] font-extrabold tracking-[0.18em] uppercase rounded-[2px] hover:bg-[#122752] transition-all duration-200 shrink-0 shadow-sm ml-2"
+                href={ctaHref}
+                target={ctaHref.startsWith("http") ? "_blank" : undefined}
+                rel={ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="inline-flex items-center justify-center h-[38px] px-6 bg-[#0A1B3D] text-white text-[10px] font-extrabold tracking-[0.18em] uppercase rounded-[2px] hover:bg-[#122752] transition-all duration-200 shrink-0 shadow-xs ml-2"
               >
-                DONATE US
+                {ctaText}
               </Link>
             </div>
           </div>

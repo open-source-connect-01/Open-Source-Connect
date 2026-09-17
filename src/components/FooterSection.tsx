@@ -28,7 +28,7 @@ const footerLinks = [
       { label: "About OSC", href: "/about" },
       { label: "Meet the Team", href: "#" },
       { label: "Speakers & Mentors", href: "/speakers-and-mentors" },
-      { label: "Partners", href: "/about" },
+      { label: "Partners", href: "/partners" },
     ],
   },
   {

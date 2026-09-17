@@ -262,7 +262,11 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
                         </Link>
 
                         {/* Partners */}
-                        <div className="group cursor-pointer flex items-start gap-4">
+                        <Link
+                          href="/partners"
+                          className="group cursor-pointer flex items-start gap-4"
+                          onClick={onClose}
+                        >
                           <PartnersIcon />
                           <div>
                             <h4 className="text-[15px] font-bold text-[#0B0F1A] group-hover:text-accent-blue transition-colors duration-200">
@@ -273,7 +277,7 @@ export default function AboutOverlay({ isOpen, onClose }: AboutOverlayProps) {
                               with us to strengthen open source.
                             </p>
                           </div>
-                        </div>
+                        </Link>
                       </div>
                     </div>
                   </div>
