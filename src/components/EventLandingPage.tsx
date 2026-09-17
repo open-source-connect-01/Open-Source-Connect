@@ -132,7 +132,7 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
           {/* ===== STATS ROW ===== */}
           <div className="relative">
             <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10">
+              <div className="grid grid-cols-2 sm:grid-cols-4 sm:divide-x sm:divide-white/10">
                 {data.stats.map((stat) => (
                   <div key={stat.label} className="py-6 sm:py-10 text-center px-2">
                     <div className="text-[24px] sm:text-[36px] font-extrabold text-white leading-none">

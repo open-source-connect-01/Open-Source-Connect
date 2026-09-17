@@ -7,7 +7,7 @@ const eventData: EventLandingData = {
   edition: "Second Edition",
   title: "Open Source Connect Global 2026",
   subtitle:
-    "The global open source conference bringing together developers, contributors, maintainers, and communities to collaborate, share, knowledge, and shape the future of open source. ",
+    "The global open source conference bringing together developers, contributors, maintainers, and communities to collaborate, share knowledge, and shape the future of open source. ",
   dateRange: "December 15, 2025 - February 25, 2026",
   location: "Online · Virtual",
   stats: [
