@@ -119,7 +119,7 @@ export default function EventsOverlay({ isOpen, onClose }: EventsOverlayProps) {
         style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}
       >
         <div className="w-full bg-white border-t border-gray-100">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8 py-12 lg:py-14">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-14">
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100 gap-y-8 md:gap-y-0 min-h-[280px]">
               {/* --- Column 1: FLAGSHIP EVENTS --- */}
               <div className="md:pr-10 lg:pr-14">
@@ -214,7 +214,7 @@ export default function EventsOverlay({ isOpen, onClose }: EventsOverlayProps) {
           </div>
 
           {/* Bottom footer strip */}
-          <div className="w-full bg-[#F8FAFC] border-t border-gray-100 py-4.5 px-6 lg:px-8">
+          <div className="w-full bg-[#F8FAFC] border-t border-gray-100 py-4 px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1240px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="font-bold tracking-[0.18em] text-gray-400 uppercase text-[10px] sm:text-[11px]">
                 STAY UPDATED WITH OUR NEWSLETTER

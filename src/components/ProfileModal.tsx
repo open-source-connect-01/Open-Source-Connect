@@ -90,7 +90,7 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6"
       onClick={onClose}
     >
       {/* Dark backdrop */}
@@ -98,19 +98,19 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
 
       {/* Modal Container */}
       <div
-        className="relative w-full max-w-[620px] max-h-[90vh] overflow-y-auto bg-white rounded-[4px] shadow-2xl p-6 sm:p-9 text-left z-10"
+        className="relative w-full max-w-[620px] max-h-[90vh] overflow-y-auto bg-white rounded-[4px] shadow-2xl p-5 sm:p-9 text-left z-10 overscroll-contain"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 p-1 text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-full transition-colors cursor-pointer"
           aria-label="Close"
         >
           <svg
-            width="18"
-            height="18"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -124,9 +124,9 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
         </button>
 
         {/* Header Profile Section */}
-        <div className="flex items-start gap-5 sm:gap-6 mb-6">
+        <div className="flex items-start gap-4 sm:gap-6 mb-6 pr-6 sm:pr-0">
           {/* Profile Photo Frame with Offset Shadow */}
-          <div className="relative w-[110px] h-[110px] sm:w-[125px] sm:h-[125px] shrink-0">
+          <div className="relative w-[90px] h-[90px] sm:w-[125px] sm:h-[125px] shrink-0">
             {/* Hard Offset Shadow Block */}
             <div className="absolute top-1.5 left-1.5 w-full h-full bg-[#A3B8D8]/70 z-0" />
             {/* Dark Bordered Square Photo */}
@@ -142,7 +142,7 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
                 <div
                   className={`w-full h-full bg-gradient-to-br ${avatarColor} flex items-center justify-center`}
                 >
-                  <span className="text-white font-bold text-2xl tracking-wide">
+                  <span className="text-white font-bold text-xl sm:text-2xl tracking-wide">
                     {initials}
                   </span>
                 </div>
@@ -151,12 +151,12 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
           </div>
 
           {/* Right Header Info */}
-          <div className="flex-1 pr-6 pt-0.5">
-            <span className="inline-block px-2.5 py-0.5 bg-[#EFF6FF] text-[#2563EB] text-[10px] font-extrabold tracking-[0.1em] uppercase rounded-[2px] mb-2">
+          <div className="flex-1 min-w-0 pt-0.5">
+            <span className="inline-block px-2.5 py-0.5 bg-[#EFF6FF] text-[#2563EB] text-[9.5px] sm:text-[10px] font-extrabold tracking-[0.1em] uppercase rounded-[2px] mb-1.5 sm:mb-2">
               {profile.badge}
             </span>
-            <div className="flex items-center justify-between gap-3 mb-1">
-              <h2 className="text-2xl sm:text-[26px] font-extrabold text-[#0B0F1A] tracking-tight leading-tight">
+            <div className="flex items-center justify-between gap-2 mb-1">
+              <h2 className="text-xl sm:text-[26px] font-extrabold text-[#0B0F1A] tracking-tight leading-tight break-words">
                 {profile.name}
               </h2>
               {profile.linkedinUrl && (
@@ -165,11 +165,12 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${profile.name}'s LinkedIn Profile`}
-                  className="text-[#0A66C2] hover:text-[#004182] hover:scale-110 transition-all p-1 inline-flex items-center justify-center shrink-0 ml-auto"
+                  className="text-[#0A66C2] hover:text-[#004182] hover:scale-110 transition-all p-1 inline-flex items-center justify-center shrink-0"
                 >
                   <svg
-                    width="28"
-                    height="28"
+                    width="24"
+                    height="24"
+                    className="sm:w-7 sm:h-7"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -178,10 +179,10 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
                 </a>
               )}
             </div>
-            <p className="text-[13.5px] font-semibold text-slate-600 leading-snug">
+            <p className="text-xs sm:text-[13.5px] font-semibold text-slate-600 leading-snug">
               {profile.role}
             </p>
-            <p className="text-[12.5px] font-bold text-[#2563EB] mt-0.5">
+            <p className="text-xs sm:text-[12.5px] font-bold text-[#2563EB] mt-0.5">
               {profile.org}
             </p>
           </div>

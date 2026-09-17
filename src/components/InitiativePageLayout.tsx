@@ -77,21 +77,21 @@ export default function InitiativePageLayout({
       <main className="flex-1">
         {/* ===== HERO BANNER ===== */}
         <section
-          className={`w-full bg-gradient-to-br ${heroGradientClass} text-white py-16 sm:py-20 lg:py-24 relative overflow-hidden`}
+          className={`w-full bg-gradient-to-br ${heroGradientClass} text-white py-12 sm:py-20 lg:py-24 relative overflow-hidden`}
         >
           <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-white/[0.04] pointer-events-none" />
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-10">
               <div className="max-w-[640px]">
                 {/* Breadcrumb */}
-                <div className="flex items-center flex-wrap gap-2 text-[11px] font-bold tracking-[0.2em] text-white/50 uppercase mb-6">
+                <div className="flex items-center flex-wrap gap-2 text-[10.5px] sm:text-[11px] font-bold tracking-[0.2em] text-white/50 uppercase mb-4 sm:mb-6">
                   <Link href="/" className="hover:text-white transition-colors">
                     HOME
                   </Link>
                   <span className="text-white/30">/</span>
                   <button
                     onClick={() => handleNavClick("whatwedo")}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-white transition-colors cursor-pointer"
                   >
                     WHAT WE DO
                   </button>
@@ -101,7 +101,7 @@ export default function InitiativePageLayout({
 
                 {/* Badge */}
                 <div
-                  className="inline-flex items-center gap-2 text-[10.5px] font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-[2px] mb-5"
+                  className="inline-flex items-center gap-2 text-[10px] sm:text-[10.5px] font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-[2px] mb-4 sm:mb-5"
                   style={{ backgroundColor: `${accentColor}26`, color: accentColor }}
                 >
                   <span
@@ -112,13 +112,29 @@ export default function InitiativePageLayout({
                 </div>
 
                 {/* Title */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
                   {title}
                 </h1>
               </div>
 
-              {/* Steps outline */}
-              <div className="lg:pl-8 lg:border-l border-white/15 shrink-0">
+              {/* Mobile Steps Quick Scroller */}
+              <div className="lg:hidden flex items-center gap-2 overflow-x-auto no-scrollbar pt-1 pb-1 -mx-4 px-4 sm:-mx-6 sm:px-6">
+                {steps.map((s) => (
+                  <a
+                    key={s.step}
+                    href={`#step-${s.step}`}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[4px] bg-white/10 hover:bg-white/20 text-xs font-semibold text-white/90 whitespace-nowrap transition-colors shrink-0"
+                  >
+                    <span className="font-bold" style={{ color: accentColor }}>
+                      {String(s.step).padStart(2, "0")}
+                    </span>
+                    <span>{s.title}</span>
+                  </a>
+                ))}
+              </div>
+
+              {/* Desktop Steps outline */}
+              <div className="hidden lg:block lg:pl-8 lg:border-l border-white/15 shrink-0">
                 <ol className="space-y-3">
                   {steps.map((s) => (
                     <li key={s.step}>
@@ -141,12 +157,12 @@ export default function InitiativePageLayout({
 
         {/* ===== STEP SECTIONS ===== */}
         <div className="w-full bg-white">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8 py-16 sm:py-20 lg:py-24 space-y-16 sm:space-y-20 lg:space-y-24">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24 space-y-12 sm:space-y-20 lg:space-y-24">
             {steps.map((s) => (
               <div
                 key={s.step}
                 id={`step-${s.step}`}
-                className={`grid md:grid-cols-2 gap-10 lg:gap-16 items-center scroll-mt-24 ${
+                className={`grid md:grid-cols-2 gap-8 lg:gap-16 items-center scroll-mt-24 ${
                   s.imagePosition === "right" ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
@@ -156,18 +172,18 @@ export default function InitiativePageLayout({
                   style={{ backgroundColor: "#0B1220" }}
                 >
                   <span
-                    className="absolute top-4 left-4 z-10 text-[10px] font-bold tracking-[0.16em] uppercase px-2.5 py-1 rounded-[2px]"
+                    className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 text-[9.5px] sm:text-[10px] font-bold tracking-[0.16em] uppercase px-2.5 py-1 rounded-[2px]"
                     style={{ backgroundColor: accentColor, color: "#fff" }}
                   >
                     STEP {s.step}
                   </span>
                   <span
-                    className="absolute -bottom-3 left-4 text-[72px] font-black leading-none select-none"
+                    className="absolute -bottom-3 left-4 text-[54px] sm:text-[72px] font-black leading-none select-none"
                     style={{ color: "#ffffff", opacity: 0.06 }}
                   >
                     {String(s.step).padStart(2, "0")}
                   </span>
-                  <div className="relative z-[1] w-full h-full flex items-center justify-center p-8">
+                  <div className="relative z-[1] w-full h-full flex items-center justify-center p-4 sm:p-8">
                     {s.illustration}
                   </div>
                 </div>
@@ -175,18 +191,18 @@ export default function InitiativePageLayout({
                 {/* Text */}
                 <div>
                   <span
-                    className={`inline-block text-xs font-bold tracking-[0.22em] uppercase mb-3 ${accentTextClass}`}
+                    className={`inline-block text-xs font-bold tracking-[0.22em] uppercase mb-2 sm:mb-3 ${accentTextClass}`}
                   >
                     STEP {s.step}
                   </span>
-                  <h2 className="text-2xl sm:text-[28px] lg:text-[32px] font-extrabold text-[#0B0F1A] tracking-tight leading-snug mb-4">
+                  <h2 className="text-xl sm:text-[28px] lg:text-[32px] font-extrabold text-[#0B0F1A] tracking-tight leading-snug mb-3 sm:mb-4">
                     {s.title}
                   </h2>
                   <div
-                    className="w-10 h-[3px] mb-5"
+                    className="w-10 h-[3px] mb-4 sm:mb-5"
                     style={{ backgroundColor: accentColor }}
                   />
-                  <p className="text-[14.5px] sm:text-[15.5px] text-gray-600 leading-relaxed max-w-[520px]">
+                  <p className="text-[14px] sm:text-[15.5px] text-gray-600 leading-relaxed max-w-[520px]">
                     {s.description}
                   </p>
                 </div>
@@ -197,12 +213,12 @@ export default function InitiativePageLayout({
 
         {/* ===== PREV / ALL / NEXT PAGINATION ===== */}
         <div className="w-full bg-[#F8FAFC] border-t border-gray-100">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8 py-8 flex items-center justify-between gap-4">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex items-center justify-between gap-2 sm:gap-4">
             <div className="flex-1 min-w-0">
               {prevLink ? (
                 <Link
                   href={prevLink.href}
-                  className="group inline-flex items-center gap-3 max-w-full"
+                  className="group inline-flex items-center gap-2 sm:gap-3 max-w-full"
                 >
                   <svg
                     width="16"
@@ -219,10 +235,10 @@ export default function InitiativePageLayout({
                     <path d="m12 19-7-7 7-7" />
                   </svg>
                   <span className="min-w-0">
-                    <span className="block text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">
+                    <span className="block text-[9.5px] sm:text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">
                       Previous
                     </span>
-                    <span className="block text-[13px] sm:text-sm font-bold text-[#0B0F1A] truncate group-hover:text-accent-blue transition-colors">
+                    <span className="block text-xs sm:text-sm font-bold text-[#0B0F1A] truncate max-w-[100px] xs:max-w-[140px] sm:max-w-[200px] group-hover:text-accent-blue transition-colors">
                       {prevLink.label}
                     </span>
                   </span>
@@ -234,7 +250,7 @@ export default function InitiativePageLayout({
 
             <Link
               href="/about"
-              className="shrink-0 text-[11px] sm:text-xs font-bold tracking-[0.18em] text-gray-500 hover:text-[#0B0F1A] uppercase transition-colors"
+              className="shrink-0 text-[10.5px] sm:text-xs font-bold tracking-[0.18em] text-gray-500 hover:text-[#0B0F1A] uppercase transition-colors px-1"
             >
               All Initiatives
             </Link>
@@ -243,13 +259,13 @@ export default function InitiativePageLayout({
               {nextLink ? (
                 <Link
                   href={nextLink.href}
-                  className="group inline-flex items-center gap-3 max-w-full text-right"
+                  className="group inline-flex items-center gap-2 sm:gap-3 max-w-full text-right"
                 >
                   <span className="min-w-0">
-                    <span className="block text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">
+                    <span className="block text-[9.5px] sm:text-[10px] font-bold tracking-[0.18em] text-gray-400 uppercase">
                       Next
                     </span>
-                    <span className="block text-[13px] sm:text-sm font-bold text-[#0B0F1A] truncate group-hover:text-accent-blue transition-colors">
+                    <span className="block text-xs sm:text-sm font-bold text-[#0B0F1A] truncate max-w-[100px] xs:max-w-[140px] sm:max-w-[200px] group-hover:text-accent-blue transition-colors">
                       {nextLink.label}
                     </span>
                   </span>

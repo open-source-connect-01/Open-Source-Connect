@@ -84,3 +84,12 @@ html {
   background: var(--color-accent-blue);
   border-radius: 2px;
 }
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

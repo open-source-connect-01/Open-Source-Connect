@@ -210,7 +210,7 @@ export default function Navbar({
               {/* Search Toggle Button */}
               <button
                 onClick={() => setIsSearchOpen((prev) => !prev)}
-                className="p-1.5 text-[#0B0F1A] hover:opacity-75 transition-opacity"
+                className="min-w-[40px] min-h-[40px] flex items-center justify-center text-[#0B0F1A] hover:opacity-75 transition-opacity touch-manipulation cursor-pointer"
                 aria-label="Search"
               >
                 <svg
@@ -232,7 +232,7 @@ export default function Navbar({
               {/* Staggered Hamburger Menu Button */}
               <button
                 onClick={onMobileMenuToggle}
-                className="relative p-1.5 flex flex-col items-end justify-center w-8 h-8 group transition-opacity duration-200 cursor-pointer touch-manipulation"
+                className="relative min-w-[40px] min-h-[40px] flex flex-col items-end justify-center group transition-opacity duration-200 cursor-pointer touch-manipulation"
                 aria-label="Open menu"
               >
                 <div className="flex flex-col items-end justify-between w-5 h-[14px]">
@@ -254,7 +254,7 @@ export default function Navbar({
                 placeholder="Search resources, projects, events..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-10 pl-10 pr-4 text-xs bg-slate-50 border border-gray-200 rounded-md outline-none focus:border-accent-blue text-slate-800 placeholder-gray-400"
+                className="w-full h-10 pl-10 pr-4 text-base sm:text-xs bg-slate-50 border border-gray-200 rounded-md outline-none focus:border-accent-blue text-slate-800 placeholder-gray-400"
                 autoFocus
               />
               <svg
@@ -289,16 +289,16 @@ export default function Navbar({
 
             {/* Slide-Over Drawer Container (Appears from the Right side) */}
             <aside
-              className={`fixed top-0 right-0 bottom-0 z-[9999] w-[84vw] max-w-[320px] bg-white shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out flex flex-col ${
+              className={`fixed top-0 right-0 bottom-0 z-[9999] w-[88vw] max-w-[320px] bg-white shadow-2xl overflow-y-auto overscroll-contain transition-transform duration-300 ease-in-out flex flex-col ${
                 isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
               }`}
               aria-label="Mobile Navigation Menu"
             >
               {/* Drawer Header with Close 'X' Button */}
-              <div className="p-6 pb-2 flex items-center justify-end">
+              <div className="p-4 sm:p-6 pb-2 flex items-center justify-end">
                 <button
                   onClick={onMobileMenuToggle}
-                  className="p-2 text-[#0B0F1A] hover:bg-slate-50 rounded-full transition-colors cursor-pointer"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center text-[#0B0F1A] hover:bg-slate-50 rounded-full transition-colors cursor-pointer touch-manipulation"
                   aria-label="Close menu"
                 >
                   <svg

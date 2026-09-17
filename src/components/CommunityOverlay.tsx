@@ -104,7 +104,7 @@ export default function CommunityOverlay({ isOpen, onClose }: CommunityOverlayPr
         style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}
       >
         <div className="w-full bg-white border-t border-gray-100">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8 py-12 lg:py-14">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-14">
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100 gap-y-8 md:gap-y-0 min-h-[280px]">
               {/* --- Column 1: COMMUNITY ENGAGEMENT --- */}
               <div className="md:pr-10 lg:pr-14">
@@ -189,7 +189,7 @@ export default function CommunityOverlay({ isOpen, onClose }: CommunityOverlayPr
           </div>
 
           {/* Bottom newsletter strip */}
-          <div className="w-full bg-[#F8FAFC] border-t border-gray-100 py-4.5 px-6 lg:px-8">
+          <div className="w-full bg-[#F8FAFC] border-t border-gray-100 py-4 px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1240px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="font-bold tracking-[0.18em] text-gray-400 uppercase text-[10px] sm:text-[11px]">
                 GET THE LATEST ECOSYSTEM NEWS DELIVERED MONTHLY.
@@ -201,7 +201,7 @@ export default function CommunityOverlay({ isOpen, onClose }: CommunityOverlayPr
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 sm:w-[220px] text-xs bg-white border border-gray-200 px-3.5 py-2 rounded-md outline-none focus:border-accent-blue transition-colors duration-200 placeholder-gray-400"
+                  className="flex-1 sm:w-[220px] text-base sm:text-xs bg-white border border-gray-200 px-3.5 py-2 rounded-md outline-none focus:border-accent-blue transition-colors duration-200 placeholder-gray-400"
                 />
                 <button className="px-5 py-2 bg-accent-blue text-white text-xs font-bold rounded-md hover:bg-blue-600 transition-all duration-200 shrink-0">
                   Subscribe

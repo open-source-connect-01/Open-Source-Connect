@@ -36,23 +36,23 @@ export default function ResearchLeadershipSection({
   return (
     <>
       {/* ===== Community Experts ===== */}
-      <section id="research-leadership" className="w-full bg-white py-12 lg:py-16">
-        <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
+      <section id="research-leadership" className="w-full bg-white py-10 sm:py-12 lg:py-16">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Page Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0B0F1A] tracking-tight">
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0B0F1A] tracking-tight">
               Community Experts
             </h1>
-            <p className="max-w-3xl text-sm sm:text-base text-gray-500 leading-relaxed mt-3">
+            <p className="max-w-3xl text-[13.5px] sm:text-base text-gray-500 leading-relaxed mt-2 sm:mt-3">
               Meet our speakers and mentors from leading technology companies who share their experience through technical talks, workshops, mentoring, and career guidance.
             </p>
           </div>
 
           {/* Tab Toggle */}
-          <div className="flex items-center gap-2 mb-8">
+          <div className="flex items-center gap-2 mb-6 sm:mb-8">
             <button
               onClick={() => setActiveTab("speakers")}
-              className={`px-6 py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] ${
+              className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
                 activeTab === "speakers"
                   ? "bg-[#0F172A] text-white"
                   : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
@@ -62,7 +62,7 @@ export default function ResearchLeadershipSection({
             </button>
             <button
               onClick={() => setActiveTab("mentors")}
-              className={`px-6 py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] ${
+              className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
                 activeTab === "mentors"
                   ? "bg-[#0F172A] text-white"
                   : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
@@ -72,9 +72,9 @@ export default function ResearchLeadershipSection({
             </button>
           </div>
 
-          {/* 4-Column Leadership Team Grid */}
+          {/* 2-Column Mobile / 4-Column Desktop Leadership Team Grid */}
           {activeTab === "speakers" ? (
-            <div className="max-w-[1240px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+            <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
               {teamMembers.map((member) => (
                 <div
                   key={member.name}
@@ -120,27 +120,28 @@ export default function ResearchLeadershipSection({
                       alt={member.name}
                       fill
                       className="object-cover object-top"
+                      sizes="(max-width: 768px) 50vw, 25vw"
                     />
                   </div>
 
                   {/* Blue Caption Section below photo */}
-                  <div className="bg-[#0A1835] px-4 py-3.5 flex flex-col justify-center w-full">
+                  <div className="bg-[#0A1835] px-3 sm:px-4 py-2.5 sm:py-3.5 flex flex-col justify-center w-full">
                     {/* Event Tag */}
                     <Link
                       href={member.eventLink || "/Feb/2026"}
                       onClick={(e) => e.stopPropagation()}
-                      className="group/tag inline-flex items-center gap-1.5 mb-1.5 w-fit z-10 cursor-pointer"
+                      className="group/tag inline-flex items-center gap-1 sm:gap-1.5 mb-1 sm:mb-1.5 w-fit z-10 cursor-pointer"
                     >
-                      <span className="w-[2px] h-[10px] bg-[#2563EB] group-hover/tag:bg-[#60A5FA] shrink-0 inline-block transition-colors" />
-                      <span className="text-[10px] font-bold text-[#60A5FA] group-hover/tag:text-[#93C5FD] group-hover/tag:underline tracking-[0.06em] uppercase leading-none truncate transition-colors">
+                      <span className="w-[2px] h-[9px] sm:h-[10px] bg-[#2563EB] group-hover/tag:bg-[#60A5FA] shrink-0 inline-block transition-colors" />
+                      <span className="text-[9px] sm:text-[10px] font-bold text-[#60A5FA] group-hover/tag:text-[#93C5FD] group-hover/tag:underline tracking-[0.06em] uppercase leading-none truncate transition-colors">
                         {member.eventTag || "OSC GLOBAL 2026"}
                       </span>
                     </Link>
 
-                    <span className="text-[14px] font-bold text-white tracking-normal leading-tight truncate">
+                    <span className="text-[12.5px] sm:text-[14px] font-bold text-white tracking-normal leading-tight truncate">
                       {member.name}
                     </span>
-                    <span className="text-[11px] font-medium text-[#94A3B8] tracking-normal mt-1 leading-snug truncate">
+                    <span className="text-[10px] sm:text-[11px] font-medium text-[#94A3B8] tracking-normal mt-0.5 sm:mt-1 leading-snug truncate">
                       {member.cardRole}
                     </span>
                   </div>

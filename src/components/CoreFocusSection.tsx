@@ -35,25 +35,25 @@ const focusCards = [
 
 export default function CoreFocusSection() {
   return (
-    <section className="w-full bg-white border-t border-gray-100 py-16 lg:py-20">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="w-full bg-white border-t border-gray-100 py-12 sm:py-16 lg:py-20">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* Heading */}
-        <div className="mb-10 lg:mb-12">
-          <h2 className="text-[32px] sm:text-[38px] lg:text-[42px] font-black text-[#0B1428] leading-tight tracking-tight">
+        <div className="mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="text-[26px] sm:text-[38px] lg:text-[42px] font-black text-[#0B1428] leading-tight tracking-tight">
             Our Core Focus
           </h2>
-          <div className="w-[60px] h-[4px] bg-[#14B8A6] mt-2.5 mb-5" />
-          <p className="max-w-[620px] text-base sm:text-lg text-slate-500 font-medium leading-relaxed">
+          <div className="w-[50px] sm:w-[60px] h-[4px] bg-[#14B8A6] mt-2 sm:mt-2.5 mb-4 sm:mb-5" />
+          <p className="max-w-[620px] text-[14.5px] sm:text-lg text-slate-500 font-medium leading-relaxed">
             Driving the future of open innovation through six strategic pillars.
           </p>
         </div>
 
         {/* 3×2 Grid of focus cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {focusCards.map((card, i) => (
             <div
               key={i}
-              className="relative bg-white border border-[#E2E8F0] rounded-[2px] p-6 sm:p-7 overflow-hidden flex flex-col justify-between h-full min-h-[175px] sm:min-h-[190px] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-colors"
+              className="relative bg-white border border-[#E2E8F0] rounded-[2px] p-5 sm:p-7 overflow-hidden flex flex-col justify-between h-full min-h-[160px] sm:min-h-[190px] shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-slate-300 transition-colors"
             >
               {/* Distinct soft pastel corner quarter-circle arc */}
               <div

@@ -172,11 +172,11 @@ function CodeIcon({ className }: { className?: string }) {
 export default function CommunitySpotlightSection() {
   return (
     <section className="w-full bg-white py-12 sm:py-16 lg:py-24">
-      <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title and Description */}
         <div className="mb-8 lg:mb-12">
           <div className="relative inline-block pb-2 lg:pb-3">
-            <h2 className="text-[28px] sm:text-3xl lg:text-4xl font-extrabold text-[#0B0F1A] tracking-tight">
+            <h2 className="text-[26px] sm:text-3xl lg:text-4xl font-extrabold text-[#0B0F1A] tracking-tight">
               Community Spotlight
             </h2>
             <div className="hidden lg:block absolute bottom-0 left-0 w-[68px] h-[4px] bg-[#F59E0B]" />
@@ -225,6 +225,34 @@ export default function CommunitySpotlightSection() {
               <div className="text-[10px] font-bold tracking-wider text-gray-400 uppercase mt-0.5">
                 SPEAKING SESSIONS
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Stats Row */}
+        <div className="grid grid-cols-3 divide-x divide-gray-200 border-y border-gray-100 py-3.5 my-6 sm:hidden text-center">
+          <div className="px-1">
+            <span className="text-xl font-extrabold text-[#0B0F1A] tracking-tight block">
+              <AnimatedCounter value={500} suffix="+" />
+            </span>
+            <div className="text-[8.5px] font-bold tracking-wider text-gray-400 uppercase mt-0.5">
+              LEADERS
+            </div>
+          </div>
+          <div className="px-1">
+            <span className="text-xl font-extrabold text-[#0B0F1A] tracking-tight block">
+              <AnimatedCounter value={15} suffix="+" />
+            </span>
+            <div className="text-[8.5px] font-bold tracking-wider text-gray-400 uppercase mt-0.5">
+              COUNTRIES
+            </div>
+          </div>
+          <div className="px-1">
+            <span className="text-xl font-extrabold text-[#0B0F1A] tracking-tight block">
+              <AnimatedCounter value={100} suffix="+" />
+            </span>
+            <div className="text-[8.5px] font-bold tracking-wider text-gray-400 uppercase mt-0.5">
+              SESSIONS
             </div>
           </div>
         </div>

@@ -128,11 +128,10 @@ export default function AboutOscPage() {
 
       <main className="flex-1">
         {/* ===== HERO BANNER ===== */}
-        <section className="w-full bg-gradient-to-r from-[#091535] via-[#10286B] to-[#1E3A8A] text-white py-16 sm:py-20 lg:py-24 relative overflow-hidden">
-
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8 relative z-10">
+        <section className="w-full bg-gradient-to-r from-[#091535] via-[#10286B] to-[#1E3A8A] text-white py-12 sm:py-20 lg:py-24 relative overflow-hidden">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-6">
+            <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-slate-300 uppercase mb-4 sm:mb-6">
               <Link href="/" className="hover:text-white transition-colors">
                 HOME
               </Link>
@@ -141,7 +140,7 @@ export default function AboutOscPage() {
             </div>
 
             {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 sm:mb-6 leading-[1.1]">
               About the{" "}
               <span className="font-serif italic font-normal text-[#F59E0B]">
                 Open Source Connect
@@ -149,46 +148,46 @@ export default function AboutOscPage() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-[19px] text-slate-300/85 font-normal max-w-[720px] leading-relaxed">
+            <p className="text-[14.5px] sm:text-lg lg:text-[19px] text-slate-300/85 font-normal max-w-[720px] leading-relaxed">
               We connect developers, communities, and organizations through open source programs, collaboration, and opportunities to build meaningful impact.
             </p>
           </div>
         </section>
 
         {/* ===== OUR MISSION & OUR VISION ===== */}
-        <section className="w-full bg-white py-16 lg:py-24 border-b border-gray-100">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <section className="w-full bg-white py-12 sm:py-16 lg:py-24 border-b border-gray-100">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-start">
               {/* Left: Our Mission */}
               <div>
-                <div className="flex items-center gap-2 text-xs font-bold text-[#F59E0B] uppercase tracking-[0.2em] mb-3">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#F59E0B] uppercase tracking-[0.2em] mb-2 sm:mb-3">
                   <span className="w-2 h-2 bg-[#F59E0B] inline-block rounded-xs" />
                   OUR PURPOSE
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B0F1A] tracking-tight mb-6">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B0F1A] tracking-tight mb-4 sm:mb-6">
                   Our Mission
                 </h2>
-                <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed mb-4">
+                <p className="text-gray-600 text-[14.5px] sm:text-base leading-relaxed mb-4">
                   Open Source Connect exists to strengthen the open source ecosystem by bringing together developers, students, startups, and organizations to collaborate openly and build solutions that create real-world impact. 
                 </p>
-                <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed">
+                <p className="text-gray-600 text-[14.5px] sm:text-base leading-relaxed">
                   We are building a structured, transparent, and community-driven platform where innovation is supported, contributors are respected, and projects are nurtured from idea to long-term sustainability.
                 </p>
               </div>
 
               {/* Right: Our Vision */}
               <div>
-                <div className="flex items-center gap-2 text-xs font-bold text-[#2563EB] uppercase tracking-[0.2em] mb-3">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#2563EB] uppercase tracking-[0.2em] mb-2 sm:mb-3">
                   <span className="w-2 h-2 bg-[#2563EB] inline-block rounded-xs" />
                   OUR VISION
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B0F1A] tracking-tight mb-6">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B0F1A] tracking-tight mb-4 sm:mb-6">
                   Our Vision
                 </h2>
-                <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed mb-4">
+                <p className="text-gray-600 text-[14.5px] sm:text-base leading-relaxed mb-4">
                   A world where open source is accessible to everyone, where developers, students, startups, and organizations can learn, contribute, collaborate, and build technology that creates meaningful impact.
                 </p>
-                <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed">
+                <p className="text-gray-600 text-[14.5px] sm:text-base leading-relaxed">
                   We envision an open ecosystem where communities thrive through shared knowledge, transparent collaboration, and sustainable opportunities for contributors and projects.
                 </p>
               </div>
@@ -197,31 +196,31 @@ export default function AboutOscPage() {
         </section>
 
         {/* ===== CORE VALUES ===== */}
-        <section className="w-full bg-[#F8FAFC] py-16 lg:py-24 border-b border-gray-100">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
+        <section className="w-full bg-[#F8FAFC] py-12 sm:py-16 lg:py-24 border-b border-gray-100">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
-            <div className="text-center mb-14">
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#F59E0B] uppercase tracking-[0.22em] mb-3">
+            <div className="text-center mb-10 sm:mb-14">
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#F59E0B] uppercase tracking-[0.22em] mb-2 sm:mb-3">
                 <span className="text-xs">■</span>
                 WHAT WE STAND FOR
                 <span className="text-xs">■</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B0F1A] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-extrabold text-[#0B0F1A] tracking-tight">
                 Core Values
               </h2>
             </div>
 
             {/* 6 Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {coreValues.map((val) => (
                 <div
                   key={val.num}
-                  className={`bg-white p-7 sm:p-8 rounded-sm shadow-xs border-l-[4px] ${val.borderColor} transition-transform duration-200 hover:-translate-y-1 hover:shadow-md`}
+                  className={`bg-white p-6 sm:p-8 rounded-sm shadow-xs border-l-[4px] ${val.borderColor} transition-transform duration-200 hover:-translate-y-1 hover:shadow-md`}
                 >
-                  <div className={`text-4xl sm:text-5xl font-extrabold ${val.numColor} mb-4`}>
+                  <div className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold ${val.numColor} mb-3 sm:mb-4`}>
                     {val.num}
                   </div>
-                  <h3 className="text-lg font-bold text-[#0B0F1A] mb-2.5">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0B0F1A] mb-2">
                     {val.title}
                   </h3>
                   <p className="text-xs sm:text-[13.5px] text-gray-500 leading-relaxed">
@@ -235,22 +234,22 @@ export default function AboutOscPage() {
 
 
         {/* ===== KEY STATS BAR ===== */}
-        <section className="w-full bg-[#080E1E] text-white pt-16 sm:pt-20 lg:pt-24 pb-20 sm:pb-24 lg:pb-28">
-          <div className="max-w-[1240px] mx-auto px-6 lg:px-8">
-            {/* Exact 4-column bordered grid with thin vertical dividers */}
-            <div className="border border-[#1E293B]/70 rounded-[2px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-[#1E293B]/70 bg-[#090F1E]">
+        <section className="w-full bg-[#080E1E] text-white pt-12 sm:pt-20 lg:pt-24 pb-16 sm:pb-24 lg:pb-28">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Exact 4-column bordered grid with thin dividers */}
+            <div className="border border-[#1E293B]/70 rounded-[2px] grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-[#1E293B]/70 bg-[#090F1E]">
               {statsItems.map((item) => (
                 <div
                   key={item.label}
-                  className="py-10 sm:py-12 lg:py-14 px-6 text-center flex flex-col items-center justify-center"
+                  className="py-8 sm:py-12 lg:py-14 px-3 sm:px-6 text-center flex flex-col items-center justify-center"
                 >
-                  <div className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold tracking-tight text-white mb-2 leading-none">
+                  <div className="text-2xl sm:text-3xl lg:text-[46px] font-extrabold tracking-tight text-white mb-1.5 leading-none">
                     {item.stat}
                   </div>
-                  <div className={`text-[10.5px] sm:text-[11px] font-extrabold tracking-[0.2em] uppercase ${item.tagColor} mb-1`}>
+                  <div className={`text-[9.5px] sm:text-[11px] font-extrabold tracking-[0.16em] sm:tracking-[0.2em] uppercase ${item.tagColor} mb-1`}>
                     {item.label}
                   </div>
-                  <div className="text-[11.5px] text-[#94A3B8] font-normal whitespace-nowrap">
+                  <div className="text-[10.5px] sm:text-[11.5px] text-[#94A3B8] font-normal whitespace-nowrap">
                     {item.sublabel}
                   </div>
                 </div>
@@ -260,7 +259,7 @@ export default function AboutOscPage() {
         </section>
 
         {/* ===== WHITE GAP BAND ===== */}
-        <div className="w-full bg-white h-20 sm:h-28 lg:h-36" />
+        <div className="w-full bg-white h-10 sm:h-20 lg:h-28" />
       </main>
 
       {/* Footer */}
