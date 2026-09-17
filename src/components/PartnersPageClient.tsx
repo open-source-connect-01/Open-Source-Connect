@@ -232,9 +232,9 @@ export default function PartnersPageClient() {
 
                 {/* Paragraph */}
                 <p className="text-slate-300 text-xs sm:text-sm lg:text-[15.5px] leading-relaxed max-w-xl mb-5 sm:mb-7 font-normal">
-                  Join a global network of organizations shaping the future of open
-                  source. Sponsorship directly funds contributor programs,
-                  infrastructure, and community events.
+                  Put your brand in front of a growing global community of developers, contributors, and open 
+                  source builders. Your sponsorship helps power community programs, 
+                  contributor initiatives, and technical events.
                 </p>
 
                 {/* Bullets */}
