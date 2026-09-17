@@ -281,7 +281,7 @@ export const SPONSORS_LIST: SponsorItem[] = [
     id: "sylus",
     name: "sylus",
     category: "Developer Tools",
-    websiteUrl: "https://sylus.io",
+    websiteUrl: "https://sylusai.com/",
     component: SylusLogo,
   },
   {
