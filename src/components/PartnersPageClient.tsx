@@ -18,11 +18,6 @@ export default function PartnersPageClient() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"sponsors" | "community">("sponsors");
 
-  // Contact Modal
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [selectedTierForContact, setSelectedTierForContact] = useState<string>("");
-  const [contactSubmitted, setContactSubmitted] = useState(false);
-
   const handleNavClick = (label: ActiveOverlay) => {
     setActiveOverlay((prev) => (prev === label ? null : label));
     setIsMobileMenuOpen(false);
@@ -188,12 +183,12 @@ export default function PartnersPageClient() {
             {activeTab === "community" && (
               <p className="text-center text-xs text-slate-500 mt-6">
                 Are you a student club, campus organization, or open source group?{" "}
-                <button
-                  onClick={() => setIsContactModalOpen(true)}
+                <a
+                  href="mailto:partners@osconnect.org?subject=Community%20Partnership%20Inquiry"
                   className="text-accent-blue font-bold hover:underline"
                 >
                   Partner with OSC
-                </button>
+                </a>
               </p>
             )}
           </div>
@@ -244,28 +239,20 @@ export default function PartnersPageClient() {
               <div className="lg:col-span-5 flex flex-col items-start lg:items-end justify-center">
                 <div className="w-full sm:w-72 flex flex-col gap-3">
                   {/* Primary Amber Button: VIEW SPONSORSHIP TIERS */}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedTierForContact("");
-                      setIsContactModalOpen(true);
-                    }}
-                    className="cursor-pointer w-full py-3.5 px-6 bg-[#F59E0B] hover:bg-[#E58A13] text-[#071120] text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-200 shadow-md text-center"
+                  <a
+                    href="mailto:partners@osconnect.org?subject=OSC%20Sponsorship%20Inquiry"
+                    className="cursor-pointer w-full py-3.5 px-6 bg-[#F59E0B] hover:bg-[#E58A13] text-[#071120] text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-200 shadow-md text-center block"
                   >
                     VIEW SPONSORSHIP TIERS
-                  </button>
+                  </a>
 
                   {/* Secondary Dark Button: CONTACT OUR TEAM */}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedTierForContact("");
-                      setIsContactModalOpen(true);
-                    }}
-                    className="cursor-pointer w-full py-3.5 px-6 bg-[#071120] hover:bg-[#0D1C36] text-white text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] border border-slate-700/80 hover:border-slate-500 transition-all duration-200 text-center"
+                  <a
+                    href="mailto:partners@osconnect.org?subject=OSC%20Partnership%20Inquiry"
+                    className="cursor-pointer w-full py-3.5 px-6 bg-[#071120] hover:bg-[#0D1C36] text-white text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] border border-slate-700/80 hover:border-slate-500 transition-all duration-200 text-center block"
                   >
                     CONTACT OUR TEAM
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -275,154 +262,6 @@ export default function PartnersPageClient() {
 
       {/* Footer Section */}
       <FooterSection hideTopSections={true} />
-
-      {/* ========================================================
-          CONTACT OUR TEAM MODAL
-          ======================================================== */}
-      {isContactModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-navy/60 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-lg bg-[#0A1428] text-white rounded-lg shadow-2xl border border-slate-700/70 overflow-hidden flex flex-col">
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-slate-800 bg-[#070E1C]">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-2 h-2 bg-[#F59E0B] inline-block rounded-[1px]" />
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-[#F59E0B] uppercase">
-                    GET IN TOUCH
-                  </span>
-                </div>
-                <h3 className="text-xl font-extrabold text-white">
-                  Contact Partnerships Team
-                </h3>
-              </div>
-              <button
-                onClick={() => setIsContactModalOpen(false)}
-                className="cursor-pointer p-2 text-slate-400 hover:text-white rounded-md transition-colors"
-                aria-label="Close modal"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-            </div>
-
-            {contactSubmitted ? (
-              <div className="p-8 text-center flex flex-col items-center">
-                <div className="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center text-2xl mb-4">
-                  ✓
-                </div>
-                <h4 className="text-lg font-bold text-white mb-2">
-                  Thank You for Reaching Out!
-                </h4>
-                <p className="text-xs text-slate-300 max-w-xs leading-relaxed mb-6">
-                  Our Partnerships Lead will review your message and reply within 24–48 hours with customized partnership options.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setIsContactModalOpen(false)}
-                  className="cursor-pointer px-6 py-2.5 bg-[#F59E0B] text-black font-bold text-xs rounded-[2px]"
-                >
-                  Close
-                </button>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setContactSubmitted(true);
-                }}
-                className="p-6 space-y-4"
-              >
-                <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Alex Miller"
-                    className="w-full px-3.5 py-2.5 bg-[#070E1C] border border-slate-700 rounded-[2px] text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                      Work Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="alex@company.com"
-                      className="w-full px-3.5 py-2.5 bg-[#070E1C] border border-slate-700 rounded-[2px] text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                      Organization *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Company or Org Name"
-                      className="w-full px-3.5 py-2.5 bg-[#070E1C] border border-slate-700 rounded-[2px] text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                    Interested Tier / Program
-                  </label>
-                  <select
-                    value={selectedTierForContact}
-                    onChange={(e) => setSelectedTierForContact(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-[#070E1C] border border-slate-700 rounded-[2px] text-xs text-white focus:outline-none focus:border-[#F59E0B]"
-                  >
-                    <option value="">General Sponsorship Inquiry</option>
-                    <option value="Platinum">Title / Platinum Sponsor</option>
-                    <option value="Gold">Gold Sponsor</option>
-                    <option value="Silver">Silver Sponsor</option>
-                    <option value="Community">Community &amp; Tooling Partner</option>
-                    <option value="Hackathon">Hackathon Track / Event Co-Host</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                    Message / Goals *
-                  </label>
-                  <textarea
-                    rows={3}
-                    required
-                    placeholder="Tell us about your developer reach goals, budget, or event timeline..."
-                    className="w-full px-3.5 py-2.5 bg-[#070E1C] border border-slate-700 rounded-[2px] text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#F59E0B]"
-                  />
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="cursor-pointer w-full py-3 px-4 bg-[#F59E0B] hover:bg-[#E58A13] text-[#071120] text-xs font-extrabold tracking-[0.14em] uppercase rounded-[2px] transition-colors"
-                  >
-                    Submit Partnership Inquiry
-                  </button>
-                  <p className="text-[10px] text-slate-500 text-center mt-2.5">
-                    Or email directly to{" "}
-                    <a
-                      href="mailto:partners@osconnect.org?subject=Sponsorship%20Inquiry"
-                      className="text-[#F59E0B] hover:underline"
-                    >
-                      partners@osconnect.org
-                    </a>
-                  </p>
-                </div>
-              </form>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
