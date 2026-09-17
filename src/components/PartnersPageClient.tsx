@@ -79,7 +79,7 @@ export default function PartnersPageClient() {
             HERO SECTION (SAME-TO-SAME AS REFERENCE)
             ======================================================== */}
         <section
-          className="relative w-full text-white pt-9 pb-10 sm:pt-14 sm:pb-12 lg:pt-16 lg:pb-14 overflow-hidden"
+          className="relative w-full text-white pt-9 pb-10 sm:pt-14 sm:pb-5 lg:pt-16 lg:pb-6 overflow-hidden"
           style={{
             background:
               "linear-gradient(135deg, #091B2F 0%, #0D2449 45%, #183578 80%, #1D3A85 100%)",
