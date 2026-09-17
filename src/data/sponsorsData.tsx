@@ -265,7 +265,7 @@ export const SPONSORS_LIST: SponsorItem[] = [
     id: "algoverse",
     name: "ALGOVERSE",
     category: "Education",
-    websiteUrl: "https://algoverse.org",
+    websiteUrl: "https://algoverseairesearch.org/",
     component: AlgoverseLogo,
   },
   {
@@ -311,7 +311,7 @@ export const SPONSORS_LIST: SponsorItem[] = [
     id: "julep",
     name: "julep",
     category: "AI & Cloud",
-    websiteUrl: "https://julep.ai",
+    websiteUrl: "https://docs.julep.ai/introduction/julep",
     component: JulepLogo,
   },
   {
