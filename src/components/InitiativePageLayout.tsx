@@ -59,7 +59,7 @@ export default function InitiativePageLayout({
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <header className="sticky top-0 z-[60] bg-white shadow-sm border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-sm">
         <Navbar
           activeOverlay={activeOverlay}
           onNavClick={handleNavClick}

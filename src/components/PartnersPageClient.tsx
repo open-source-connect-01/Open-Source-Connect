@@ -42,7 +42,7 @@ export default function PartnersPageClient() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Sticky Navigation Header */}
-      <header className="sticky top-0 z-[60] bg-white shadow-xs border-b border-gray-100">
+      <header className="sticky top-0 z-[60] bg-white shadow-xs">
         <Navbar
           activeOverlay={activeOverlay}
           onNavClick={handleNavClick}
