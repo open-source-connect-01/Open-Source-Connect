@@ -82,276 +82,120 @@ export function SailyLogo({ className = "h-9 w-auto" }: { className?: string }) 
 
 export function TruScholarLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2 select-none ${className}`}>
-      {/* Graduation Mortarboard on Certificate/Shield */}
-      <svg
-        viewBox="0 0 44 44"
-        className="w-10 h-10 shrink-0"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Blue Open Book / Shield Base */}
-        <path
-          d="M9 22C9 28.5 14 34.5 22 37C30 34.5 35 28.5 35 22V17L22 13L9 17V22Z"
-          fill="#1E3A8A"
-        />
-        {/* Red / Orange Graduation Mortarboard Diamond */}
-        <polygon points="22,6 39,14 22,22 5,14" fill="#EA580C" />
-        {/* Cap Base */}
-        <path
-          d="M13 18.5V23.5C13 26 17 28 22 28C27 28 31 26 31 23.5V18.5L22 22.5L13 18.5Z"
-          fill="#C2410C"
-        />
-        {/* White Tassel */}
-        <path
-          d="M32 16.5V25.5C32 26 31 26.5 30 26.5"
-          stroke="#FFFFFF"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-        <circle cx="30" cy="27.5" r="1.5" fill="#FFFFFF" />
-      </svg>
-      <div className="flex items-baseline">
-        <span className="text-[22px] font-black tracking-tight text-[#0F172A]">
-          Tru
-        </span>
-        <span className="text-[22px] font-black tracking-tight text-[#EA580C]">
-          Scholar
-        </span>
-      </div>
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <Image
+        src="/sponsors/truscholar.png"
+        alt="TruScholar"
+        width={200}
+        height={100}
+        className="h-14 sm:h-16 w-auto max-w-[170px] object-contain"
+        priority
+      />
     </div>
   );
 }
 
 export function AlgoverseLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <div className={`flex flex-col items-center justify-center select-none ${className}`}>
-      {/* Pixelated Brain Cluster */}
-      <svg
-        viewBox="0 0 52 40"
-        className="w-11 h-8 shrink-0 mb-1"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Brain lobe pixel cubes */}
-        <rect x="6" y="10" width="7" height="7" rx="1" fill="#0D9488" />
-        <rect x="14" y="6" width="7" height="7" rx="1" fill="#0284C7" />
-        <rect x="22" y="3" width="7" height="7" rx="1" fill="#0F172A" />
-        <rect x="30" y="5" width="7" height="7" rx="1" fill="#06B6D4" />
-        <rect x="38" y="11" width="7" height="7" rx="1" fill="#0D9488" />
-        <rect x="13" y="14" width="7" height="7" rx="1" fill="#0F172A" />
-        <rect x="21" y="11" width="7" height="7" rx="1" fill="#06B6D4" />
-        <rect x="29" y="13" width="7" height="7" rx="1" fill="#0284C7" />
-        <rect x="37" y="19" width="7" height="7" rx="1" fill="#0F172A" />
-        <rect x="7" y="18" width="7" height="7" rx="1" fill="#06B6D4" />
-        <rect x="15" y="22" width="7" height="7" rx="1" fill="#0D9488" />
-        <rect x="23" y="19" width="7" height="7" rx="1" fill="#0F172A" />
-        <rect x="31" y="21" width="7" height="7" rx="1" fill="#0D9488" />
-        <rect x="23" y="27" width="7" height="7" rx="1" fill="#0284C7" />
-        <rect x="29" y="29" width="7" height="7" rx="1" fill="#0F172A" />
-      </svg>
-      <span className="text-[12px] font-black tracking-[0.2em] text-[#0F172A] uppercase">
-        ALGOVERSE
-      </span>
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <Image
+        src="/sponsors/algoverse.png"
+        alt="ALGOVERSE"
+        width={200}
+        height={100}
+        className="h-14 sm:h-16 w-auto max-w-[160px] object-contain"
+        priority
+      />
     </div>
   );
 }
 
 export function CodeCraftersLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* CodeCrafters Branch Chevron Emblem */}
-      <svg
-        viewBox="0 0 32 32"
-        className="w-7 h-7 shrink-0"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 7L6 16L12 25"
-          stroke="#1E293B"
-          strokeWidth="3.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M19 7L13 16L19 25"
-          stroke="#1E293B"
-          strokeWidth="3.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M16 16H27"
-          stroke="#1E293B"
-          strokeWidth="3.2"
-          strokeLinecap="round"
-        />
-      </svg>
-      <span
-        className="text-[20px] font-bold text-[#1E293B]"
-        style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-      >
-        CodeCrafters
-      </span>
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <Image
+        src="/sponsors/codecrafters.png"
+        alt="CodeCrafters"
+        width={200}
+        height={50}
+        className="h-9 sm:h-10 w-auto max-w-[180px] object-contain"
+        priority
+      />
     </div>
   );
 }
 
 export function SylusLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* Sylus 4-point radiant gradient star */}
-      <svg
-        viewBox="0 0 44 44"
-        className="w-8 h-8 shrink-0"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <linearGradient id="sylusGradient" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#EC4899" />
-            <stop offset="50%" stopColor="#E11D48" />
-            <stop offset="100%" stopColor="#8B5CF6" />
-          </linearGradient>
-        </defs>
-        {/* 4-pointed curved sparkle */}
-        <path
-          d="M22 2C22 13 31 22 42 22C31 22 22 31 22 42C22 31 13 22 2 22C13 22 22 13 22 2Z"
-          fill="url(#sylusGradient)"
-        />
-      </svg>
-      <span className="text-[24px] font-normal tracking-tight text-[#1E293B]">
-        sylus
-      </span>
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <Image
+        src="/sponsors/sylus.png"
+        alt="sylus"
+        width={200}
+        height={55}
+        className="h-10 sm:h-11 w-auto max-w-[170px] object-contain"
+        priority
+      />
     </div>
   );
 }
 
 export function SirayAiLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2 select-none ${className}`}>
-      {/* Siray Geometric Origami Bowtie */}
-      <svg
-        viewBox="0 0 36 36"
-        className="w-7 h-7 shrink-0"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 8L18 18L4 28L10 18L4 8Z"
-          fill="#000000"
-        />
-        <path
-          d="M32 8L18 18L32 28L26 18L32 8Z"
-          fill="#000000"
-        />
-      </svg>
-      <div className="flex items-start">
-        <span className="text-[25px] font-bold text-[#000000] tracking-tight leading-none">
-          Siray
-        </span>
-        <span className="text-[10px] font-bold text-[#000000] ml-0.5 uppercase">
-          AI
-        </span>
-      </div>
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <Image
+        src="/sponsors/siray.png"
+        alt="Siray AI"
+        width={200}
+        height={50}
+        className="h-9 sm:h-10 w-auto max-w-[180px] object-contain"
+        priority
+      />
     </div>
   );
 }
 
 export function ZulipLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Zulip Layered Z Chat Icon */}
-      <svg
-        viewBox="0 0 44 44"
-        className="w-8 h-8 shrink-0"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <linearGradient id="zulipGrad1" x1="4" y1="8" x2="38" y2="8" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#4F46E5" />
-            <stop offset="100%" stopColor="#3B82F6" />
-          </linearGradient>
-          <linearGradient id="zulipGrad2" x1="4" y1="36" x2="38" y2="36" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#6366F1" />
-            <stop offset="100%" stopColor="#60A5FA" />
-          </linearGradient>
-        </defs>
-        {/* Top Horizontal Bar with Rounded Ends */}
-        <rect x="6" y="8" width="32" height="7" rx="3.5" fill="url(#zulipGrad1)" />
-        {/* Diagonal Bar */}
-        <polygon points="34,14 14,30 20,30 38,14" fill="#3B82F6" />
-        {/* Bottom Horizontal Bar */}
-        <rect x="6" y="29" width="32" height="7" rx="3.5" fill="url(#zulipGrad2)" />
-      </svg>
-      <span className="text-[24px] font-extrabold tracking-wider text-[#3B82F6]">
-        ZULIP
-      </span>
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <Image
+        src="/sponsors/zulip.png"
+        alt="ZULIP"
+        width={200}
+        height={50}
+        className="h-9 sm:h-10 w-auto max-w-[170px] object-contain"
+        priority
+      />
     </div>
   );
 }
 
 export function TinComputerLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <div
-      className={`bg-[#F4EFE6] px-5 py-2.5 rounded-[3px] select-none flex items-center justify-center border border-[#E9E2D5] ${className}`}
-    >
-      <span
-        className="text-[17px] font-medium text-[#1E293B] whitespace-nowrap"
-        style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-      >
-        Tin Computer
-      </span>
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <Image
+        src="/sponsors/tincomputer.png"
+        alt="Tin Computer"
+        width={200}
+        height={60}
+        className="h-10 sm:h-11 w-auto max-w-[170px] object-contain rounded-xs"
+        priority
+      />
     </div>
   );
 }
 
 export function JulepLogo({ className = "h-9 w-auto" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2.5 select-none ${className}`}>
-      {/* Julep 4 diagonal rounded capsules */}
-      <svg
-        viewBox="0 0 38 42"
-        className="w-7 h-8 shrink-0"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Bar 1 */}
-        <rect
-          x="4"
-          y="4"
-          width="7"
-          height="16"
-          rx="3.5"
-          transform="rotate(-25 4 4)"
-          fill="#000000"
-        />
-        {/* Bar 2 */}
-        <rect
-          x="14"
-          y="11"
-          width="7"
-          height="18"
-          rx="3.5"
-          transform="rotate(-25 14 11)"
-          fill="#000000"
-        />
-        {/* Bar 3 */}
-        <rect
-          x="4"
-          y="18"
-          width="7"
-          height="16"
-          rx="3.5"
-          transform="rotate(-25 4 18)"
-          fill="#000000"
-        />
-      </svg>
-      <span className="text-[28px] font-black tracking-tight text-[#000000]">
-        julep
-      </span>
+    <div className={`flex items-center justify-center select-none ${className}`}>
+      <Image
+        src="/sponsors/julep.png"
+        alt="julep"
+        width={180}
+        height={55}
+        className="h-10 sm:h-11 w-auto max-w-[160px] object-contain"
+        priority
+      />
     </div>
   );
 }
