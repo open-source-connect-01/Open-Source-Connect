@@ -20,7 +20,6 @@ interface NavbarProps {
 const navItems: { label: string; key: ActiveOverlay }[] = [
   { label: "About", key: "about" },
   { label: "What We Do", key: "whatwedo" },
-  { label: "Community", key: "community" },
   { label: "Events", key: "events" },
 ];
 
@@ -43,16 +42,6 @@ const mobileAccordionData = [
       { name: "Open Hardware & Robotics", key: "whatwedo" as ActiveOverlay, href: "/open-hardware-robotics" },
       { name: "AI & Research Initiatives", key: "whatwedo" as ActiveOverlay, href: "/ai-research-initiatives" },
       { name: "Frontier Technology", key: "whatwedo" as ActiveOverlay, href: "/frontier-technology" },
-    ],
-  },
-  {
-    key: "community" as ActiveOverlay,
-    label: "COMMUNITY",
-    subLinks: [
-      { name: "Programs & Grants", key: "community" as ActiveOverlay },
-      { name: "Volunteer Network", key: "community" as ActiveOverlay },
-      { name: "Community Guidelines", key: "community" as ActiveOverlay, href: "/code-of-conduct" },
-      { name: "Partners", key: "community" as ActiveOverlay, href: "/partners" },
     ],
   },
   {
@@ -87,7 +76,6 @@ export default function Navbar({
   const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>({
     about: true,
     whatwedo: true,
-    community: false,
     events: false,
   });
 
