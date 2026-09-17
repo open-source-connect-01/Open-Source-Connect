@@ -76,24 +76,30 @@ export default function PartnersPageClient() {
 
       <main className="flex-1 flex flex-col">
         {/* ========================================================
-            HERO SECTION (RESPONSIVE)
+            HERO SECTION (SAME-TO-SAME AS REFERENCE)
             ======================================================== */}
-        <section className="relative w-full bg-gradient-to-br from-[#06122F] via-[#0A1A4A] to-[#122F74] text-white pt-10 pb-12 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 overflow-hidden">
+        <section
+          className="relative w-full text-white pt-9 pb-10 sm:pt-14 sm:pb-12 lg:pt-16 lg:pb-14 overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(135deg, #091B2F 0%, #0D2449 45%, #183578 80%, #1D3A85 100%)",
+          }}
+        >
           {/* Subtle Ambient Radial Glow */}
-          <div className="absolute top-0 right-1/4 w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-20 left-1/3 w-[260px] sm:w-[450px] h-[260px] sm:h-[450px] bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-1/4 w-[360px] sm:w-[600px] h-[360px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-10 right-10 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#1D3A85]/35 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-start">
             {/* Kicker: ■ OUR PARTNERS */}
-            <div className="flex items-center gap-2 mb-2.5 sm:mb-4">
-              <span className="w-2 h-2 bg-[#F59E0B] inline-block rounded-[1px]" />
-              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] sm:tracking-[0.2em] text-[#F59E0B] uppercase">
+            <div className="flex items-center gap-2.5 mb-3 sm:mb-3.5">
+              <span className="w-2 h-2 bg-[#F59E0B] inline-block rounded-[1px] shrink-0" />
+              <span className="text-[10.5px] sm:text-[11px] font-extrabold tracking-[0.2em] text-[#F59E0B] uppercase">
                 OUR PARTNERS
               </span>
             </div>
 
             {/* Main Title: Sponsors & Partners */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight mb-3 sm:mb-5 leading-[1.15] sm:leading-[1.1]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold tracking-tight mb-3.5 sm:mb-4 leading-[1.1] text-white">
               Sponsors &amp;{" "}
               <span className="text-[#F59E0B]">
                 Partners
@@ -101,24 +107,24 @@ export default function PartnersPageClient() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xs sm:text-sm md:text-base lg:text-[16px] text-slate-300/95 font-normal max-w-[760px] leading-relaxed mb-6 sm:mb-8 md:mb-10">
-              We collaborate with organizations, startups, universities, and technology
-              companies to create meaningful opportunities for developers, accelerate
-              open source innovation, and build a stronger, more connected technology
-              ecosystem.
+            <p className="text-[13px] sm:text-sm md:text-[14.5px] text-slate-400 font-normal max-w-[680px] leading-[1.65] mb-8 sm:mb-10">
+              We collaborate with organizations, startups, universities, and<br className="hidden sm:inline" />{" "}
+              technology companies to create meaningful opportunities for<br className="hidden sm:inline" />{" "}
+              developers, accelerate open source innovation, and build a stronger,<br className="hidden sm:inline" />{" "}
+              more connected technology ecosystem.
             </p>
 
             {/* Centered Segmented Pill Tabs */}
-            <div className="w-full flex justify-center mt-1 sm:mt-2">
-              <div className="inline-flex max-w-full items-center p-1 rounded-full bg-[#0D1D45]/90 border border-slate-700/60 backdrop-blur-md shadow-inner">
+            <div className="w-full flex justify-center">
+              <div className="inline-flex max-w-full items-center p-1 rounded-full bg-[#102046]/80 border border-[#233868]/80 backdrop-blur-md shadow-inner">
                 {/* Sponsors Tab */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("sponsors")}
-                  className={`cursor-pointer px-5 sm:px-8 py-2 rounded-full text-[11px] sm:text-xs font-semibold tracking-wide transition-all duration-200 whitespace-nowrap ${
+                  className={`cursor-pointer px-6 sm:px-8 py-2 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition-all duration-200 whitespace-nowrap ${
                     activeTab === "sponsors"
-                      ? "bg-[#2563EB] text-white shadow-md"
-                      : "text-slate-400 hover:text-white"
+                      ? "bg-[#1D4CD1] text-white shadow-sm"
+                      : "text-[#8E9EB8] hover:text-white"
                   }`}
                 >
                   Sponsors
@@ -128,10 +134,10 @@ export default function PartnersPageClient() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("community")}
-                  className={`cursor-pointer px-4 sm:px-7 py-2 rounded-full text-[11px] sm:text-xs font-medium tracking-wide transition-all duration-200 whitespace-nowrap ${
+                  className={`cursor-pointer px-5 sm:px-7 py-2 rounded-full text-xs sm:text-[13px] font-medium tracking-wide transition-all duration-200 whitespace-nowrap ${
                     activeTab === "community"
-                      ? "bg-[#2563EB] text-white shadow-md font-semibold"
-                      : "text-slate-400 hover:text-white"
+                      ? "bg-[#1D4CD1] text-white shadow-sm font-semibold"
+                      : "text-[#8E9EB8] hover:text-white"
                   }`}
                 >
                   Community Partners
