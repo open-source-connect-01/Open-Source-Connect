@@ -11,9 +11,9 @@ export function NexFellowLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/nexfellow.png"
         alt="NexFellow"
-        width={260}
-        height={70}
-        className="h-14 sm:h-16 md:h-18 w-auto max-w-[210px] sm:max-w-[235px] object-contain"
+        width={240}
+        height={65}
+        className="h-11 sm:h-13 md:h-15 w-auto max-w-[175px] sm:max-w-[200px] object-contain"
         priority
       />
     </div>
@@ -26,9 +26,9 @@ export function NordVPNLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/nordvpn.png"
         alt="NordVPN"
-        width={260}
-        height={95}
-        className="h-20 sm:h-24 md:h-28 w-auto max-w-[220px] sm:max-w-[245px] object-contain"
+        width={240}
+        height={85}
+        className="h-15 sm:h-18 md:h-21 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
         priority
       />
     </div>
@@ -41,9 +41,9 @@ export function NordPassLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/nordpass.png"
         alt="NordPass"
-        width={260}
-        height={65}
-        className="h-14 sm:h-16 md:h-18 w-auto max-w-[220px] sm:max-w-[245px] object-contain"
+        width={240}
+        height={60}
+        className="h-11 sm:h-13 md:h-15 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
         priority
       />
     </div>
@@ -56,9 +56,9 @@ export function IncogniLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/incogni.png"
         alt="incogni"
-        width={250}
-        height={115}
-        className="h-16 sm:h-20 md:h-24 w-auto max-w-[200px] sm:max-w-[225px] object-contain"
+        width={230}
+        height={105}
+        className="h-13 sm:h-15 md:h-17 w-auto max-w-[170px] sm:max-w-[190px] object-contain"
         priority
       />
     </div>
@@ -71,9 +71,9 @@ export function SailyLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/saily.png"
         alt="Saily"
-        width={250}
-        height={150}
-        className="h-22 sm:h-26 md:h-30 w-auto max-w-[200px] sm:max-w-[225px] object-contain"
+        width={230}
+        height={140}
+        className="h-17 sm:h-20 md:h-23 w-auto max-w-[170px] sm:max-w-[190px] object-contain"
         priority
       />
     </div>
@@ -86,9 +86,9 @@ export function TruScholarLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/truscholar.png"
         alt="TruScholar"
-        width={250}
-        height={135}
-        className="h-22 sm:h-26 md:h-30 w-auto max-w-[210px] sm:max-w-[235px] object-contain"
+        width={230}
+        height={125}
+        className="h-17 sm:h-20 md:h-23 w-auto max-w-[175px] sm:max-w-[195px] object-contain"
         priority
       />
     </div>
@@ -101,9 +101,9 @@ export function AlgoverseLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/algoverse.png"
         alt="ALGOVERSE"
-        width={240}
-        height={170}
-        className="h-22 sm:h-26 md:h-30 w-auto max-w-[190px] sm:max-w-[215px] object-contain"
+        width={220}
+        height={155}
+        className="h-17 sm:h-20 md:h-23 w-auto max-w-[160px] sm:max-w-[180px] object-contain"
         priority
       />
     </div>
@@ -116,9 +116,9 @@ export function CodeCraftersLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/codecrafters.png"
         alt="CodeCrafters"
-        width={260}
-        height={50}
-        className="h-12 sm:h-14 md:h-16 w-auto max-w-[220px] sm:max-w-[250px] object-contain"
+        width={240}
+        height={45}
+        className="h-10 sm:h-11 md:h-13 w-auto max-w-[190px] sm:max-w-[215px] object-contain"
         priority
       />
     </div>
@@ -131,9 +131,9 @@ export function SylusLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/sylus.png"
         alt="sylus"
-        width={260}
-        height={85}
-        className="h-16 sm:h-18 md:h-22 w-auto max-w-[210px] sm:max-w-[235px] object-contain"
+        width={240}
+        height={80}
+        className="h-13 sm:h-15 md:h-17 w-auto max-w-[175px] sm:max-w-[200px] object-contain"
         priority
       />
     </div>
@@ -146,9 +146,9 @@ export function SirayAiLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/siray.png"
         alt="Siray AI"
-        width={260}
-        height={70}
-        className="h-14 sm:h-16 md:h-20 w-auto max-w-[220px] sm:max-w-[245px] object-contain"
+        width={240}
+        height={65}
+        className="h-11 sm:h-13 md:h-15 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
         priority
       />
     </div>
@@ -161,9 +161,9 @@ export function ZulipLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/zulip.png"
         alt="ZULIP"
-        width={260}
-        height={70}
-        className="h-14 sm:h-16 md:h-20 w-auto max-w-[220px] sm:max-w-[245px] object-contain"
+        width={240}
+        height={65}
+        className="h-11 sm:h-13 md:h-15 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
         priority
       />
     </div>
@@ -176,9 +176,9 @@ export function TinComputerLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/tincomputer.png"
         alt="Tin Computer"
-        width={260}
-        height={90}
-        className="h-16 sm:h-18 md:h-22 w-auto max-w-[210px] sm:max-w-[235px] object-contain rounded-xs"
+        width={240}
+        height={80}
+        className="h-13 sm:h-15 md:h-17 w-auto max-w-[175px] sm:max-w-[200px] object-contain rounded-xs"
         priority
       />
     </div>
@@ -191,9 +191,9 @@ export function JulepLogo({ className = "" }: { className?: string }) {
       <Image
         src="/sponsors/julep.png"
         alt="julep"
-        width={250}
-        height={90}
-        className="h-16 sm:h-18 md:h-22 w-auto max-w-[200px] sm:max-w-[225px] object-contain"
+        width={230}
+        height={80}
+        className="h-13 sm:h-15 md:h-17 w-auto max-w-[170px] sm:max-w-[190px] object-contain"
         priority
       />
     </div>

@@ -159,7 +159,7 @@ export default function PartnersPageClient() {
                     return (
                       <div
                         key={`empty-${idx}`}
-                        className="h-44 sm:h-48 md:h-52 bg-[#E8EEF5] border-b border-r border-gray-200/70"
+                        className="h-36 sm:h-40 md:h-44 bg-[#E8EEF5] border-b border-r border-gray-200/70"
                         aria-hidden="true"
                       />
                     );
@@ -170,7 +170,7 @@ export default function PartnersPageClient() {
                   return (
                     <div
                       key={item.id}
-                      className="relative h-44 sm:h-48 md:h-52 p-4 sm:p-6 flex items-center justify-center border-b border-r border-gray-200/70 bg-white"
+                      className="relative h-36 sm:h-40 md:h-44 p-4 sm:p-6 flex items-center justify-center border-b border-r border-gray-200/70 bg-white"
                     >
                       {item.websiteUrl ? (
                         <a
