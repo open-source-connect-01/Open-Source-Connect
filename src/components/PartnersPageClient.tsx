@@ -11,7 +11,6 @@ import type { ActiveOverlay } from "@/components/Navbar";
 import {
   SPONSORS_LIST,
   COMMUNITY_PARTNERS_LIST,
-  SPONSORSHIP_TIERS,
 } from "@/data/sponsorsData";
 
 export default function PartnersPageClient() {
@@ -19,8 +18,7 @@ export default function PartnersPageClient() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"sponsors" | "community">("sponsors");
 
-  // Modals
-  const [isTiersModalOpen, setIsTiersModalOpen] = useState(false);
+  // Contact Modal
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [selectedTierForContact, setSelectedTierForContact] = useState<string>("");
   const [contactSubmitted, setContactSubmitted] = useState(false);
@@ -32,13 +30,6 @@ export default function PartnersPageClient() {
 
   const handleCloseOverlay = () => {
     setActiveOverlay(null);
-  };
-
-  const handleOpenContactWithTier = (tierName: string) => {
-    setSelectedTierForContact(tierName);
-    setIsTiersModalOpen(false);
-    setIsContactModalOpen(true);
-    setContactSubmitted(false);
   };
 
   const currentList = activeTab === "sponsors" ? SPONSORS_LIST : COMMUNITY_PARTNERS_LIST;
@@ -255,7 +246,10 @@ export default function PartnersPageClient() {
                   {/* Primary Amber Button: VIEW SPONSORSHIP TIERS */}
                   <button
                     type="button"
-                    onClick={() => setIsTiersModalOpen(true)}
+                    onClick={() => {
+                      setSelectedTierForContact("");
+                      setIsContactModalOpen(true);
+                    }}
                     className="cursor-pointer w-full py-3.5 px-6 bg-[#F59E0B] hover:bg-[#E58A13] text-[#071120] text-[11px] font-extrabold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-200 shadow-md text-center"
                   >
                     VIEW SPONSORSHIP TIERS
@@ -281,107 +275,6 @@ export default function PartnersPageClient() {
 
       {/* Footer Section */}
       <FooterSection hideTopSections={true} />
-
-      {/* ========================================================
-          SPONSORSHIP TIERS MODAL
-          ======================================================== */}
-      {isTiersModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-navy/60 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#0A1428] text-white rounded-lg shadow-2xl border border-slate-700/70 overflow-hidden flex flex-col">
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-slate-800 bg-[#070E1C]">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-2 h-2 bg-[#F59E0B] inline-block rounded-[1px]" />
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-[#F59E0B] uppercase">
-                    PARTNERSHIP OPPORTUNITIES
-                  </span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                  OSC Sponsorship Tiers
-                </h3>
-              </div>
-              <button
-                onClick={() => setIsTiersModalOpen(false)}
-                className="cursor-pointer p-2 text-slate-400 hover:text-white rounded-md transition-colors"
-                aria-label="Close modal"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Modal Body: Tiers Grid */}
-            <div className="p-6 overflow-y-auto space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {SPONSORSHIP_TIERS.map((tier) => (
-                  <div
-                    key={tier.name}
-                    className={`p-5 rounded-md border transition-all flex flex-col justify-between ${
-                      tier.popular
-                        ? "bg-[#0E1F40] border-[#F59E0B]/50 shadow-lg"
-                        : "bg-[#0B172E] border-slate-800"
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className={`text-xs font-bold px-2.5 py-1 rounded-[2px] border ${tier.badgeBg} ${tier.badgeColor}`}>
-                          {tier.name}
-                        </span>
-                        {tier.popular && (
-                          <span className="text-[10px] font-extrabold uppercase tracking-wider bg-[#F59E0B] text-black px-2 py-0.5 rounded-[2px]">
-                            Featured
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-slate-300 font-medium mb-4 leading-relaxed">
-                        {tier.tagline}
-                      </p>
-                      <div className="space-y-2 mb-6">
-                        {tier.perks.map((perk, i) => (
-                          <div key={i} className="flex items-start gap-2 text-xs text-slate-300 leading-snug">
-                            <span className="text-[#F59E0B] font-bold mt-0.5">✓</span>
-                            <span>{perk}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => handleOpenContactWithTier(tier.name)}
-                      className={`cursor-pointer w-full py-2.5 px-4 text-xs font-bold tracking-wider uppercase rounded-[2px] transition-colors text-center ${
-                        tier.popular
-                          ? "bg-[#F59E0B] hover:bg-[#E58A13] text-black"
-                          : "bg-slate-800 hover:bg-slate-700 text-white border border-slate-700"
-                      }`}
-                    >
-                      Inquire About {tier.name.split(" ")[0]}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="px-6 py-4 border-t border-slate-800 bg-[#070E1C] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
-              <span>Have custom sponsorship requirements?</span>
-              <button
-                type="button"
-                onClick={() => {
-                  setIsTiersModalOpen(false);
-                  setIsContactModalOpen(true);
-                }}
-                className="cursor-pointer text-[#F59E0B] hover:underline font-bold"
-              >
-                Talk directly with our Partnerships Team →
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* ========================================================
           CONTACT OUR TEAM MODAL
