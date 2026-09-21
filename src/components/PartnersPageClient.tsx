@@ -79,7 +79,7 @@ export default function PartnersPageClient() {
             HERO SECTION (SAME-TO-SAME AS REFERENCE)
             ======================================================== */}
         <section
-          className="relative w-full text-white pt-9 pb-10 sm:pt-14 sm:pb-5 lg:pt-16 lg:pb-6 overflow-hidden"
+          className="relative w-full text-white pt-9 pb-10 sm:pt-14 sm:pb-10 lg:pt-16 lg:pb-12 overflow-hidden"
           style={{
             background:
               "linear-gradient(135deg, #091B2F 0%, #0D2449 45%, #183578 80%, #1D3A85 100%)",
@@ -115,16 +115,16 @@ export default function PartnersPageClient() {
             </p>
 
             {/* Centered Segmented Pill Tabs */}
-            <div className="w-full flex justify-center">
-              <div className="inline-flex max-w-full items-center p-1 rounded-full bg-[#102046]/80 border border-[#233868]/80 backdrop-blur-md shadow-inner">
+            <div className="w-full flex justify-center mt-1 mb-1 sm:mb-2">
+              <div className="inline-flex max-w-full items-center p-1 sm:p-1.5 rounded-full bg-white/[0.08] border border-white/20 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
                 {/* Sponsors Tab */}
                 <button
                   type="button"
                   onClick={() => setActiveTab("sponsors")}
-                  className={`cursor-pointer px-6 sm:px-8 py-2 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition-all duration-200 whitespace-nowrap ${
+                  className={`cursor-pointer px-5 sm:px-7 py-1.5 sm:py-2 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition-all duration-300 whitespace-nowrap ${
                     activeTab === "sponsors"
-                      ? "bg-[#1D4CD1] text-white shadow-sm"
-                      : "text-[#8E9EB8] hover:text-white"
+                      ? "bg-[#1D4ED8] text-white shadow-[0_2px_14px_rgba(29,78,216,0.45)]"
+                      : "bg-transparent text-slate-300/80 hover:text-white font-medium"
                   }`}
                 >
                   Sponsors
@@ -134,10 +134,10 @@ export default function PartnersPageClient() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("community")}
-                  className={`cursor-pointer px-5 sm:px-7 py-2 rounded-full text-xs sm:text-[13px] font-medium tracking-wide transition-all duration-200 whitespace-nowrap ${
+                  className={`cursor-pointer px-5 sm:px-7 py-1.5 sm:py-2 rounded-full text-xs sm:text-[13px] font-semibold tracking-wide transition-all duration-300 whitespace-nowrap ${
                     activeTab === "community"
-                      ? "bg-[#1D4CD1] text-white shadow-sm font-semibold"
-                      : "text-[#8E9EB8] hover:text-white"
+                      ? "bg-[#1D4ED8] text-white shadow-[0_2px_14px_rgba(29,78,216,0.45)]"
+                      : "bg-transparent text-slate-300/80 hover:text-white font-medium"
                   }`}
                 >
                   Community Partners
@@ -238,15 +238,21 @@ export default function PartnersPageClient() {
                 </p>
 
                 {/* Bullets */}
-                <ul className="space-y-2.5 sm:space-y-3">
-                  <li className="flex items-start text-xs sm:text-[13.5px] text-slate-300 font-medium leading-normal">
-                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rounded-[1px] mr-2.5 sm:mr-3 mt-1.5 shrink-0" />
-                    <span>Brand visibility across all OSC platforms and events</span>
+                <ul className="space-y-3 sm:space-y-3.5">
+                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
+                    <span>Brand visibility across OSC platform, campaigns, and events</span>
                   </li>
-                  <li className="flex items-start text-xs sm:text-[13.5px] text-slate-300 font-medium leading-normal">
-                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rounded-[1px] mr-2.5 sm:mr-3 mt-1.5 shrink-0" />
-                    <span>Direct access to 15,000+ active open source contributors</span>
+                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
+                    <span>Reach 25,000+ active open source contributors and developers</span>
                   </li>
+                  
+                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
+                    <span>Showcase your products, tools, and opportunities to the community</span>
+                  </li>
+                  
                 </ul>
               </div>
 
