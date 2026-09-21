@@ -238,14 +238,26 @@ export default function PartnersPageClient() {
                 </p>
 
                 {/* Bullets */}
-                <ul className="space-y-2.5 sm:space-y-3">
-                  <li className="flex items-start text-xs sm:text-[13.5px] text-slate-300 font-medium leading-normal">
-                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rounded-[1px] mr-2.5 sm:mr-3 mt-1.5 shrink-0" />
-                    <span>Brand visibility across all OSC platforms and events</span>
+                <ul className="space-y-3 sm:space-y-3.5">
+                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
+                    <span>Brand visibility across OSC platform, campaigns, and events</span>
                   </li>
-                  <li className="flex items-start text-xs sm:text-[13.5px] text-slate-300 font-medium leading-normal">
-                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rounded-[1px] mr-2.5 sm:mr-3 mt-1.5 shrink-0" />
-                    <span>Direct access to 15,000+ active open source contributors</span>
+                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
+                    <span>Reach 25,000+ active open source contributors and developers</span>
+                  </li>
+                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
+                    <span>Connect with emerging developers, builders, and maintainers</span>
+                  </li>
+                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
+                    <span>Showcase your products, tools, and opportunities to the community</span>
+                  </li>
+                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
+                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
+                    <span>Support open source growth through meaningful community initiatives</span>
                   </li>
                 </ul>
               </div>
