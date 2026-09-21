@@ -247,18 +247,12 @@ export default function PartnersPageClient() {
                     <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
                     <span>Reach 25,000+ active open source contributors and developers</span>
                   </li>
-                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
-                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
-                    <span>Connect with emerging developers, builders, and maintainers</span>
-                  </li>
+                  
                   <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
                     <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
                     <span>Showcase your products, tools, and opportunities to the community</span>
                   </li>
-                  <li className="flex items-start text-[13px] sm:text-[14px] text-slate-300 font-medium leading-relaxed">
-                    <span className="w-1.5 h-1.5 bg-[#F59E0B] rotate-45 mr-3 sm:mr-3.5 mt-2 shrink-0" />
-                    <span>Support open source growth through meaningful community initiatives</span>
-                  </li>
+                  
                 </ul>
               </div>
 
