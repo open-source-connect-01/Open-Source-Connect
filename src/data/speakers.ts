@@ -162,6 +162,24 @@ export const teamMembers: SpeakerMember[] = [
     sessionTopic: "My learning from the community: No one is an island",
     tags: ["Software Engineering", "Quality Engineering", "Leadership Strategy", "Career Coaching"],
   },
+  {
+    name: "Sergey Drymchenko",
+    slug: "sergey-drymchenko",
+    linkedinUrl: "https://www.linkedin.com/in/sergeydrimchenko/",
+    eventTag: "OSC GLOBAL 2026",
+    eventLink: "/Feb/2026",
+    cardRole: "Senior Android Developer",
+    role: "Senior Android Developer",
+    org: "Aiphoria",
+    badge: "Keynote Speaker",
+    photo: "/leaders/sergey_drymchenko.png",
+    bioParagraphs: [
+      "Sergey Drymchenko is a Senior Android Developer and technical author specializing in Kotlin Multiplatform, Jetpack Compose, and mobile AI. He is the creator of Cascade Editor, an open-source rich text framework for Android, iOS, and Desktop.",
+      "His work focuses on modern mobile architecture, open-source development, performance optimization, and building high-performance, production-ready applications.",
+    ],
+    sessionTopic: "Your next user is a coding agent: designing open-source APIs LLMs can use",
+    tags: ["Kotlin Multiplatform", "Jetpack Compose", "Mobile AI", "Open Source Architecture"],
+  },
 ];
 
 export function getSpeakerBySlug(slug: string) {

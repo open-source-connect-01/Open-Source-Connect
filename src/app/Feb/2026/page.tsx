@@ -37,6 +37,7 @@ const eventData: EventLandingData = {
     { name: "Kateryna Tertiienko", role: "Technical Lead", photo: "/leaders/kateryna_tertiienko.png" },
     { name: "Dishant Gandhi", role: "AI/ML Consultant & Public Speaker", photo: "/leaders/dishant_gandhi_v3.png" },
     { name: "Nithin S.S", role: "Founder & Leadership Strategist", photo: "/leaders/nithin_ss.jpg" },
+    { name: "Sergey Drymchenko", role: "Senior Android Developer", photo: "/leaders/sergey_drymchenko.png" },
   ],
   scheduleTag: "Opening Summit",
   scheduleTitle: "Schedule 2025",

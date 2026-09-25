@@ -22,6 +22,67 @@ export default function ResearchLeadershipSection({
   const [mentorNotifyEmail, setMentorNotifyEmail] = useState("");
   const [isMentorNotified, setIsMentorNotified] = useState(false);
   const [internalProfile, setInternalProfile] = useState<ProfileData | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const ITEMS_PER_PAGE = 8;
+
+  const filteredSpeakers = teamMembers.filter((member) => {
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return true;
+    return (
+      member.name.toLowerCase().includes(q) ||
+      (member.role && member.role.toLowerCase().includes(q)) ||
+      (member.cardRole && member.cardRole.toLowerCase().includes(q)) ||
+      (member.org && member.org.toLowerCase().includes(q)) ||
+      (member.sessionTopic &&
+        (typeof member.sessionTopic === "string"
+          ? member.sessionTopic.toLowerCase().includes(q)
+          : member.sessionTopic.title.toLowerCase().includes(q) ||
+            Boolean(member.sessionTopic.description?.toLowerCase().includes(q)))) ||
+      (member.tags && member.tags.some((t) => t.toLowerCase().includes(q))) ||
+      (member.eventTag && member.eventTag.toLowerCase().includes(q)) ||
+      (member.bioParagraphs && member.bioParagraphs.some((p) => p.toLowerCase().includes(q)))
+    );
+  });
+
+  const totalCount = filteredSpeakers.length;
+  // Allow at least 2 pages when not searching so users can navigate to the next page of speakers
+  const totalPages = searchQuery.trim()
+    ? Math.max(1, Math.ceil(totalCount / ITEMS_PER_PAGE))
+    : Math.max(2, Math.ceil(totalCount / ITEMS_PER_PAGE));
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const paginatedSpeakers = filteredSpeakers.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  const getPageNumbers = (current: number, total: number) => {
+    if (total <= 5) {
+      return Array.from({ length: total }, (_, i) => i + 1);
+    }
+    if (current <= 3) {
+      return [1, 2, 3, 4, 5];
+    }
+    if (current >= total - 2) {
+      return [total - 4, total - 3, total - 2, total - 1, total];
+    }
+    return [current - 2, current - 1, current, current + 1, current + 2];
+  };
+
+  const pageNumbers = getPageNumbers(currentPage, totalPages);
+
+  const handlePageChange = (newPage: number) => {
+    if (newPage < 1 || newPage > totalPages || newPage === currentPage) return;
+    setCurrentPage(newPage);
+    const element = document.getElementById("research-leadership");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
 
   // Use external state (from AboutOverlay) if provided, otherwise internal
   const selectedProfile =
@@ -48,106 +109,320 @@ export default function ResearchLeadershipSection({
             </p>
           </div>
 
-          {/* Tab Toggle */}
-          <div className="flex items-center gap-2 mb-6 sm:mb-8">
-            <button
-              onClick={() => setActiveTab("speakers")}
-              className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
-                activeTab === "speakers"
-                  ? "bg-[#0F172A] text-white"
-                  : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
-              }`}
-            >
-              SPEAKERS
-            </button>
-            <button
-              onClick={() => setActiveTab("mentors")}
-              className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
-                activeTab === "mentors"
-                  ? "bg-[#0F172A] text-white"
-                  : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
-              }`}
-            >
-              MENTORS
-            </button>
+          {/* Controls Bar: Tab Toggle + Search */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
+            {/* Tab Toggle */}
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={() => {
+                  setActiveTab("speakers");
+                  setCurrentPage(1);
+                }}
+                className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
+                  activeTab === "speakers"
+                    ? "bg-[#0F172A] text-white"
+                    : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
+                }`}
+              >
+                SPEAKERS
+              </button>
+              <button
+                onClick={() => {
+                  setActiveTab("mentors");
+                  setCurrentPage(1);
+                }}
+                className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
+                  activeTab === "mentors"
+                    ? "bg-[#0F172A] text-white"
+                    : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
+                }`}
+              >
+                MENTORS
+              </button>
+            </div>
+
+            {/* Search Input */}
+            {activeTab === "speakers" && (
+              <div className="relative w-full sm:w-72 md:w-80">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => handleSearchChange(e.target.value)}
+                  placeholder="Search speakers by name, role, org..."
+                  className="w-full pl-9 pr-8 py-2 text-xs sm:text-[13px] bg-slate-50/70 border border-slate-200 rounded-[2px] text-slate-900 placeholder-slate-400 outline-none focus:border-[#2563EB] focus:bg-white transition-all shadow-2xs"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => handleSearchChange("")}
+                    className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+                    aria-label="Clear search query"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+            )}
           </div>
+
+          {/* Active Search Result Summary */}
+          {activeTab === "speakers" && searchQuery.trim() && (
+            <div className="flex items-center justify-between text-xs text-slate-500 mb-4 px-0.5">
+              <span>
+                Showing <span className="font-semibold text-slate-900">{filteredSpeakers.length}</span> {filteredSpeakers.length === 1 ? "speaker" : "speakers"} matching &quot;<span className="font-semibold text-slate-900">{searchQuery}</span>&quot;
+              </span>
+              <button
+                type="button"
+                onClick={() => handleSearchChange("")}
+                className="text-[#2563EB] hover:underline font-semibold cursor-pointer"
+              >
+                Clear filter
+              </button>
+            </div>
+          )}
 
           {/* 2-Column Mobile / 4-Column Desktop Leadership Team Grid */}
           {activeTab === "speakers" ? (
-            <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-              {teamMembers.map((member) => (
-                <div
-                  key={member.name}
-                  onClick={() =>
-                    onProfileSelect({
-                      name: member.name,
-                      role: member.role,
-                      org: member.org,
-                      badge: member.badge,
-                      photo: member.photo,
-                      bioParagraphs: member.bioParagraphs,
-                      tags: member.tags,
-                      sessionTopic: member.sessionTopic,
-                      slug: member.slug || getSpeakerSlug(member.name),
-                      linkedinUrl: member.linkedinUrl,
-                    })
-                  }
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      onProfileSelect({
-                        name: member.name,
-                        role: member.role,
-                        org: member.org,
-                        badge: member.badge,
-                        photo: member.photo,
-                        bioParagraphs: member.bioParagraphs,
-                        tags: member.tags,
-                        sessionTopic: member.sessionTopic,
-                        slug: member.slug || getSpeakerSlug(member.name),
-                        linkedinUrl: member.linkedinUrl,
-                      });
-                    }
-                  }}
-                  className="flex flex-col group overflow-hidden bg-[#0A1835] text-left cursor-pointer border-0 outline-none ring-0 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-blue-500"
+            filteredSpeakers.length === 0 ? (
+              <div className="max-w-[1240px] mx-auto py-12 sm:py-16 px-4 text-center border border-dashed border-slate-200 rounded-[2px] bg-slate-50/50">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-[#0B0F1A]">No speakers found</h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-sm mx-auto">
+                  No speakers matched your search for &quot;<span className="font-semibold text-slate-700">{searchQuery}</span>&quot;. Try searching with a different name, role, company, or topic.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => handleSearchChange("")}
+                  className="mt-4 px-5 py-2.5 bg-[#0F172A] hover:bg-slate-800 text-white text-xs font-extrabold tracking-[0.12em] uppercase rounded-[2px] transition-colors cursor-pointer"
                 >
-                  {/* Full Photo container */}
-                  <div className="relative aspect-[4/4.8] w-full bg-[#E2E8F0] overflow-hidden">
-                    <Image
-                      src={member.photo}
-                      alt={member.name}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                    />
+                  Clear Search
+                </button>
+              </div>
+            ) : (
+              <>
+                {paginatedSpeakers.length > 0 ? (
+                  <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+                    {paginatedSpeakers.map((member) => (
+                      <div
+                        key={member.name}
+                        onClick={() =>
+                          onProfileSelect({
+                            name: member.name,
+                            role: member.role,
+                            org: member.org,
+                            badge: member.badge,
+                            photo: member.photo,
+                            bioParagraphs: member.bioParagraphs,
+                            tags: member.tags,
+                            sessionTopic: member.sessionTopic,
+                            slug: member.slug || getSpeakerSlug(member.name),
+                            linkedinUrl: member.linkedinUrl,
+                          })
+                        }
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            onProfileSelect({
+                              name: member.name,
+                              role: member.role,
+                              org: member.org,
+                              badge: member.badge,
+                              photo: member.photo,
+                              bioParagraphs: member.bioParagraphs,
+                              tags: member.tags,
+                              sessionTopic: member.sessionTopic,
+                              slug: member.slug || getSpeakerSlug(member.name),
+                              linkedinUrl: member.linkedinUrl,
+                            });
+                          }
+                        }}
+                        className="flex flex-col group overflow-hidden bg-[#0A1835] text-left cursor-pointer border-0 outline-none ring-0 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-blue-500"
+                      >
+                        {/* Full Photo container */}
+                        <div className="relative aspect-[4/4.8] w-full bg-[#E2E8F0] overflow-hidden">
+                          <Image
+                            src={member.photo}
+                            alt={member.name}
+                            fill
+                            className="object-cover object-top"
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                          />
+                        </div>
+
+                        {/* Blue Caption Section below photo */}
+                        <div className="bg-[#0A1835] px-3 sm:px-4 py-2.5 sm:py-3.5 flex flex-col justify-center w-full">
+                          {/* Event Tag */}
+                          <Link
+                            href={member.eventLink || "/Feb/2026"}
+                            onClick={(e) => e.stopPropagation()}
+                            className="group/tag inline-flex items-center gap-1 sm:gap-1.5 mb-1 sm:mb-1.5 w-fit z-10 cursor-pointer"
+                          >
+                            <span className="w-[2px] h-[9px] sm:h-[10px] bg-[#2563EB] group-hover/tag:bg-[#60A5FA] shrink-0 inline-block transition-colors" />
+                            <span className="text-[9px] sm:text-[10px] font-bold text-[#60A5FA] group-hover/tag:text-[#93C5FD] group-hover/tag:underline tracking-[0.06em] uppercase leading-none truncate transition-colors">
+                              {member.eventTag || "OSC GLOBAL 2026"}
+                            </span>
+                          </Link>
+
+                          <span className="text-[12.5px] sm:text-[14px] font-bold text-white tracking-normal leading-tight truncate">
+                            {member.name}
+                          </span>
+                          <span className="text-[10px] sm:text-[11px] font-medium text-[#94A3B8] tracking-normal mt-0.5 sm:mt-1 leading-snug truncate">
+                            {member.cardRole}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  /* Next Page Placeholder (when more speakers are being added) */
+                  <div className="max-w-[1240px] mx-auto py-14 sm:py-18 px-4 text-center border border-dashed border-slate-200 rounded-[2px] bg-slate-50/50">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-blue-50 text-[#2563EB] flex items-center justify-center">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      </svg>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-[#0B0F1A]">More Speakers Coming Soon</h3>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-md mx-auto">
+                      We are currently onboarding additional community experts. As new speakers are added to <span className="font-semibold text-slate-700">speakers.ts</span>, they will automatically appear here (8 speakers per page).
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => handlePageChange(1)}
+                      className="mt-4 px-5 py-2.5 bg-[#0F172A] hover:bg-slate-800 text-white text-xs font-extrabold tracking-[0.12em] uppercase rounded-[2px] transition-colors cursor-pointer"
+                    >
+                      Back to Page 1
+                    </button>
+                  </div>
+                )}
+
+                {/* Pagination Controls below 8 speakers */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 sm:pt-10 mt-8 sm:mt-10 border-t border-slate-100">
+                  <div className="text-xs sm:text-[13px] text-slate-500 font-medium text-center sm:text-left">
+                    Showing{" "}
+                    <span className="font-bold text-slate-800">
+                      {paginatedSpeakers.length > 0 ? startIndex + 1 : 0}–{startIndex + paginatedSpeakers.length}
+                    </span>{" "}
+                    of{" "}
+                    <span className="font-bold text-slate-800">{totalCount}</span>{" "}
+                    speakers
+                    {totalPages > 1 && (
+                      <span className="ml-1 text-slate-400">
+                        (Page {currentPage} of {totalPages})
+                      </span>
+                    )}
                   </div>
 
-                  {/* Blue Caption Section below photo */}
-                  <div className="bg-[#0A1835] px-3 sm:px-4 py-2.5 sm:py-3.5 flex flex-col justify-center w-full">
-                    {/* Event Tag */}
-                    <Link
-                      href={member.eventLink || "/Feb/2026"}
-                      onClick={(e) => e.stopPropagation()}
-                      className="group/tag inline-flex items-center gap-1 sm:gap-1.5 mb-1 sm:mb-1.5 w-fit z-10 cursor-pointer"
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    {/* Previous Button */}
+                    <button
+                      type="button"
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="inline-flex items-center gap-1 px-3 sm:px-3.5 py-2 text-xs font-bold uppercase tracking-wider rounded-[2px] transition-colors cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed bg-[#F1F5F9] text-[#334155] hover:bg-slate-200 disabled:hover:bg-[#F1F5F9] disabled:hover:text-[#334155]"
+                      aria-label="Previous page"
                     >
-                      <span className="w-[2px] h-[9px] sm:h-[10px] bg-[#2563EB] group-hover/tag:bg-[#60A5FA] shrink-0 inline-block transition-colors" />
-                      <span className="text-[9px] sm:text-[10px] font-bold text-[#60A5FA] group-hover/tag:text-[#93C5FD] group-hover/tag:underline tracking-[0.06em] uppercase leading-none truncate transition-colors">
-                        {member.eventTag || "OSC GLOBAL 2026"}
-                      </span>
-                    </Link>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                      <span className="hidden sm:inline">Prev</span>
+                    </button>
 
-                    <span className="text-[12.5px] sm:text-[14px] font-bold text-white tracking-normal leading-tight truncate">
-                      {member.name}
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-medium text-[#94A3B8] tracking-normal mt-0.5 sm:mt-1 leading-snug truncate">
-                      {member.cardRole}
-                    </span>
+                    {/* Page Numbers */}
+                    {pageNumbers.map((page) => (
+                      <button
+                        key={page}
+                        type="button"
+                        onClick={() => handlePageChange(page)}
+                        className={`min-w-[36px] h-9 px-2 text-xs font-extrabold rounded-[2px] transition-colors cursor-pointer ${
+                          currentPage === page
+                            ? "bg-[#0F172A] text-white shadow-xs"
+                            : "bg-[#F1F5F9] text-[#334155] hover:bg-slate-200"
+                        }`}
+                        aria-label={`Page ${page}`}
+                        aria-current={currentPage === page ? "page" : undefined}
+                      >
+                        {page}
+                      </button>
+                    ))}
+
+                    {/* Next Button */}
+                    <button
+                      type="button"
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="inline-flex items-center gap-1 px-3 sm:px-3.5 py-2 text-xs font-bold uppercase tracking-wider rounded-[2px] transition-colors cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed bg-[#F1F5F9] text-[#334155] hover:bg-slate-200 disabled:hover:bg-[#F1F5F9] disabled:hover:text-[#334155]"
+                      aria-label="Next page"
+                    >
+                      <span className="hidden sm:inline">Next</span>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
-              ))}
-            </div>
+              </>
+            )
           ) : (
             /* ===== COMING SOON / UNDER DEVELOPMENT STATE FOR MENTORS ===== */
             <div className="max-w-[720px] mx-auto py-12 sm:py-16 text-center flex flex-col items-center">

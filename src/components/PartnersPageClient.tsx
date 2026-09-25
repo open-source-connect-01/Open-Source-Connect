@@ -49,7 +49,7 @@ export default function PartnersPageClient() {
           onMobileNavClick={handleNavClick}
           isMobileMenuOpen={isMobileMenuOpen}
           onMobileMenuToggle={() => setIsMobileMenuOpen((prev) => !prev)}
-          ctaText="JOIN US"
+          ctaText="DONATE US"
         />
       </header>
 
