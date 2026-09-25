@@ -22,6 +22,26 @@ export default function ResearchLeadershipSection({
   const [mentorNotifyEmail, setMentorNotifyEmail] = useState("");
   const [isMentorNotified, setIsMentorNotified] = useState(false);
   const [internalProfile, setInternalProfile] = useState<ProfileData | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredSpeakers = teamMembers.filter((member) => {
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return true;
+    return (
+      member.name.toLowerCase().includes(q) ||
+      (member.role && member.role.toLowerCase().includes(q)) ||
+      (member.cardRole && member.cardRole.toLowerCase().includes(q)) ||
+      (member.org && member.org.toLowerCase().includes(q)) ||
+      (member.sessionTopic &&
+        (typeof member.sessionTopic === "string"
+          ? member.sessionTopic.toLowerCase().includes(q)
+          : member.sessionTopic.title.toLowerCase().includes(q) ||
+            Boolean(member.sessionTopic.description?.toLowerCase().includes(q)))) ||
+      (member.tags && member.tags.some((t) => t.toLowerCase().includes(q))) ||
+      (member.eventTag && member.eventTag.toLowerCase().includes(q)) ||
+      (member.bioParagraphs && member.bioParagraphs.some((p) => p.toLowerCase().includes(q)))
+    );
+  });
 
   // Use external state (from AboutOverlay) if provided, otherwise internal
   const selectedProfile =
@@ -48,34 +68,104 @@ export default function ResearchLeadershipSection({
             </p>
           </div>
 
-          {/* Tab Toggle */}
-          <div className="flex items-center gap-2 mb-6 sm:mb-8">
-            <button
-              onClick={() => setActiveTab("speakers")}
-              className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
-                activeTab === "speakers"
-                  ? "bg-[#0F172A] text-white"
-                  : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
-              }`}
-            >
-              SPEAKERS
-            </button>
-            <button
-              onClick={() => setActiveTab("mentors")}
-              className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
-                activeTab === "mentors"
-                  ? "bg-[#0F172A] text-white"
-                  : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
-              }`}
-            >
-              MENTORS
-            </button>
+          {/* Controls Bar: Tab Toggle + Search */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
+            {/* Tab Toggle */}
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={() => setActiveTab("speakers")}
+                className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
+                  activeTab === "speakers"
+                    ? "bg-[#0F172A] text-white"
+                    : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
+                }`}
+              >
+                SPEAKERS
+              </button>
+              <button
+                onClick={() => setActiveTab("mentors")}
+                className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
+                  activeTab === "mentors"
+                    ? "bg-[#0F172A] text-white"
+                    : "bg-[#F1F5F9] text-[#475569] hover:bg-slate-200"
+                }`}
+              >
+                MENTORS
+              </button>
+            </div>
+
+            {/* Search Input */}
+            {activeTab === "speakers" && (
+              <div className="relative w-full sm:w-72 md:w-80">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search speakers by name, role, org..."
+                  className="w-full pl-9 pr-8 py-2 text-xs sm:text-[13px] bg-slate-50/70 border border-slate-200 rounded-[2px] text-slate-900 placeholder-slate-400 outline-none focus:border-[#2563EB] focus:bg-white transition-all shadow-2xs"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery("")}
+                    className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+                    aria-label="Clear search query"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+            )}
           </div>
+
+          {/* Active Search Result Summary */}
+          {activeTab === "speakers" && searchQuery.trim() && (
+            <div className="flex items-center justify-between text-xs text-slate-500 mb-4 px-0.5">
+              <span>
+                Showing <span className="font-semibold text-slate-900">{filteredSpeakers.length}</span> {filteredSpeakers.length === 1 ? "speaker" : "speakers"} matching &quot;<span className="font-semibold text-slate-900">{searchQuery}</span>&quot;
+              </span>
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="text-[#2563EB] hover:underline font-semibold cursor-pointer"
+              >
+                Clear filter
+              </button>
+            </div>
+          )}
 
           {/* 2-Column Mobile / 4-Column Desktop Leadership Team Grid */}
           {activeTab === "speakers" ? (
-            <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-              {teamMembers.map((member) => (
+            filteredSpeakers.length > 0 ? (
+              <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+                {filteredSpeakers.map((member) => (
                 <div
                   key={member.name}
                   onClick={() =>
@@ -147,7 +237,37 @@ export default function ResearchLeadershipSection({
                   </div>
                 </div>
               ))}
-            </div>
+              </div>
+            ) : (
+              <div className="max-w-[1240px] mx-auto py-12 sm:py-16 px-4 text-center border border-dashed border-slate-200 rounded-[2px] bg-slate-50/50">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-[#0B0F1A]">No speakers found</h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-sm mx-auto">
+                  No speakers matched your search for &quot;<span className="font-semibold text-slate-700">{searchQuery}</span>&quot;. Try searching with a different name, role, company, or topic.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="mt-4 px-5 py-2.5 bg-[#0F172A] hover:bg-slate-800 text-white text-xs font-extrabold tracking-[0.12em] uppercase rounded-[2px] transition-colors cursor-pointer"
+                >
+                  Clear Search
+                </button>
+              </div>
+            )
           ) : (
             /* ===== COMING SOON / UNDER DEVELOPMENT STATE FOR MENTORS ===== */
             <div className="max-w-[720px] mx-auto py-12 sm:py-16 text-center flex flex-col items-center">
