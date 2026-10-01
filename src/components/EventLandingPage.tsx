@@ -256,10 +256,10 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
                     key={i}
                     className="flex items-start sm:items-center gap-3 sm:gap-8 py-4 sm:py-5 border-b border-gray-100"
                   >
-                    <div className="w-[68px] sm:w-[92px] shrink-0 text-left">
-                      <div className="text-[9.5px] sm:text-[11px] text-slate-400 font-medium">{item.time}</div>
-                      <div className="text-[13px] sm:text-[15px] font-extrabold text-navy leading-tight">{item.date}</div>
-                      <div className="text-[9.5px] sm:text-[11px] text-slate-400">{item.weekday}</div>
+                    <div className="w-[84px] sm:w-[110px] shrink-0 text-left">
+                      <div className="text-[9.5px] sm:text-[11px] text-slate-400 font-medium whitespace-nowrap">{item.time}</div>
+                      <div className="text-[13px] sm:text-[15px] font-extrabold text-navy leading-tight whitespace-nowrap">{item.date}</div>
+                      <div className="text-[9.5px] sm:text-[11px] text-slate-400 whitespace-nowrap">{item.weekday}</div>
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4">
                       <h4 className="text-[13px] sm:text-[15px] font-bold text-navy leading-snug">
