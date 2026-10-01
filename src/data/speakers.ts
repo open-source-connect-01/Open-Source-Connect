@@ -121,11 +121,8 @@ export const teamMembers: SpeakerMember[] = [
       "Kateryna Tertiienko is a technology leader and self-learner with around 20 years of experience across software engineering, diverse products, and engineering cultures in Ukraine, South Africa, and the UK.",
       "Her work focuses on technology leadership, software engineering, and building effective teams, with experience across multiple programming languages and frameworks.",
     ],
-    sessionTopic: {
-      title: "Engineering Culture & Technical Leadership Across Distributed Teams",
-      description: "Strategies for leading high-performing engineering teams, navigating architectural challenges, and cultivating learning cultures in modern tech organizations.",
-    },
-    tags: ["Technology Leadership", "Software Engineering", "Team Building", "Engineering Culture"],
+    sessionTopic: "Owning production: why engineers should embrace operations and on-call as part of product development",
+    tags: ["Technology Leadership", "Software Engineering", "Team Building", "Operations"],
   },
   {
     name: "Dishant Gandhi",
