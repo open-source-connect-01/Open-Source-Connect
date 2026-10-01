@@ -283,13 +283,21 @@ export default function ResearchLeadershipSection({
                       >
                         {/* Full Photo container */}
                         <div className="relative aspect-[4/4.8] w-full bg-[#E2E8F0] overflow-hidden">
-                          <Image
-                            src={member.photo}
-                            alt={member.name}
-                            fill
-                            className="object-cover object-top"
-                            sizes="(max-width: 768px) 50vw, 25vw"
-                          />
+                          {member.photo ? (
+                            <Image
+                              src={member.photo}
+                              alt={member.name}
+                              fill
+                              className="object-cover object-top"
+                              sizes="(max-width: 768px) 50vw, 25vw"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center">
+                              <span className="text-white font-bold text-2xl sm:text-3xl tracking-wide">
+                                {member.name.split(/\s+/).filter(Boolean).map((w) => w[0]).slice(0, 2).join("").toUpperCase()}
+                              </span>
+                            </div>
+                          )}
                         </div>
 
                         {/* Blue Caption Section below photo */}

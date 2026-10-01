@@ -204,13 +204,21 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
                   className="flex flex-col overflow-hidden bg-[#0A1835] text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-lg rounded-[2px]"
                 >
                   <div className="relative aspect-[4/4.8] w-full bg-[#E2E8F0] overflow-hidden">
-                    <Image
-                      src={speaker.photo}
-                      alt={speaker.name}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                    />
+                    {speaker.photo ? (
+                      <Image
+                        src={speaker.photo}
+                        alt={speaker.name}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center">
+                        <span className="text-white font-bold text-xl sm:text-2xl tracking-wide">
+                          {speaker.name.split(/\s+/).filter(Boolean).map((w) => w[0]).slice(0, 2).join("").toUpperCase()}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="bg-[#0A1835] px-3 sm:px-4 py-2.5 sm:py-3.5 flex flex-col justify-center w-full">
@@ -256,10 +264,10 @@ export default function EventLandingPage({ data }: { data: EventLandingData }) {
                     key={i}
                     className="flex items-start sm:items-center gap-3 sm:gap-8 py-4 sm:py-5 border-b border-gray-100"
                   >
-                    <div className="w-[68px] sm:w-[92px] shrink-0 text-left">
-                      <div className="text-[9.5px] sm:text-[11px] text-slate-400 font-medium">{item.time}</div>
-                      <div className="text-[13px] sm:text-[15px] font-extrabold text-navy leading-tight">{item.date}</div>
-                      <div className="text-[9.5px] sm:text-[11px] text-slate-400">{item.weekday}</div>
+                    <div className="w-[84px] sm:w-[110px] shrink-0 text-left">
+                      <div className="text-[9.5px] sm:text-[11px] text-slate-400 font-medium whitespace-nowrap">{item.time}</div>
+                      <div className="text-[13px] sm:text-[15px] font-extrabold text-navy leading-tight whitespace-nowrap">{item.date}</div>
+                      <div className="text-[9.5px] sm:text-[11px] text-slate-400 whitespace-nowrap">{item.weekday}</div>
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4">
                       <h4 className="text-[13px] sm:text-[15px] font-bold text-navy leading-snug">
