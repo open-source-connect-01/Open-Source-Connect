@@ -73,6 +73,7 @@ export const teamMembers: SpeakerMember[] = [
   {
     name: "Ekaterina Maevskaia",
     slug: "ekaterina-maevskaia",
+    linkedinUrl: "https://www.linkedin.com/in/katia-maevskaia/",
     eventTag: "OSC GLOBAL 2026",
     eventLink: "/Feb/2026",
     cardRole: "Revenue Growth Leader",
