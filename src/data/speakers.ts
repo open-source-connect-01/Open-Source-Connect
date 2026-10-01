@@ -178,6 +178,42 @@ export const teamMembers: SpeakerMember[] = [
     sessionTopic: "Your next user is a coding agent: designing open-source APIs LLMs can use",
     tags: ["Kotlin Multiplatform", "Jetpack Compose", "Mobile AI", "Open Source Architecture"],
   },
+  {
+    name: "Muhammad Tahir Jilani",
+    slug: "muhammad-tahir-jilani",
+    linkedinUrl: "https://www.linkedin.com/in/tahir-jilani-5ab93430/",
+    eventTag: "OSC GLOBAL 2026",
+    eventLink: "/Feb/2026",
+    cardRole: "Technical Lead",
+    role: "Technical Lead",
+    org: "Callsign",
+    badge: "Keynote Speaker",
+    photo: "",
+    bioParagraphs: [
+      "Muhammad Tahir Jilani is a Mobile Technical Lead with over 18 years of experience across mobile engineering, security, identity, and SDK architecture. He has also co founded technology products such as Imagitor one financial institutions worldwide, with a focus on secure and scalable mobile technologies.",
+      "His work focuses on mobile security, including RASP, behavioral biometrics, secure authentication, and SDK architecture. He has also co founded technology products such as Imagitor, which surpassed 1 million downloads.",
+    ],
+    sessionTopic: "Lessons from building and contributing to mobile SDKs: API design, compatibility and developer experience",
+    tags: ["Mobile Engineering", "Mobile Security", "SDK Architecture", "Identity & Biometrics"],
+  },
+  {
+    name: "Mayank Sehgal",
+    slug: "mayank-sehgal",
+    linkedinUrl: "https://www.linkedin.com/in/mayank-sehgal/",
+    eventTag: "OSC GLOBAL 2026",
+    eventLink: "/Feb/2026",
+    cardRole: "Senior Product Manager",
+    role: "Senior Product Manager",
+    org: "Port Global Ltd",
+    badge: "Keynote Speaker",
+    photo: "",
+    bioParagraphs: [
+      "Mayank Sehgal is a senior product manager with 7+ years of experience building AI products across hardware, robotics, IoT, and connected mobility. His work spans autonomous vehicles, industrial safety, and urban logistics, with a focus on turning complex technology into products that deliver measurable real world impact.",
+      "At Monarch Tractor, he drove a 30% increase in autonomy adoption while reducing connectivity drops by 40% and onboarding time by 60%. He currently leads core product infrastructure at Port Global Ltd, building connected electric mobility solutions for cities.",
+    ],
+    sessionTopic: "Start open, graduate deliberately: building physical AI products on open source models",
+    tags: ["Product Management", "Physical AI", "Robotics & IoT", "Connected Mobility"],
+  },
 ];
 
 export function getSpeakerBySlug(slug: string) {

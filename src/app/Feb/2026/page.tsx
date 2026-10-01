@@ -38,6 +38,8 @@ const eventData: EventLandingData = {
     { name: "Dishant Gandhi", role: "AI/ML Consultant & Public Speaker", photo: "/leaders/dishant_gandhi_v3.png" },
     { name: "Nithin S.S", role: "Founder & Leadership Strategist", photo: "/leaders/nithin_ss.jpg" },
     { name: "Sergey Drymchenko", role: "Senior Android Developer", photo: "/leaders/sergey_drymchenko.png" },
+    { name: "Muhammad Tahir Jilani", role: "Technical Lead", photo: "" },
+    { name: "Mayank Sehgal", role: "Senior Product Manager", photo: "" },
   ],
   scheduleTag: "Opening Summit",
   scheduleTitle: "Schedule 2025 - 2026",
