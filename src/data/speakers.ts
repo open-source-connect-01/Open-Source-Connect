@@ -188,7 +188,7 @@ export const teamMembers: SpeakerMember[] = [
     role: "Technical Lead",
     org: "Callsign",
     badge: "Keynote Speaker",
-    photo: "",
+    photo: "/leaders/muhammad_tahir_jilani.png",
     bioParagraphs: [
       "Muhammad Tahir Jilani is a Mobile Technical Lead with over 18 years of experience across mobile engineering, security, identity, and SDK architecture. He has also co founded technology products such as Imagitor one financial institutions worldwide, with a focus on secure and scalable mobile technologies.",
       "His work focuses on mobile security, including RASP, behavioral biometrics, secure authentication, and SDK architecture. He has also co founded technology products such as Imagitor, which surpassed 1 million downloads.",

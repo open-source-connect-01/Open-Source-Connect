@@ -38,7 +38,7 @@ const eventData: EventLandingData = {
     { name: "Dishant Gandhi", role: "AI/ML Consultant & Public Speaker", photo: "/leaders/dishant_gandhi_v3.png" },
     { name: "Nithin S.S", role: "Founder & Leadership Strategist", photo: "/leaders/nithin_ss.jpg" },
     { name: "Sergey Drymchenko", role: "Senior Android Developer", photo: "/leaders/sergey_drymchenko.png" },
-    { name: "Muhammad Tahir Jilani", role: "Technical Lead", photo: "" },
+    { name: "Muhammad Tahir Jilani", role: "Technical Lead", photo: "/leaders/muhammad_tahir_jilani.png" },
     { name: "Mayank Sehgal", role: "Senior Product Manager", photo: "/leaders/mayank_sehgal.png" },
   ],
   scheduleTag: "Opening Summit",
