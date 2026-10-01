@@ -342,3 +342,5 @@ export const SPONSORS_LIST: SponsorItem[] = [
 
 // Community partners list (empty)
 export const COMMUNITY_PARTNERS_LIST: SponsorItem[] = [];
+
+
