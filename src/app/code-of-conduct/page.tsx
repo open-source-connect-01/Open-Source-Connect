@@ -19,6 +19,8 @@ const contentsList = [
   { id: "attribution", label: "Attribution" },
 ];
 
+
+
 export default function CodeOfConductPage() {
   const [activeOverlay, setActiveOverlay] = useState<ActiveOverlay | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
