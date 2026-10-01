@@ -206,7 +206,7 @@ export const teamMembers: SpeakerMember[] = [
     role: "Senior Product Manager",
     org: "Port Global Ltd",
     badge: "Keynote Speaker",
-    photo: "",
+    photo: "/leaders/mayank_sehgal.png",
     bioParagraphs: [
       "Mayank Sehgal is a senior product manager with 7+ years of experience building AI products across hardware, robotics, IoT, and connected mobility. His work spans autonomous vehicles, industrial safety, and urban logistics, with a focus on turning complex technology into products that deliver measurable real world impact.",
       "At Monarch Tractor, he drove a 30% increase in autonomy adoption while reducing connectivity drops by 40% and onboarding time by 60%. He currently leads core product infrastructure at Port Global Ltd, building connected electric mobility solutions for cities.",
