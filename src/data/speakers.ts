@@ -172,8 +172,8 @@ export const teamMembers: SpeakerMember[] = [
     badge: "Keynote Speaker",
     photo: "/leaders/sergey_drymchenko.png",
     bioParagraphs: [
-      "Sergey Drymchenko is a Senior Android Developer and technical author specializing in Kotlin Multiplatform, Jetpack Compose, and mobile AI. He is the creator of Cascade Editor, an open-source rich text framework for Android, iOS, and Desktop.",
-      "His work focuses on modern mobile architecture, open-source development, performance optimization, and building high-performance, production-ready applications.",
+      "Sergey Drymchenko is a Senior Android Developer at Aiphoria and a technical author specialising in Jetpack Compose performance, rendering internals and modifier architecture.",
+      "His professional work includes designing SDKs and developer-facing interfaces, and his focus is mobile architecture, performance optimization and applying AI in mobile applications.",
     ],
     sessionTopic: "Your next user is a coding agent: designing open-source APIs LLMs can use",
     tags: ["Kotlin Multiplatform", "Jetpack Compose", "Mobile AI", "Open Source Architecture"],
