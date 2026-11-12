@@ -1,5 +1,5 @@
 import SpeakersAndMentorsClient from "../SpeakersAndMentorsClient";
-import { teamMembers, getSpeakerSlug } from "@/data/speakers";
+import { teamMembers, mentors, getSpeakerSlug } from "@/data/speakers";
 
 type PageProps = {
   params: Promise<{
@@ -8,7 +8,7 @@ type PageProps = {
 };
 
 export function generateStaticParams() {
-  return teamMembers.map((member) => ({
+  return [...teamMembers, ...mentors].map((member) => ({
     speaker: member.slug || getSpeakerSlug(member.name),
   }));
 }

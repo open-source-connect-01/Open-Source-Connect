@@ -199,31 +199,6 @@ export default function ProfileModal({ profile, onClose }: ProfileModalProps) {
             ))}
           </div>
         </div>
-
-        {/* SESSION TOPIC Section */}
-        {profile.sessionTopic && (
-          <div className="mt-6 pt-5 border-t border-slate-100">
-            <h3 className="text-[11px] font-extrabold tracking-[0.18em] text-[#94A3B8] uppercase mb-3">
-              SESSION TOPIC
-            </h3>
-            {typeof profile.sessionTopic === "string" ? (
-              <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
-                {profile.sessionTopic}
-              </p>
-            ) : (
-              <div className="space-y-2">
-                <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
-                  {profile.sessionTopic.title}
-                </p>
-                {profile.sessionTopic.description && (
-                  <p className="text-[13px] text-slate-600 font-medium leading-relaxed">
-                    {profile.sessionTopic.description}
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-        )}
       </div>
     </div>
   );
