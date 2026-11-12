@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ProfileModal from "./ProfileModal";
 import type { ProfileData } from "./ProfileModal";
-import { teamMembers, getSpeakerSlug } from "@/data/speakers";
+import { teamMembers, mentors, getSpeakerSlug } from "@/data/speakers";
+import type { SpeakerMember } from "@/data/speakers";
 
 export default function ResearchLeadershipSection({
   selectedProfile: externalSelectedProfile,
@@ -18,9 +19,10 @@ export default function ResearchLeadershipSection({
   onProfileClose?: () => void;
   hideFooter?: boolean;
 }) {
-  const [activeTab, setActiveTab] = useState<"speakers" | "mentors">("speakers");
-  const [mentorNotifyEmail, setMentorNotifyEmail] = useState("");
-  const [isMentorNotified, setIsMentorNotified] = useState(false);
+  // Deep link to a mentor (/speakers-and-mentors/<mentor>) opens on the Mentors tab
+  const [activeTab, setActiveTab] = useState<"speakers" | "mentors">(() =>
+    mentors.some((m) => m.name === externalSelectedProfile?.name) ? "mentors" : "speakers"
+  );
   const [internalProfile, setInternalProfile] = useState<ProfileData | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -93,6 +95,79 @@ export default function ResearchLeadershipSection({
 
   // Standalone mode (events page) — render modal internally; AboutOverlay handles it externally
   const isStandalone = externalSelectedProfile === undefined;
+
+  const selectMember = (member: SpeakerMember) =>
+    onProfileSelect({
+      name: member.name,
+      role: member.role,
+      org: member.org,
+      badge: member.badge,
+      photo: member.photo,
+      bioParagraphs: member.bioParagraphs,
+      tags: member.tags,
+      sessionTopic: member.sessionTopic,
+      slug: member.slug || getSpeakerSlug(member.name),
+      linkedinUrl: member.linkedinUrl,
+    });
+
+  const renderCard = (member: SpeakerMember) => (
+    <div
+      key={member.name}
+      onClick={() => selectMember(member)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          selectMember(member);
+        }
+      }}
+      className="flex flex-col group overflow-hidden bg-[#0A1835] text-left cursor-pointer border-0 outline-none ring-0 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-blue-500"
+    >
+      {/* Full Photo container */}
+      <div className="relative aspect-[4/4.8] w-full bg-[#E2E8F0] overflow-hidden">
+        {member.photo ? (
+          <Image
+            src={member.photo}
+            alt={member.name}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 50vw, 25vw"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center">
+            <span className="text-white font-bold text-2xl sm:text-3xl tracking-wide">
+              {member.name.split(/\s+/).filter(Boolean).map((w) => w[0]).slice(0, 2).join("").toUpperCase()}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Blue Caption Section below photo */}
+      <div className="bg-[#0A1835] px-3 sm:px-4 py-2.5 sm:py-3.5 flex flex-col justify-center w-full">
+        {/* Event Tag */}
+        <Link
+          href={member.eventLink || "/Feb/2026"}
+          target={member.eventLink?.startsWith("http") ? "_blank" : undefined}
+          rel={member.eventLink?.startsWith("http") ? "noopener noreferrer" : undefined}
+          onClick={(e) => e.stopPropagation()}
+          className="group/tag inline-flex items-center gap-1 sm:gap-1.5 mb-1 sm:mb-1.5 w-fit z-10 cursor-pointer"
+        >
+          <span className="w-[2px] h-[9px] sm:h-[10px] bg-[#2563EB] group-hover/tag:bg-[#60A5FA] shrink-0 inline-block transition-colors" />
+          <span className="text-[9px] sm:text-[10px] font-bold text-[#60A5FA] group-hover/tag:text-[#93C5FD] group-hover/tag:underline tracking-[0.06em] uppercase leading-none truncate transition-colors">
+            {member.eventTag || "OSC GLOBAL 2026"}
+          </span>
+        </Link>
+
+        <span className="text-[12.5px] sm:text-[14px] font-bold text-white tracking-normal leading-tight truncate">
+          {member.name}
+        </span>
+        <span className="text-[10px] sm:text-[11px] font-medium text-[#94A3B8] tracking-normal mt-0.5 sm:mt-1 leading-snug truncate">
+          {member.cardRole}
+        </span>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -243,86 +318,7 @@ export default function ResearchLeadershipSection({
               <>
                 {paginatedSpeakers.length > 0 ? (
                   <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-                    {paginatedSpeakers.map((member) => (
-                      <div
-                        key={member.name}
-                        onClick={() =>
-                          onProfileSelect({
-                            name: member.name,
-                            role: member.role,
-                            org: member.org,
-                            badge: member.badge,
-                            photo: member.photo,
-                            bioParagraphs: member.bioParagraphs,
-                            tags: member.tags,
-                            sessionTopic: member.sessionTopic,
-                            slug: member.slug || getSpeakerSlug(member.name),
-                            linkedinUrl: member.linkedinUrl,
-                          })
-                        }
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            e.preventDefault();
-                            onProfileSelect({
-                              name: member.name,
-                              role: member.role,
-                              org: member.org,
-                              badge: member.badge,
-                              photo: member.photo,
-                              bioParagraphs: member.bioParagraphs,
-                              tags: member.tags,
-                              sessionTopic: member.sessionTopic,
-                              slug: member.slug || getSpeakerSlug(member.name),
-                              linkedinUrl: member.linkedinUrl,
-                            });
-                          }
-                        }}
-                        className="flex flex-col group overflow-hidden bg-[#0A1835] text-left cursor-pointer border-0 outline-none ring-0 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-blue-500"
-                      >
-                        {/* Full Photo container */}
-                        <div className="relative aspect-[4/4.8] w-full bg-[#E2E8F0] overflow-hidden">
-                          {member.photo ? (
-                            <Image
-                              src={member.photo}
-                              alt={member.name}
-                              fill
-                              className="object-cover object-top"
-                              sizes="(max-width: 768px) 50vw, 25vw"
-                            />
-                          ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center">
-                              <span className="text-white font-bold text-2xl sm:text-3xl tracking-wide">
-                                {member.name.split(/\s+/).filter(Boolean).map((w) => w[0]).slice(0, 2).join("").toUpperCase()}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Blue Caption Section below photo */}
-                        <div className="bg-[#0A1835] px-3 sm:px-4 py-2.5 sm:py-3.5 flex flex-col justify-center w-full">
-                          {/* Event Tag */}
-                          <Link
-                            href={member.eventLink || "/Feb/2026"}
-                            onClick={(e) => e.stopPropagation()}
-                            className="group/tag inline-flex items-center gap-1 sm:gap-1.5 mb-1 sm:mb-1.5 w-fit z-10 cursor-pointer"
-                          >
-                            <span className="w-[2px] h-[9px] sm:h-[10px] bg-[#2563EB] group-hover/tag:bg-[#60A5FA] shrink-0 inline-block transition-colors" />
-                            <span className="text-[9px] sm:text-[10px] font-bold text-[#60A5FA] group-hover/tag:text-[#93C5FD] group-hover/tag:underline tracking-[0.06em] uppercase leading-none truncate transition-colors">
-                              {member.eventTag || "OSC GLOBAL 2026"}
-                            </span>
-                          </Link>
-
-                          <span className="text-[12.5px] sm:text-[14px] font-bold text-white tracking-normal leading-tight truncate">
-                            {member.name}
-                          </span>
-                          <span className="text-[10px] sm:text-[11px] font-medium text-[#94A3B8] tracking-normal mt-0.5 sm:mt-1 leading-snug truncate">
-                            {member.cardRole}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
+                    {paginatedSpeakers.map(renderCard)}
                   </div>
                 ) : (
                   /* Next Page Placeholder (when more speakers are being added) */
@@ -432,88 +428,8 @@ export default function ResearchLeadershipSection({
               </>
             )
           ) : (
-            /* ===== COMING SOON / UNDER DEVELOPMENT STATE FOR MENTORS ===== */
-            <div className="max-w-[720px] mx-auto py-12 sm:py-16 text-center flex flex-col items-center">
-              {/* Top Badge: UNDER DEVELOPMENT */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-gray-200 bg-white rounded-[2px] shadow-xs mb-8">
-                <span className="w-2 h-2 rounded-full bg-[#EA580C] shrink-0" />
-                <span className="text-[11px] font-bold tracking-[0.18em] text-[#C2410C] uppercase">
-                  UNDER DEVELOPMENT
-                </span>
-              </div>
-
-              {/* Headline: Coming Soon */}
-              <h2 className="text-5xl sm:text-6xl lg:text-[72px] font-extrabold tracking-tight leading-[1.05] text-[#0B132B] mb-5">
-                Coming <span className="font-serif italic font-normal text-[#274887]">Soon</span>
-              </h2>
-
-              {/* Subtitle */}
-              <p className="text-[15px] sm:text-base text-slate-600 font-normal max-w-[540px] leading-relaxed mb-8">
-                We are working hard to bring you something extraordinary. This page is currently being built and will be available shortly.
-              </p>
-
-              {/* Email Notify Form */}
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (mentorNotifyEmail.trim()) {
-                    setIsMentorNotified(true);
-                    setMentorNotifyEmail("");
-                  }
-                }}
-                className="w-full max-w-[480px] mb-6"
-              >
-                <div className="flex flex-col sm:flex-row items-stretch border border-gray-200 rounded-[2px] overflow-hidden bg-white shadow-xs focus-within:border-accent-blue transition-colors">
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={mentorNotifyEmail}
-                    onChange={(e) => setMentorNotifyEmail(e.target.value)}
-                    required
-                    className="flex-1 px-4 py-3.5 text-xs sm:text-sm text-slate-800 placeholder-gray-400 bg-slate-50/50 sm:bg-white outline-none"
-                  />
-                  <button
-                    type="submit"
-                    className="px-7 py-3.5 bg-[#0B132B] hover:bg-[#15234A] text-white text-xs font-extrabold tracking-[0.14em] uppercase transition-colors shrink-0 whitespace-nowrap cursor-pointer"
-                  >
-                    NOTIFY ME
-                  </button>
-                </div>
-                {isMentorNotified && (
-                  <p className="text-xs text-emerald-600 font-semibold mt-2">
-                    Thank you! We&apos;ll notify you when mentor profiles go live.
-                  </p>
-                )}
-              </form>
-
-              {/* Back to Home Link */}
-              <Link
-                href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2563EB] hover:underline mb-8"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-                <span>Back to Home</span>
-              </Link>
-
-              {/* 5 Color Palette Swatches */}
-              <div className="flex items-center justify-center gap-2">
-                <span className="w-3 h-3 rounded-[2px] bg-[#B3C5EA]" />
-                <span className="w-3 h-3 rounded-[2px] bg-[#FDBA74]" />
-                <span className="w-3 h-3 rounded-[2px] bg-[#FDE047]" />
-                <span className="w-3 h-3 rounded-[2px] bg-[#4ADE80]" />
-                <span className="w-3 h-3 rounded-[2px] bg-[#A855F7]" />
-              </div>
+            <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+              {mentors.map(renderCard)}
             </div>
           )}
         </div>
