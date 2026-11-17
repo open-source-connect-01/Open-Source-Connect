@@ -1,11 +1,6 @@
 "use client";
 
 import InitiativePageLayout, { InitiativeStep } from "@/components/InitiativePageLayout";
-import {
-  NetworkNodesIllustration,
-  StairsFigureIllustration,
-  GraduationGrowthIllustration,
-} from "@/components/initiative-illustrations";
 
 const ACCENT = "#F97316";
 
@@ -16,7 +11,7 @@ const steps: InitiativeStep[] = [
     title: "Building Through Openness",
     description:
       "Open Source Connect brings students, researchers, founders, and technology communities together to learn, contribute, collaborate, and build open source. We create opportunities to share knowledge, contribute to meaningful projects, exchange ideas, and connect with people shaping the future of technology.",
-    illustration: <NetworkNodesIllustration color={ACCENT} variant="a" />,
+    image: "/what-we-do/open-collaboration-1.webp",
     imagePosition: "left",
   },
   {
@@ -25,7 +20,7 @@ const steps: InitiativeStep[] = [
     title: "Making Contribution More Accessible",
     description:
       "Open Source Connect makes it easier for anyone to discuss, learn, and contribute to open source. Through community programs, workshops, hackathons, mentorship, and contribution initiatives, we connect developers and beginners with real projects, experienced contributors, and opportunities to build practical skills while making meaningful contributions.",
-    illustration: <StairsFigureIllustration color={ACCENT} />,
+    image: "/what-we-do/open-collaboration-2.webp",
     imagePosition: "right",
   },
   {
@@ -34,7 +29,7 @@ const steps: InitiativeStep[] = [
     title: "Building the Next Generation of Contributors",
     description:
       "Open Source Connect empowers students and emerging developers to learn, contribute, and grow through open source. We connect them with real projects, experienced contributors, mentors, and communities, helping them gain practical experience, build strong portfolios, and develop the skills and confidence needed to create meaningful opportunities in technology.",
-    illustration: <GraduationGrowthIllustration color={ACCENT} />,
+    image: "/what-we-do/open-collaboration-3.webp",
     imagePosition: "left",
   },
 ];

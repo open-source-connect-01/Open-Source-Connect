@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import ResearchLeadershipSection from "@/components/ResearchLeadershipSection";
-import { getSpeakerSlug, getSpeakerBySlug } from "@/data/speakers";
+import type { ExpertsTab } from "@/components/ResearchLeadershipSection";
+import { getSpeakerSlug, getSpeakerBySlug, mentors } from "@/data/speakers";
 import ProfileModal from "@/components/ProfileModal";
 import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
@@ -15,10 +16,16 @@ import type { ActiveOverlay } from "@/components/Navbar";
 
 interface SpeakersAndMentorsClientProps {
   initialSpeakerSlug?: string;
+  initialTab?: ExpertsTab;
 }
+
+// The tab lives in the URL (?tab=mentors) so a reload keeps it
+const listUrl = (tab: ExpertsTab) =>
+  tab === "mentors" ? "/speakers-and-mentors?tab=mentors" : "/speakers-and-mentors";
 
 export default function SpeakersAndMentorsClient({
   initialSpeakerSlug,
+  initialTab = "speakers",
 }: SpeakersAndMentorsClientProps) {
   const [activeOverlay, setActiveOverlay] = useState<ActiveOverlay | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,6 +46,10 @@ export default function SpeakersAndMentorsClient({
       linkedinUrl: match.linkedinUrl,
     };
   });
+  // Deep link to a mentor (/speakers-and-mentors/<mentor>) opens on the Mentors tab
+  const [activeTab, setActiveTab] = useState<ExpertsTab>(() =>
+    mentors.some((m) => m.name === selectedProfile?.name) ? "mentors" : initialTab
+  );
 
   // Scroll to top on mount
   useEffect(() => {
@@ -70,6 +81,9 @@ export default function SpeakersAndMentorsClient({
         }
       }
       setSelectedProfile(null);
+      setActiveTab(
+        new URLSearchParams(window.location.search).get("tab") === "mentors" ? "mentors" : "speakers"
+      );
     };
 
     window.addEventListener("popstate", handlePopState);
@@ -88,8 +102,13 @@ export default function SpeakersAndMentorsClient({
   const handleProfileClose = useCallback(() => {
     setSelectedProfile(null);
     if (window.location.pathname !== "/speakers-and-mentors") {
-      window.history.pushState(null, "", "/speakers-and-mentors");
+      window.history.pushState(null, "", listUrl(activeTab));
     }
+  }, [activeTab]);
+
+  const handleTabChange = useCallback((tab: ExpertsTab) => {
+    setActiveTab(tab);
+    window.history.replaceState(null, "", listUrl(tab));
   }, []);
 
   const handleNavClick = (label: ActiveOverlay) => {
@@ -136,6 +155,8 @@ export default function SpeakersAndMentorsClient({
           selectedProfile={selectedProfile}
           onProfileSelect={handleProfileSelect}
           onProfileClose={handleProfileClose}
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
           hideFooter={true}
         />
       </main>

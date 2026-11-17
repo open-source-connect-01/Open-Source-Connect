@@ -4,7 +4,7 @@ import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
   {
-    numericValue: 400,
+    numericValue: 250,
     suffix: "+",
     label: "PROJECTS",
     sublabel: "Hosted & Supported",
@@ -18,17 +18,17 @@ const stats = [
     labelColor: "text-accent-emerald",
   },
   {
-    numericValue: 300,
+    numericValue: 450,
     suffix: "+",
-    label: "MEMBERS",
-    sublabel: "Global Organizations",
+    label: "UNIVERSITIES",
+    sublabel: "Academic Institutions Reached",
     labelColor: "text-accent-orange",
   },
   {
-    numericValue: 20,
+    numericValue: 35,
     suffix: "+",
-    label: "COLLABORATIONS",
-    sublabel: "Strategic Partnerships",
+    label: "COUNTRIES",
+    sublabel: "International Presence",
     labelColor: "text-accent-purple",
   },
 ];
