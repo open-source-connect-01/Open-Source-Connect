@@ -6,6 +6,7 @@ import ResearchLeadershipSection from "@/components/ResearchLeadershipSection";
 import type { ExpertsTab } from "@/components/ResearchLeadershipSection";
 import { getSpeakerSlug, getSpeakerBySlug, mentors } from "@/data/speakers";
 import ProfileModal from "@/components/ProfileModal";
+import ExpertsSelectionSection from "@/components/ExpertsSelectionSection";
 import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
 import WhatWeDoOverlay from "@/components/WhatWeDoOverlay";
@@ -159,6 +160,7 @@ export default function SpeakersAndMentorsClient({
           onTabChange={handleTabChange}
           hideFooter={true}
         />
+        <ExpertsSelectionSection activeTab={activeTab} />
       </main>
 
       <FooterSection hideTopSections={true} />

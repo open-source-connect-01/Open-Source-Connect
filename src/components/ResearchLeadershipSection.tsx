@@ -164,7 +164,7 @@ export default function ResearchLeadershipSection({
       <div className="bg-[#0A1835] px-3 sm:px-4 py-2.5 sm:py-3.5 flex flex-col justify-center w-full">
         {/* Event Tag */}
         <Link
-          href={member.eventLink || "/Feb/2026"}
+          href={member.eventLink || "/feb/2026"}
           target={member.eventLink?.startsWith("http") ? "_blank" : undefined}
           rel={member.eventLink?.startsWith("http") ? "noopener noreferrer" : undefined}
           onClick={(e) => e.stopPropagation()}
@@ -563,7 +563,7 @@ export default function ResearchLeadershipSection({
                   <Link href="/privacy-policy" className="hover:text-white transition-colors">
                     Privacy Policy
                   </Link>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/terms-of-use" className="hover:text-white transition-colors">
                     Terms of Use
                   </Link>
                   <Link href="/code-of-conduct" className="hover:text-white transition-colors">

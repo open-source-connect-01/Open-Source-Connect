@@ -11,9 +11,9 @@ import CommunityOverlay from "@/components/CommunityOverlay";
 import type { ActiveOverlay } from "@/components/Navbar";
 
 const contentsList = [
-  { id: "our-pledge", label: "Our Pledge" },
-  { id: "our-standards", label: "Our Standards" },
-  { id: "enforcement-responsibilities", label: "Enforcement Responsibilities" },
+  { id: "our-pledge", label: "Pledge" },
+  { id: "our-standards", label: "Standards" },
+  { id: "enforcement-responsibilities", label: "Responsibilities" },
   { id: "scope", label: "Scope" },
   { id: "enforcement", label: "Enforcement" },
   { id: "attribution", label: "Attribution" },
@@ -137,7 +137,7 @@ export default function CodeOfConductPage() {
 
             {/* Subtitle / Last updated */}
             <p className="text-sm sm:text-[15px] text-slate-300 font-normal max-w-[700px] leading-relaxed">
-              Our commitment to fostering an open, welcoming, diverse, and harassment-free community for all contributors and participants.
+              OSC Contributor Covenant, Version 2.1
             </p>
           </div>
         </section>
@@ -204,10 +204,10 @@ export default function CodeOfConductPage() {
                     All reports are handled with confidentiality and care.
                   </p>
                   <a
-                    href="mailto:conduct@oscfoundation.org"
+                    href="mailto:hello@osconnect.org"
                     className="block text-[13px] font-bold text-[#854D0E] hover:underline"
                   >
-                    conduct@oscfoundation.org
+                    hello@osconnect.org
                   </a>
                 </div>
               </aside>
@@ -221,10 +221,10 @@ export default function CodeOfConductPage() {
                   </h2>
                   <div className="space-y-4 text-[14.5px] sm:text-[15px] text-[#475569] leading-[1.75]">
                     <p>
-                      We, as members, contributors, and leaders of the Open Source Connect (OSC) community, pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, religion, or sexual identity and orientation.
+                      We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
                     </p>
                     <p>
-                      We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community where curiosity and collaborative learning are encouraged.
+                      We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
                     </p>
                   </div>
                 </div>
@@ -331,10 +331,10 @@ export default function CodeOfConductPage() {
                   </h2>
                   <div className="space-y-4 text-[14.5px] sm:text-[15px] text-[#475569] leading-[1.75]">
                     <p>
-                      This Code of Conduct applies within all community spaces — including GitHub repositories, mailing lists, Slack channels, forums, and in-person events — and also applies when an individual is officially representing the community in public spaces.
+                      This Code of Conduct applies within all community spaces, including GitHub repositories, mailing lists, Slack channels, forums, and in-person events, and also applies when an individual is officially representing the community in public spaces.
                     </p>
                     <p>
-                      Examples of representing our community include using an official e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
+                      Examples of representing our community include using an official email address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
                     </p>
                   </div>
                 </div>
@@ -348,10 +348,10 @@ export default function CodeOfConductPage() {
                   <p className="text-[14.5px] sm:text-[15px] text-[#475569] leading-[1.75] mb-6">
                     Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at{" "}
                     <a
-                      href="mailto:conduct@oscfoundation.org"
+                      href="mailto:hello@osconnect.org"
                       className="font-bold text-[#2563EB] hover:underline"
                     >
-                      conduct@oscfoundation.org
+                      hello@osconnect.org
                     </a>
                     . All complaints will be reviewed and investigated promptly and fairly.
                   </p>
@@ -429,7 +429,7 @@ export default function CodeOfConductPage() {
                       <p>
                         This Code of Conduct is adapted from the{" "}
                         <a
-                          href="https://www.contributor-covenant.org/version/2/1/code_of_conduct.html"
+                          href="https://www.contributor-covenant.org"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="font-bold text-[#2563EB] hover:underline"
@@ -438,7 +438,7 @@ export default function CodeOfConductPage() {
                         </a>
                         , version 2.1, available at{" "}
                         <a
-                          href="https://www.contributor-covenant.org/version/2/1/code_of_conduct.html"
+                          href="https://www.contributor-covenant.org"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="hover:underline"
@@ -448,7 +448,7 @@ export default function CodeOfConductPage() {
                         .
                       </p>
                       <p>
-                        Community Impact Guidelines were inspired by Mozilla&apos;s code of conduct enforcement ladder.
+                        Community Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.
                       </p>
                     </div>
                   </div>
@@ -463,10 +463,10 @@ export default function CodeOfConductPage() {
                     All reports are handled with confidentiality and care.
                   </p>
                   <a
-                    href="mailto:conduct@oscfoundation.org"
+                    href="mailto:hello@osconnect.org"
                     className="inline-block text-[13px] font-bold text-[#854D0E] underline"
                   >
-                    conduct@oscfoundation.org
+                    hello@osconnect.org
                   </a>
                 </div>
               </div>
