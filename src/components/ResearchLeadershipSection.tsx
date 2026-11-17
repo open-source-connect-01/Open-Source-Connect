@@ -8,28 +8,36 @@ import type { ProfileData } from "./ProfileModal";
 import { teamMembers, mentors, getSpeakerSlug } from "@/data/speakers";
 import type { SpeakerMember } from "@/data/speakers";
 
+export type ExpertsTab = "speakers" | "mentors";
+
 export default function ResearchLeadershipSection({
   selectedProfile: externalSelectedProfile,
   onProfileSelect: externalOnProfileSelect,
   onProfileClose: externalOnProfileClose,
+  activeTab: externalActiveTab,
+  onTabChange: externalOnTabChange,
   hideFooter = false,
 }: {
   selectedProfile?: ProfileData | null;
   onProfileSelect?: (profile: ProfileData) => void;
   onProfileClose?: () => void;
+  activeTab?: ExpertsTab;
+  onTabChange?: (tab: ExpertsTab) => void;
   hideFooter?: boolean;
 }) {
   // Deep link to a mentor (/speakers-and-mentors/<mentor>) opens on the Mentors tab
-  const [activeTab, setActiveTab] = useState<"speakers" | "mentors">(() =>
+  const [internalTab, setInternalTab] = useState<ExpertsTab>(() =>
     mentors.some((m) => m.name === externalSelectedProfile?.name) ? "mentors" : "speakers"
   );
+  // Use external tab (speakers page syncs it to the URL) if provided, otherwise internal
+  const activeTab = externalActiveTab ?? internalTab;
   const [internalProfile, setInternalProfile] = useState<ProfileData | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
   const ITEMS_PER_PAGE = 8;
 
-  const filteredSpeakers = teamMembers.filter((member) => {
+  const matchesSearch = (member: SpeakerMember) => {
     const q = searchQuery.toLowerCase().trim();
     if (!q) return true;
     return (
@@ -46,7 +54,11 @@ export default function ResearchLeadershipSection({
       (member.eventTag && member.eventTag.toLowerCase().includes(q)) ||
       (member.bioParagraphs && member.bioParagraphs.some((p) => p.toLowerCase().includes(q)))
     );
-  });
+  };
+
+  const filteredSpeakers = teamMembers.filter(matchesSearch);
+  const filteredMentors = mentors.filter(matchesSearch);
+  const filteredList = activeTab === "speakers" ? filteredSpeakers : filteredMentors;
 
   const totalCount = filteredSpeakers.length;
   // Allow at least 2 pages when not searching so users can navigate to the next page of speakers
@@ -79,6 +91,11 @@ export default function ResearchLeadershipSection({
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+
+  const changeTab = (tab: ExpertsTab) => {
+    (externalOnTabChange ?? setInternalTab)(tab);
+    setCurrentPage(1);
   };
 
   const handleSearchChange = (query: string) => {
@@ -189,10 +206,7 @@ export default function ResearchLeadershipSection({
             {/* Tab Toggle */}
             <div className="flex items-center gap-2 shrink-0">
               <button
-                onClick={() => {
-                  setActiveTab("speakers");
-                  setCurrentPage(1);
-                }}
+                onClick={() => changeTab("speakers")}
                 className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
                   activeTab === "speakers"
                     ? "bg-[#0F172A] text-white"
@@ -202,10 +216,7 @@ export default function ResearchLeadershipSection({
                 SPEAKERS
               </button>
               <button
-                onClick={() => {
-                  setActiveTab("mentors");
-                  setCurrentPage(1);
-                }}
+                onClick={() => changeTab("mentors")}
                 className={`px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-extrabold tracking-[0.12em] uppercase transition-colors duration-200 rounded-[2px] cursor-pointer ${
                   activeTab === "mentors"
                     ? "bg-[#0F172A] text-white"
@@ -217,7 +228,6 @@ export default function ResearchLeadershipSection({
             </div>
 
             {/* Search Input */}
-            {activeTab === "speakers" && (
               <div className="relative w-full sm:w-72 md:w-80">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
                   <svg
@@ -238,7 +248,7 @@ export default function ResearchLeadershipSection({
                   type="text"
                   value={searchQuery}
                   onChange={(e) => handleSearchChange(e.target.value)}
-                  placeholder="Search speakers by name, role, org..."
+                  placeholder={`Search ${activeTab} by name, role, org...`}
                   className="w-full pl-9 pr-8 py-2 text-xs sm:text-[13px] bg-slate-50/70 border border-slate-200 rounded-[2px] text-slate-900 placeholder-slate-400 outline-none focus:border-[#2563EB] focus:bg-white transition-all shadow-2xs"
                 />
                 {searchQuery && (
@@ -264,14 +274,13 @@ export default function ResearchLeadershipSection({
                   </button>
                 )}
               </div>
-            )}
           </div>
 
           {/* Active Search Result Summary */}
-          {activeTab === "speakers" && searchQuery.trim() && (
+          {searchQuery.trim() && (
             <div className="flex items-center justify-between text-xs text-slate-500 mb-4 px-0.5">
               <span>
-                Showing <span className="font-semibold text-slate-900">{filteredSpeakers.length}</span> {filteredSpeakers.length === 1 ? "speaker" : "speakers"} matching &quot;<span className="font-semibold text-slate-900">{searchQuery}</span>&quot;
+                Showing <span className="font-semibold text-slate-900">{filteredList.length}</span> {filteredList.length === 1 ? activeTab.slice(0, -1) : activeTab} matching &quot;<span className="font-semibold text-slate-900">{searchQuery}</span>&quot;
               </span>
               <button
                 type="button"
@@ -284,8 +293,7 @@ export default function ResearchLeadershipSection({
           )}
 
           {/* 2-Column Mobile / 4-Column Desktop Leadership Team Grid */}
-          {activeTab === "speakers" ? (
-            filteredSpeakers.length === 0 ? (
+          {filteredList.length === 0 ? (
               <div className="max-w-[1240px] mx-auto py-12 sm:py-16 px-4 text-center border border-dashed border-slate-200 rounded-[2px] bg-slate-50/50">
                 <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
                   <svg
@@ -302,9 +310,9 @@ export default function ResearchLeadershipSection({
                     <path d="m21 21-4.35-4.35" />
                   </svg>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#0B0F1A]">No speakers found</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#0B0F1A]">No {activeTab} found</h3>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-sm mx-auto">
-                  No speakers matched your search for &quot;<span className="font-semibold text-slate-700">{searchQuery}</span>&quot;. Try searching with a different name, role, company, or topic.
+                  No {activeTab} matched your search for &quot;<span className="font-semibold text-slate-700">{searchQuery}</span>&quot;. Try searching with a different name, role, company, or topic.
                 </p>
                 <button
                   type="button"
@@ -314,7 +322,7 @@ export default function ResearchLeadershipSection({
                   Clear Search
                 </button>
               </div>
-            ) : (
+            ) : activeTab === "speakers" ? (
               <>
                 {paginatedSpeakers.length > 0 ? (
                   <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
@@ -426,10 +434,9 @@ export default function ResearchLeadershipSection({
                   </div>
                 </div>
               </>
-            )
-          ) : (
+            ) : (
             <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-              {mentors.map(renderCard)}
+              {filteredMentors.map(renderCard)}
             </div>
           )}
         </div>

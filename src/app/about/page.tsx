@@ -57,7 +57,7 @@ const coreValues = [
 
 const statsItems = [
   {
-    stat: "400+",
+    stat: "250+",
     label: "PROJECTS",
     sublabel: "Hosted & Supported",
     tagColor: "text-[#2563EB]",
@@ -69,15 +69,15 @@ const statsItems = [
     tagColor: "text-[#10B981]",
   },
   {
-    stat: "300+",
-    label: "MEMBERS",
-    sublabel: "Global Organizations",
+    stat: "450+",
+    label: "UNIVERSITIES",
+    sublabel: "Academic Institutions Reached",
     tagColor: "text-[#F97316]",
   },
   {
-    stat: "20+",
-    label: "COLLABORATIONS",
-    sublabel: "Strategic Partnerships",
+    stat: "35+",
+    label: "COUNTRIES",
+    sublabel: "International Presence",
     tagColor: "text-[#A855F7]",
   },
 ];
@@ -249,7 +249,7 @@ export default function AboutOscPage() {
                   <div className={`text-[9.5px] sm:text-[11px] font-extrabold tracking-[0.16em] sm:tracking-[0.2em] uppercase ${item.tagColor} mb-1`}>
                     {item.label}
                   </div>
-                  <div className="text-[10.5px] sm:text-[11.5px] text-[#94A3B8] font-normal whitespace-nowrap">
+                  <div className="text-[10.5px] sm:text-[11.5px] text-[#94A3B8] font-normal">
                     {item.sublabel}
                   </div>
                 </div>
