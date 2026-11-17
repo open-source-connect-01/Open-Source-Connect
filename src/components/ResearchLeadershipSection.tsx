@@ -164,7 +164,7 @@ export default function ResearchLeadershipSection({
       <div className="bg-[#0A1835] px-3 sm:px-4 py-2.5 sm:py-3.5 flex flex-col justify-center w-full">
         {/* Event Tag */}
         <Link
-          href={member.eventLink || "/Feb/2026"}
+          href={member.eventLink || "/feb/2026"}
           target={member.eventLink?.startsWith("http") ? "_blank" : undefined}
           rel={member.eventLink?.startsWith("http") ? "noopener noreferrer" : undefined}
           onClick={(e) => e.stopPropagation()}

@@ -33,7 +33,7 @@ const eventData: EventLandingData = {
     { name: "Olena Yara", role: "Founder & Marketing Expert", photo: "/leaders/olena_yara_v3.png" },
     { name: "Chikahiro Tokoro", role: "Software Engineer, Podcaster", photo: "/leaders/chikahiro_tokoro_v3.png" },
     { name: "Ekaterina Maevskaia", role: "Revenue Growth Leader", photo: "/leaders/ekaterina_maevskaia.png" },
-    { name: "Kamesh Sampath", role: "Developer Advocate at Snowflake", photo: "/leaders/kamesh_sampath_v3.png" },
+    { name: "Kamesh Sampath", role: "Developer Advocate", photo: "/leaders/kamesh_sampath_v3.png" },
     { name: "Kateryna Tertiienko", role: "Technical Lead", photo: "/leaders/kateryna_tertiienko.png" },
     { name: "Dishant Gandhi", role: "AI/ML Consultant & Public Speaker", photo: "/leaders/dishant_gandhi_v3.png" },
     { name: "Nithin S.S", role: "Founder & Leadership Strategist", photo: "/leaders/nithin_ss.jpg" },
