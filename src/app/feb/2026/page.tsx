@@ -40,6 +40,7 @@ const eventData: EventLandingData = {
     { name: "Sergey Drymchenko", role: "Senior Android Developer", photo: "/leaders/sergey_drymchenko.png" },
     { name: "Muhammad Tahir Jilani", role: "Technical Lead", photo: "/leaders/muhammad_tahir_jilani.png" },
     { name: "Mayank Sehgal", role: "Senior Product Manager", photo: "/leaders/mayank_sehgal.png" },
+    { name: "Eugene Shulepin", role: "System Architect", photo: "/leaders/eugene_shulepin.png" },
   ],
   scheduleTag: "Opening Summit",
   scheduleTitle: "Schedule 2025 - 2026",
