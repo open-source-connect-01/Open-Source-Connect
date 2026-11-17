@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import AboutOverlay from "@/components/AboutOverlay";
@@ -15,7 +16,7 @@ export interface InitiativeStep {
   tag: string;
   title: string;
   description: string;
-  illustration: React.ReactNode;
+  image: string;
   imagePosition: "left" | "right";
 }
 
@@ -166,26 +167,19 @@ export default function InitiativePageLayout({
                   s.imagePosition === "right" ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                {/* Illustration */}
+                {/* Image */}
                 <div
-                  className="relative rounded-[4px] overflow-hidden aspect-[6/5] flex items-center justify-center"
+                  className="relative rounded-[4px] overflow-hidden aspect-[3/2]"
                   style={{ backgroundColor: "#0B1220" }}
                 >
-                  <span
-                    className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 text-[9.5px] sm:text-[10px] font-bold tracking-[0.16em] uppercase px-2.5 py-1 rounded-[2px]"
-                    style={{ backgroundColor: accentColor, color: "#fff" }}
-                  >
-                    STEP {s.step}
-                  </span>
-                  <span
-                    className="absolute -bottom-3 left-4 text-[54px] sm:text-[72px] font-black leading-none select-none"
-                    style={{ color: "#ffffff", opacity: 0.06 }}
-                  >
-                    {String(s.step).padStart(2, "0")}
-                  </span>
-                  <div className="relative z-[1] w-full h-full flex items-center justify-center p-4 sm:p-8">
-                    {s.illustration}
-                  </div>
+                  <Image
+                    src={s.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1240px) 580px, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                    priority={s.step === 1}
+                  />
                 </div>
 
                 {/* Text */}

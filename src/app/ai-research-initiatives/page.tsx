@@ -1,10 +1,6 @@
 "use client";
 
 import InitiativePageLayout, { InitiativeStep } from "@/components/InitiativePageLayout";
-import {
-  NetworkNodesIllustration,
-  OpenBookIllustration,
-} from "@/components/initiative-illustrations";
 
 const ACCENT = "#8B5CF6";
 
@@ -15,7 +11,7 @@ const steps: InitiativeStep[] = [
     title: "Advancing Open AI Innovation",
     description:
       "Open Source Connect brings developers, researchers, students, startups, and communities to explore the possibilities of artificial intelligence. Through open collaboration, hands-on experimentation, and knowledge sharing, we help people learn, build, and contribute to the next generation of AI technologies.",
-    illustration: <NetworkNodesIllustration color={ACCENT} variant="a" />,
+    image: "/what-we-do/ai-research-initiatives-1.webp",
     imagePosition: "left",
   },
   {
@@ -24,7 +20,7 @@ const steps: InitiativeStep[] = [
     title: "Open Research for a Shared Future",
     description:
       "Open Source Connect believes research becomes more impactful when knowledge is shared openly. We bring researchers, developers, students, and technology communities together to exchange ideas, explore new technologies, and contribute to open research initiatives that benefit everyone.",
-    illustration: <OpenBookIllustration color={ACCENT} />,
+    image: "/what-we-do/ai-research-initiatives-2.webp",
     imagePosition: "right",
   },
   {
@@ -33,7 +29,7 @@ const steps: InitiativeStep[] = [
     title: "Connecting Researchers and Builders",
     description:
       "Open Source Connect brings together researchers, developers, engineers, and founders to turn ideas into practical innovation. Through open collaboration, technical discussions, workshops, challenges, and community-driven projects, we connect people to experiment, share knowledge, and build solutions that move research from ideas into real-world applications.",
-    illustration: <NetworkNodesIllustration color={ACCENT} variant="b" />,
+    image: "/what-we-do/ai-research-initiatives-3.webp",
     imagePosition: "left",
   },
 ];
