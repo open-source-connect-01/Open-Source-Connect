@@ -563,7 +563,7 @@ export default function ResearchLeadershipSection({
                   <Link href="/privacy-policy" className="hover:text-white transition-colors">
                     Privacy Policy
                   </Link>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/terms-of-use" className="hover:text-white transition-colors">
                     Terms of Use
                   </Link>
                   <Link href="/code-of-conduct" className="hover:text-white transition-colors">

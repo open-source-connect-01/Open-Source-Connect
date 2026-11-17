@@ -725,7 +725,7 @@ export default function FooterSection({
                 PRIVACY POLICY
               </Link>
               <Link
-                href="#"
+                href="/terms-of-use"
                 className="hover:text-slate-300 transition-colors whitespace-nowrap"
               >
                 TERMS OF USE
