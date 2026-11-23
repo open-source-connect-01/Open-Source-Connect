@@ -29,9 +29,9 @@ const eventData: EventLandingData = {
   ],
   speakersHeading: "Speakers 2025",
   speakers: [
-    { name: "Sebastiano Fuccio", role: "Founder & CEO | Managing Partner", photo: "/leaders/sebastiano_fuccio_v3.png" },
-    { name: "Chikahiro Tokoro", role: "Software Engineer, Podcaster", photo: "/leaders/chikahiro_tokoro_v3.png" },
-    { name: "Kamesh Sampath", role: "Developer Advocate at Snowflake", photo: "/leaders/kamesh_sampath_v3.png" },
+    { name: "Sebastiano Fuccio", role: "Founder & CEO | Managing Partner", photo: "/leaders/sebastiano_fuccio_v4.png" },
+    { name: "Chikahiro Tokoro", role: "Software Engineer, Podcaster", photo: "/leaders/chikahiro_tokoro_v4.png" },
+    { name: "Kamesh Sampath", role: "Developer Advocate at Snowflake", photo: "/leaders/kamesh_sampath_v4.png" },
     { name: "Dishant Gandhi", role: "AI/ML Consultant", photo: "/leaders/dishant_gandhi_v3.png" },
     { name: "Olena Yara", role: "Founder at Yara Agency", photo: "/leaders/olena_yara_v3.png" },
     { name: "Nithin S.S", role: "Open Standards @ IBM", photo: "/leaders/nithin_ss.jpg" },

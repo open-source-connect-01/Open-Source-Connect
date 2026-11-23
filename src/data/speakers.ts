@@ -26,7 +26,7 @@ export const teamMembers: SpeakerMember[] = [
     role: "Founder & CEO | Managing Partner",
     org: "AlpGuard",
     badge: "Keynote Speaker",
-    photo: "/leaders/sebastiano_fuccio_v3.png",
+    photo: "/leaders/sebastiano_fuccio_v4.png",
     bioParagraphs: [
       "Sebastiano Fuccio is an AI strategist, entrepreneur, and digital transformation leader with over 30 years of experience across emerging technologies, enterprise innovation, and AI governance.",
       "His work focuses on AI strategy, sovereign innovation, digital transformation, and compliance, while building AlpGuard and advising organizations on responsible AI adoption, governance, and sustainable business outcomes.",
@@ -62,7 +62,7 @@ export const teamMembers: SpeakerMember[] = [
     role: "Software Engineer, Podcaster",
     org: "OSS Developer / Public Speaker",
     badge: "Keynote Speaker",
-    photo: "/leaders/chikahiro_tokoro_v3.png",
+    photo: "/leaders/chikahiro_tokoro_v4.png",
     bioParagraphs: [
       "Chikahiro Tokoro is a software engineer, podcaster, and public speaker with over 15 years of experience building and scaling impactful products across successful startups in Japan and Germany.",
       "His work focuses on software engineering, product development, open source, and sharing practical insights on software design while connecting global communities through his podcast and speaking engagements.",
@@ -98,7 +98,7 @@ export const teamMembers: SpeakerMember[] = [
     role: "Developer Advocate",
     org: "Snowflake",
     badge: "Keynote Speaker",
-    photo: "/leaders/kamesh_sampath_v3.png",
+    photo: "/leaders/kamesh_sampath_v4.png",
     bioParagraphs: [
       "Kamesh Sampath is a Developer Advocate at Snowflake, author, and long time open source contributor with over two decades of experience in enterprise software and developer communities.",
       "His work focuses on cloud, data, and AI, helping developers turn complex technologies into real world solutions through advocacy, community building, storytelling, and knowledge sharing.",
@@ -224,7 +224,7 @@ export const teamMembers: SpeakerMember[] = [
     role: "Technical Lead",
     org: "Callsign",
     badge: "Keynote Speaker",
-    photo: "/leaders/muhammad_tahir_jilani.png",
+    photo: "/leaders/muhammad_tahir_jilani_v2.png",
     bioParagraphs: [
       "Muhammad Tahir Jilani is a Mobile Technical Lead with over 18 years of experience across mobile engineering, security, identity, and SDK architecture. He has also co founded technology products such as Imagitor one financial institutions worldwide, with a focus on secure and scalable mobile technologies.",
       "His work focuses on mobile security, including RASP, behavioral biometrics, secure authentication, and SDK architecture. He has also co founded technology products such as Imagitor, which surpassed 1 million downloads.",
