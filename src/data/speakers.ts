@@ -232,6 +232,24 @@ export const teamMembers: SpeakerMember[] = [
     sessionTopic: "Lessons from building and contributing to mobile SDKs: API design, compatibility and developer experience",
     tags: ["Mobile Engineering", "Mobile Security", "SDK Architecture", "Identity & Biometrics"],
   },
+  {
+    name: "Akshay Rana",
+    slug: "akshay-rana",
+    linkedinUrl: "https://www.linkedin.com/in/akshayranauk/",
+    eventTag: "OSC GLOBAL 2026",
+    eventLink: "/feb/2026",
+    cardRole: "Product Manager",
+    role: "Product Manager",
+    org: "ThriveCart",
+    badge: "Keynote Speaker",
+    photo: "/leaders/akshay_rana.png",
+    bioParagraphs: [
+      "Akshay Rana is a UK-based product manager and former startup founder specializing in AI, SaaS, and e-commerce, holding an MBA from Durham University Business School.",
+      "At ThriveCart, his work focuses on driving global product strategy, solving complex commercial problems, and leveraging AI to elevate product storytelling and user experiences.",
+    ],
+    sessionTopic: "From endpoints to tools: writing the product brief for an MCP server",
+    tags: ["Product Management", "AI Products", "SaaS", "E-commerce"],
+  },
 ];
 
 export const mentors: SpeakerMember[] = [
