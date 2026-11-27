@@ -220,11 +220,8 @@ export default function EventsOverlay({ isOpen, onClose }: EventsOverlayProps) {
                 STAY UPDATED WITH OUR NEWSLETTER
               </span>
 
-              <Link
-                href="/events"
-                onClick={onClose}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-blue hover:underline"
-              >
+              {/* Event Gallery not live yet: non-clickable */}
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-blue cursor-default select-none">
                 <span>Event Gallery</span>
                 <svg
                   width="14"
@@ -239,7 +236,7 @@ export default function EventsOverlay({ isOpen, onClose }: EventsOverlayProps) {
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />
                 </svg>
-              </Link>
+              </span>
             </div>
           </div>
         </div>
