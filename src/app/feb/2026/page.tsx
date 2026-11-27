@@ -41,6 +41,7 @@ const eventData: EventLandingData = {
     { name: "Muhammad Tahir Jilani", role: "Technical Lead", photo: "/leaders/muhammad_tahir_jilani_v2.png" },
     { name: "Mayank Sehgal", role: "Senior Product Manager", photo: "/leaders/mayank_sehgal.png" },
     { name: "Eugene Shulepin", role: "System Architect", photo: "/leaders/eugene_shulepin.png" },
+    { name: "Akshay Rana", role: "Product Manager", photo: "/leaders/akshay_rana.png" },
   ],
   scheduleTag: "Opening Summit",
   scheduleTitle: "Schedule 2025 - 2026",
